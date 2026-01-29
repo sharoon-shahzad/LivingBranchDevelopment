@@ -62,8 +62,12 @@ import logo from "../images/logo.jpg";
     if (typeof window !== "undefined") {
       const overlay = document.querySelector("[data-welcome-overlay]");
       if (overlay) {
+        const STORAGE_KEY = "lbd_welcome_seen";
         const showDelay = 800; // ms before showing
         const visibleDuration = 9000; // ms to stay visible (enough to read)
+
+        // Check if user has already seen the welcome message
+        const hasSeenWelcome = localStorage.getItem(STORAGE_KEY) === "true";
 
         const open = () => {
           overlay.classList.remove("hidden");
@@ -71,22 +75,30 @@ import logo from "../images/logo.jpg";
 
         const close = () => {
           overlay.classList.add("hidden");
+          // Mark as seen in localStorage
+          localStorage.setItem(STORAGE_KEY, "true");
         };
 
-        // Show after short delay on first load
-        window.setTimeout(open, showDelay);
+        // Only show if user hasn't seen it before
+        if (!hasSeenWelcome) {
+          // Show after short delay on first load
+          window.setTimeout(open, showDelay);
 
-        // Auto-hide after duration
-        window.setTimeout(close, showDelay + visibleDuration);
+          // Auto-hide after duration
+          window.setTimeout(close, showDelay + visibleDuration);
 
-        const buttons = overlay.querySelectorAll("[data-welcome-close]");
-        buttons.forEach((btn) => btn.addEventListener("click", close));
+          const buttons = overlay.querySelectorAll("[data-welcome-close]");
+          buttons.forEach((btn) => btn.addEventListener("click", close));
 
-        window.addEventListener("keydown", (event) => {
-          if (event.key === "Escape") {
-            close();
-          }
-        });
+          window.addEventListener("keydown", (event) => {
+            if (event.key === "Escape") {
+              close();
+            }
+          });
+        } else {
+          // User has already seen it, keep it hidden
+          overlay.classList.add("hidden");
+        }
       }
     }
   </script>
