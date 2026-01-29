@@ -1,0 +1,74 @@
+---
+const sdgs = [
+  {
+    number: 3,
+    label: "Good Health & Well-being",
+    code: "#3",
+    bg: "linear-gradient(145deg,#9b4bff,#d36aff)"
+  },
+  {
+    number: 5,
+    label: "Gender Equality",
+    code: "#5",
+    bg: "linear-gradient(145deg,#ff4f7a,#ff96a0)"
+  },
+  {
+    number: 4,
+    label: "Quality Education",
+    code: "#4",
+    bg: "linear-gradient(145deg,#ffb822,#ffd86b)"
+  },
+  {
+    number: 8,
+    label: "Decent Work & Economic Growth",
+    code: "#8",
+    bg: "linear-gradient(145deg,#1f9a4a,#4ecf7a)"
+  },
+  {
+    number: 10,
+    label: "Reduced Inequalities",
+    code: "#10",
+    bg: "linear-gradient(145deg,#4459ff,#8193ff)"
+  },
+  {
+    number: 17,
+    label: "Partnerships for the Goals",
+    code: "#17",
+    bg: "linear-gradient(145deg,#178e3c,#4cbf6b)"
+  }
+];
+---
+
+<section class="sdg-surface" aria-labelledby="sdg-heading">
+  <div class="container-page py-12 sm:py-16">
+    <div class="text-center">
+      <p class="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--muted)]">
+        Towards achieving
+      </p>
+      <h2
+        id="sdg-heading"
+        class="mt-2 font-heading text-2xl font-semibold tracking-tight text-[color-mix(in_srgb,var(--brand-navy)_90%,black)] sm:text-3xl"
+      >
+        Sustainable Development Goals
+      </h2>
+    </div>
+
+    <div class="mt-8 flex flex-wrap justify-center gap-4 sm:mt-10">
+      {sdgs.map((goal) => (
+        <article
+          class="sdg-card relative flex h-28 w-32 flex-col items-center justify-center px-3 text-center text-white shadow-lg sm:h-32 sm:w-40"
+          style={`background:${goal.bg}`}
+          aria-label={goal.label}
+        >
+          <div class="text-[0.55rem] sm:text-[0.6rem] font-semibold uppercase tracking-[0.18em] opacity-90">
+            {goal.label}
+          </div>
+          <div class="mt-2 text-lg font-heading font-semibold sm:text-xl">
+            {goal.code}
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+

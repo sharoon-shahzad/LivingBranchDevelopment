@@ -1,0 +1,54 @@
+---
+const partners = [
+  { name: "BrightLeaf Health", slug: "brightleaf-health" },
+  { name: "HopeWorks Education", slug: "hopeworks-education" },
+  { name: "Riverstone Finance", slug: "riverstone-finance" },
+  { name: "GreenRoots Foods", slug: "greenroots-foods" },
+  { name: "Northbridge Telecom", slug: "northbridge-telecom" },
+  { name: "Sunrise Media", slug: "sunrise-media" },
+  { name: "Skyline Tech", slug: "skyline-tech" },
+  { name: "KindPath Foundation", slug: "kindpath-foundation" },
+  { name: "UrbanSeeds Collective", slug: "urbanseeds-collective" },
+  { name: "CareFirst Labs", slug: "carefirst-labs" },
+  { name: "ForwardStep Careers", slug: "forwardstep-careers" },
+  { name: "Local Community Network", slug: "local-community-network" }
+];
+---
+
+<section class="partners-surface" aria-labelledby="partners-heading">
+  <div class="container-page py-14 sm:py-16">
+    <div class="text-center">
+      <p class="eyebrow-brush inline-block">Our partners in change</p>
+      <h2
+        id="partners-heading"
+        class="mt-3 font-heading text-2xl font-semibold tracking-tight text-[var(--fg)] sm:text-3xl"
+      >
+        Standing together for community impact.
+      </h2>
+      <p class="mt-3 max-w-2xl mx-auto text-sm leading-relaxed text-[var(--muted)] sm:text-base">
+        We are grateful for the organisations and individuals who walk with us. Their trust and collaboration
+        help Living Branch Development reach more children, families, and neighbourhoods every year.
+      </p>
+    </div>
+
+    <div class="mt-10 grid gap-6 sm:grid-cols-3 lg:grid-cols-4">
+      {partners.map((partner) => (
+        <article
+          class="group flex h-28 items-center justify-center rounded-3xl border border-[var(--border)] bg-white shadow-sm transition hover:-translate-y-1 hover:border-[color-mix(in_srgb,var(--brand-cyan)_50%,var(--border))] hover:shadow-lg"
+        >
+          <div class="flex flex-col items-center gap-2">
+            <div class="flex h-14 w-32 items-center justify-center rounded-2xl bg-[color-mix(in_srgb,white_70%,var(--brand-cyan)_8%)] text-[color-mix(in_srgb,var(--brand-navy)_90%,black)] sm:h-16 sm:w-40">
+              <span class="max-w-[8.5rem] text-center text-sm font-semibold leading-snug sm:text-base">
+                {partner.name}
+              </span>
+            </div>
+            <p class="max-w-[11rem] text-center text-[0.8rem] font-medium tracking-tight text-[color-mix(in_srgb,var(--brand-navy)_65%,black)] sm:text-[0.85rem]">
+              {partner.name}
+            </p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+

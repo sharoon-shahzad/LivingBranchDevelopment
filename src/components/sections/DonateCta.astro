@@ -1,0 +1,132 @@
+---
+---
+
+<section class="donate-cta-surface border-y border-[var(--border)]" aria-labelledby="donate-cta-heading">
+  <div class="container-page grid gap-10 py-14 md:grid-cols-2 md:items-center lg:gap-14">
+    <div>
+      <p class="inline-flex items-center gap-2 rounded-full bg-white/80 px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-[color-mix(in_srgb,var(--brand-navy)_80%,black)] shadow-sm ring-1 ring-black/5">
+        Support a cause
+      </p>
+
+      <h2
+        id="donate-cta-heading"
+        class="mt-4 font-heading text-3xl font-semibold tracking-tight text-[var(--fg)] sm:text-4xl"
+      >
+        Your gift grows
+        <span class="block text-[color-mix(in_srgb,var(--brand-navy)_85%,black)]">stronger branches.</span>
+      </h2>
+
+      <p class="mt-4 max-w-xl text-sm leading-relaxed text-[var(--muted)] sm:text-base">
+        Every contribution helps strengthen education, health care, and livelihood programmes for children,
+        families, and communities that are most at risk of being left behind.
+      </p>
+
+      <p class="mt-2 max-w-xl text-sm leading-relaxed text-[var(--muted)] sm:text-base">
+        Choose the amount and frequency that works for you. We&rsquo;ll make sure it reaches where it is needed
+        most.
+      </p>
+    </div>
+
+    <div class="rounded-3xl border border-[var(--border)] bg-white/95 p-5 shadow-xl sm:p-6">
+      <form class="grid gap-5" aria-label="Donation options (UI only, no payment yet)">
+        <fieldset class="grid gap-3">
+          <legend class="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--muted)]">
+            How often would you like to give?
+          </legend>
+          <div class="inline-flex gap-2 rounded-full bg-[color-mix(in_srgb,white_88%,var(--brand-cyan)_10%)] p-1">
+            <button
+              type="button"
+              class="flex-1 rounded-full bg-white px-3 py-2 text-xs font-semibold text-[color-mix(in_srgb,var(--brand-navy)_85%,black)] shadow-sm"
+            >
+              Monthly
+            </button>
+            <button
+              type="button"
+              class="flex-1 rounded-full px-3 py-2 text-xs font-semibold text-[var(--muted)] hover:text-[var(--fg)]"
+            >
+              One-time
+            </button>
+          </div>
+        </fieldset>
+
+        <fieldset class="grid gap-3">
+          <legend class="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--muted)]">
+            Choose your impact
+          </legend>
+          <div class="grid grid-cols-2 gap-3 sm:grid-cols-4">
+            <button
+              type="button"
+              class="flex flex-col rounded-2xl border border-[var(--border)] bg-[color-mix(in_srgb,white_90%,var(--brand-lime)_10%)] px-3 py-3 text-left text-xs font-medium text-[color-mix(in_srgb,var(--brand-navy)_80%,black)] shadow-sm hover:border-[color-mix(in_srgb,var(--brand-lime)_55%,var(--border))]"
+            >
+              <span class="font-heading text-base font-semibold">PKR 800</span>
+              <span class="mt-1 text-[0.7rem] text-[var(--muted)]">School kit &amp; learning</span>
+            </button>
+            <button
+              type="button"
+              class="flex flex-col rounded-2xl border border-[var(--border)] bg-[color-mix(in_srgb,white_90%,var(--brand-cyan)_10%)] px-3 py-3 text-left text-xs font-medium text-[color-mix(in_srgb,var(--brand-navy)_80%,black)] shadow-sm hover:border-[color-mix(in_srgb,var(--brand-cyan)_55%,var(--border))]"
+            >
+              <span class="font-heading text-base font-semibold">PKR 1,500</span>
+              <span class="mt-1 text-[0.7rem] text-[var(--muted)]">1 month of after-school support</span>
+            </button>
+            <button
+              type="button"
+              class="flex flex-col rounded-2xl border border-[var(--border)] bg-[color-mix(in_srgb,white_90%,var(--brand-orange)_10%)] px-3 py-3 text-left text-xs font-medium text-[color-mix(in_srgb,var(--brand-navy)_80%,black)] shadow-sm hover:border-[color-mix(in_srgb,var(--brand-orange)_55%,var(--border))]"
+            >
+              <span class="font-heading text-base font-semibold">PKR 3,000</span>
+              <span class="mt-1 text-[0.7rem] text-[var(--muted)]">Health support for 3 families</span>
+            </button>
+            <button
+              type="button"
+              class="flex flex-col rounded-2xl border border-dashed border-[var(--border)] bg-white px-3 py-3 text-left text-xs font-medium text-[var(--muted)] hover:border-[color-mix(in_srgb,var(--brand-navy)_45%,var(--border))]"
+            >
+              <span class="font-heading text-base font-semibold text-[color-mix(in_srgb,var(--brand-navy)_88%,black)]">
+                Custom
+              </span>
+              <span class="mt-1 text-[0.7rem]">Enter the amount you wish to give</span>
+            </button>
+          </div>
+        </fieldset>
+
+        <div class="grid gap-3 sm:grid-cols-2">
+          <div class="grid gap-1.5">
+            <label class="text-xs font-medium text-[var(--muted)]" for="home-donor-name">
+              Name
+            </label>
+            <input
+              id="home-donor-name"
+              name="name"
+              type="text"
+              class="rounded-xl border border-[var(--border)] bg-white px-3 py-2 text-sm text-[var(--fg)] outline-none ring-0 focus:border-[color-mix(in_srgb,var(--brand-cyan)_65%,var(--border))]"
+              placeholder="Your full name"
+            />
+          </div>
+          <div class="grid gap-1.5">
+            <label class="text-xs font-medium text-[var(--muted)]" for="home-donor-email">
+              Email
+            </label>
+            <input
+              id="home-donor-email"
+              name="email"
+              type="email"
+              class="rounded-xl border border-[var(--border)] bg-white px-3 py-2 text-sm text-[var(--fg)] outline-none ring-0 focus:border-[color-mix(in_srgb,var(--brand-cyan)_65%,var(--border))]"
+              placeholder="you@example.org"
+            />
+          </div>
+        </div>
+
+        <button
+          type="button"
+          class="mt-2 inline-flex items-center justify-center rounded-full bg-[var(--brand-cyan)] px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-[color-mix(in_srgb,var(--brand-cyan)_88%,black)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color-mix(in_srgb,var(--brand-cyan)_75%,white)]"
+        >
+          Proceed to secure payment
+        </button>
+
+        <p class="mt-1 text-[0.7rem] text-[var(--muted)]">
+          This is a design-only preview. Payment processing will be connected to a secure gateway before going
+          live.
+        </p>
+      </form>
+    </div>
+  </div>
+</section>
+

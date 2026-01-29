@@ -1,17 +1,279 @@
 ---
-
+import Layout from "../layouts/Layout.astro";
+import heroLogo from "../images/logo.jpg";
+import SectionDivider from "../components/SectionDivider.astro";
+import ProgrammesSection from "../components/sections/Programmes.astro";
+import SdgSection from "../components/sections/Sdg.astro";
+import DonateCta from "../components/sections/DonateCta.astro";
+import PartnersSection from "../components/sections/Partners.astro";
+import WelcomeOverlay from "../components/WelcomeOverlay.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout
+  title="Living Branch Development"
+  description="Living Branch Development is an NGO focused on education, health, and community empowerment."
+>
+  <WelcomeOverlay />
+
+  <section class="hero-surface">
+    <div class="container-page grid gap-10 py-16 md:grid-cols-2 md:items-center lg:gap-14">
+      <div>
+        <p class="inline-flex items-center gap-2 rounded-full bg-white/70 px-3 py-1 text-xs font-medium text-[color-mix(in_srgb,var(--brand-navy)_80%,black)] shadow-sm ring-1 ring-black/5">
+          Growing futures together
+        </p>
+
+        <h1 class="mt-4 font-heading text-4xl font-semibold tracking-tight text-[var(--fg)] sm:text-5xl lg:text-6xl">
+          <span class="headline-reveal block">Empowering communities</span>
+          <span class="headline-reveal block text-[color-mix(in_srgb,var(--brand-navy)_80%,black)]" style="--reveal-delay:140ms;">
+            branch by branch.
+          </span>
+        </h1>
+
+        <p class="mt-5 max-w-xl text-base leading-relaxed text-[var(--muted)] sm:text-lg">
+          Living Branch Development supports children, families, and local leaders with education, health, and
+          livelihood programmes that create lasting change where it is needed most.
+        </p>
+
+        <div class="mt-7 flex flex-wrap items-center gap-4">
+          <a
+            href="/get-involved"
+            class="inline-flex items-center justify-center rounded-full bg-[var(--brand-cyan)] px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-[color-mix(in_srgb,var(--brand-cyan)_88%,black)] focus-visible:outline-offset-4"
+          >
+            Support a cause
+          </a>
+          <a
+            href="/our-work"
+            class="inline-flex items-center justify-center rounded-full border border-[var(--border)] bg-white/60 px-6 py-3 text-sm font-semibold text-[var(--fg)] transition hover:border-[var(--brand-navy)] hover:bg-white"
+          >
+            Explore our work
+          </a>
+        </div>
+
+        <dl class="mt-8 flex flex-wrap gap-6 text-sm text-[var(--muted)]">
+          <div>
+            <dt class="font-semibold text-[var(--fg)]">Community-led</dt>
+            <dd>Partnering with local leaders for sustainable impact.</dd>
+          </div>
+          <div>
+            <dt class="font-semibold text-[var(--fg)]">Transparent</dt>
+            <dd>Clear reporting on every programme and donation.</dd>
+          </div>
+        </dl>
+      </div>
+
+      <div
+        class="grid grid-cols-2 gap-3 max-w-sm mx-auto md:max-w-none md:mx-0 md:grid-cols-2 md:gap-4"
+        aria-hidden="true"
+      >
+        <div
+          class="float-card rounded-3xl border border-[var(--border)] bg-white/85 p-5 shadow-sm ring-1 ring-black/5 backdrop-blur"
+          style="--float-dur:8s;--float-delay:-1.1s;"
+        >
+          <div class="flex h-full flex-col justify-between gap-4">
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-wide text-[var(--muted)]">Living Branch</p>
+              <p class="mt-1 font-heading text-lg font-semibold text-[var(--fg)]">Hope in every circle</p>
+            </div>
+            <div class="mt-2 flex items-center justify-center">
+              <div class="aspect-square w-full max-w-[7.5rem] overflow-hidden rounded-2xl border border-[var(--border)] bg-white/70 p-2">
+                <img
+                  src={heroLogo.src}
+                  alt=""
+                  width="140"
+                  height="140"
+                  loading="lazy"
+                  decoding="async"
+                  class="h-full w-full object-contain"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="float-card rounded-3xl border border-[var(--border)] bg-white/80 p-4 shadow-sm ring-1 ring-black/5 backdrop-blur"
+          style="--float-dur:7s;--float-delay:-0.6s;"
+        >
+          <div class="aspect-[4/3] overflow-hidden rounded-2xl bg-[radial-gradient(circle_at_top,var(--brand-lime),var(--brand-cyan))]"></div>
+          <p class="mt-3 text-xs font-medium uppercase tracking-wide text-[var(--muted)]">Education</p>
+          <p class="mt-1 text-sm font-semibold text-[var(--fg)]">Safe learning spaces</p>
+        </div>
+
+        <div
+          class="float-card rounded-3xl border border-[var(--border)] bg-white/80 p-4 shadow-sm ring-1 ring-black/5 backdrop-blur"
+          style="--float-dur:6.5s;--float-delay:-1.4s;"
+        >
+          <div class="aspect-[4/3] overflow-hidden rounded-2xl bg-[radial-gradient(circle_at_bottom,var(--brand-pink),var(--brand-orange))]"></div>
+          <p class="mt-3 text-xs font-medium uppercase tracking-wide text-[var(--muted)]">Health</p>
+          <p class="mt-1 text-sm font-semibold text-[var(--fg)]">Wellbeing support</p>
+        </div>
+
+        <div
+          class="float-card rounded-3xl border border-[var(--border)] bg-white/80 p-4 shadow-sm ring-1 ring-black/5 backdrop-blur"
+          style="--float-dur:7.5s;--float-delay:-2s;"
+        >
+          <div class="aspect-[4/3] overflow-hidden rounded-2xl bg-[radial-gradient(circle_at_top,var(--brand-navy),color-mix(in_srgb,var(--brand-cyan)_55%,black))]"></div>
+          <p class="mt-3 text-xs font-medium uppercase tracking-wide text-[var(--muted)]">Livelihood</p>
+          <p class="mt-1 text-sm font-semibold text-[var(--fg)]">Skills & pathways</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <SectionDivider label="Impact that matters" />
+
+  <section class="impact-surface" aria-labelledby="impact-heading">
+    <div class="container-page py-12 sm:py-16">
+      <div class="max-w-2xl">
+        <p class="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--muted)]">Our impact</p>
+        <h2
+          id="impact-heading"
+          class="mt-2 font-heading text-2xl font-semibold tracking-tight text-[var(--fg)] sm:text-3xl"
+        >
+          Turning support into measurable change.
+        </h2>
+        <p class="mt-3 text-sm leading-relaxed text-[var(--muted)] sm:text-base">
+          Numbers never tell the whole story, but they do show how every contribution helps children, families,
+          and communities grow stronger together.
+        </p>
+      </div>
+
+      <dl class="mt-8 grid gap-4 sm:mt-10 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="rounded-2xl border border-[var(--border)] bg-white/80 p-5 shadow-sm">
+          <dt class="text-xs font-medium uppercase tracking-wide text-[var(--muted)]">Children & youth</dt>
+          <dd class="mt-3">
+            <span
+              class="impact-value font-heading font-semibold text-[color-mix(in_srgb,var(--brand-navy)_80%,black)]"
+              data-impact-counter
+              data-target="2400"
+            >
+              0
+            </span>
+            <span class="impact-unit text-[var(--muted)]">Children engaged</span>
+            <p class="mt-2 text-sm text-[var(--muted)]">through learning and enrichment activities.</p>
+          </dd>
+        </div>
+
+        <div class="rounded-2xl border border-[var(--border)] bg-white/80 p-5 shadow-sm">
+          <dt class="text-xs font-medium uppercase tracking-wide text-[var(--muted)]">Communities</dt>
+          <dd class="mt-3">
+            <span
+              class="impact-value font-heading font-semibold text-[color-mix(in_srgb,var(--brand-cyan)_80%,black)]"
+              data-impact-counter
+              data-target="48"
+            >
+              0
+            </span>
+            <span class="impact-unit text-[var(--muted)]">Communities reached</span>
+            <p class="mt-2 text-sm text-[var(--muted)]">across urban and rural regions.</p>
+          </dd>
+        </div>
+
+        <div class="rounded-2xl border border-[var(--border)] bg-white/80 p-5 shadow-sm">
+          <dt class="text-xs font-medium uppercase tracking-wide text-[var(--muted)]">Volunteer hours</dt>
+          <dd class="mt-3">
+            <span
+              class="impact-value font-heading font-semibold text-[color-mix(in_srgb,var(--brand-orange)_80%,black)]"
+              data-impact-counter
+              data-target="12000"
+            >
+              0
+            </span>
+            <span class="impact-unit text-[var(--muted)]">Hours contributed</span>
+            <p class="mt-2 text-sm text-[var(--muted)]">by local volunteers and partners.</p>
+          </dd>
+        </div>
+
+        <div class="rounded-2xl border border-[var(--border)] bg-white/80 p-5 shadow-sm">
+          <dt class="text-xs font-medium uppercase tracking-wide text-[var(--muted)]">Projects</dt>
+          <dd class="mt-3">
+            <span
+              class="impact-value font-heading font-semibold text-[color-mix(in_srgb,var(--brand-pink)_80%,black)]"
+              data-impact-counter
+              data-target="30"
+            >
+              0
+            </span>
+            <span class="impact-unit text-[var(--muted)]">Projects launched</span>
+            <p class="mt-2 text-sm text-[var(--muted)]">across education, health, and livelihoods.</p>
+          </dd>
+        </div>
+      </dl>
+
+      <p class="mt-6 text-xs text-[var(--muted)] sm:text-sm">
+        Figures are illustrative and can be updated with real-time data as programmes grow.
+      </p>
+    </div>
+
+    <script>
+      if (typeof window !== "undefined") {
+        const prefersReduced =
+          window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        const formatNumber = (value, target) => {
+          if (target >= 1000) {
+            return (value / 1000).toFixed(1).replace(/\.0$/, "") + "K+";
+          }
+          return Math.round(value).toString() + (target >= 10 ? "+" : "");
+        };
+
+        const animateCounter = (el) => {
+          const target = Number(el.dataset.target || "0");
+          if (!target || prefersReduced) {
+            el.textContent = formatNumber(target, target);
+            return;
+          }
+
+          const duration = 1100;
+          const start = performance.now();
+
+          const step = (now) => {
+            const progress = Math.min((now - start) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            const current = target * eased;
+            el.textContent = formatNumber(current, target);
+            if (progress < 1) requestAnimationFrame(step);
+          };
+
+          requestAnimationFrame(step);
+        };
+
+        const counters = document.querySelectorAll("[data-impact-counter]");
+        if ("IntersectionObserver" in window) {
+          const observer = new IntersectionObserver(
+            (entries, ob) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  const el = entry.target;
+                  animateCounter(el);
+                  ob.unobserve(el);
+                }
+              });
+            },
+            { threshold: 0.4 }
+          );
+
+          counters.forEach((el) => observer.observe(el));
+        } else {
+          counters.forEach((el) => animateCounter(el));
+        }
+      }
+    </script>
+  </section>
+
+  <SectionDivider label="Support a cause" />
+
+  <DonateCta />
+
+  <SectionDivider label="Programmes with purpose" />
+
+  <ProgrammesSection />
+
+  <SectionDivider label="Aligned with SDGs" />
+
+  <SdgSection />
+
+  <SectionDivider label="Our partners in change" />
+
+  <PartnersSection />
+</Layout>

@@ -1,0 +1,96 @@
+---
+import logo from "../images/logo.jpg";
+
+const nav = [
+  { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
+  { label: "Our Work", href: "/our-work" },
+  { label: "Get involved", href: "/get-involved" },
+  { label: "Media", href: "/media" },
+  { label: "Contact", href: "/contact" }
+];
+---
+
+<header class="sticky top-0 z-50 border-b border-[var(--border)] bg-white/80 backdrop-blur">
+  <a
+    class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-3 focus:z-[60] rounded-md bg-white px-3 py-2 text-sm shadow"
+    href="#main"
+  >
+    Skip to content
+  </a>
+
+  <div class="container-page flex h-20 items-center justify-between gap-4">
+    <a class="flex items-center gap-3" href="/" aria-label="Living Branch Development">
+      <img
+        src={logo.src}
+        alt=""
+        width="44"
+        height="44"
+        loading="eager"
+        decoding="async"
+        class="h-12 w-12 rounded-full object-contain"
+      />
+      <span class="font-heading text-[1.1rem] font-semibold tracking-tight sm:text-xl">
+        Living Branch Development
+      </span>
+    </a>
+
+    <nav class="hidden items-center gap-7 md:flex" aria-label="Primary">
+      {nav.map((item) => (
+        <a
+          class="group relative text-[1rem] font-semibold text-[var(--muted)] hover:text-[var(--fg)]"
+          href={item.href}
+        >
+          {item.label}
+          <span class="pointer-events-none absolute -bottom-2 left-0 h-[3px] w-full origin-left scale-x-0 rounded-full bg-[var(--brand-cyan)] transition-transform duration-200 group-hover:scale-x-100"></span>
+        </a>
+      ))}
+    </nav>
+
+    <div class="flex items-center gap-3">
+      <a
+        class="hidden items-center gap-2 rounded-full border border-[var(--border)] px-5 py-2.5 text-[1rem] font-semibold text-[var(--fg)] hover:border-transparent hover:bg-[color-mix(in_srgb,var(--brand-cyan)_12%,white)] md:inline-flex"
+        href="/get-involved"
+      >
+        <svg viewBox="0 0 24 24" class="h-4 w-4 text-[var(--brand-pink)]" aria-hidden="true">
+          <path
+            fill="currentColor"
+            d="M12 21s-7.2-4.4-9.6-8.6C.8 9.3 2.6 6.4 5.8 6.1c1.8-.2 3.3.7 4.2 2 1-1.3 2.5-2.2 4.2-2 3.2.3 5 3.2 3.4 6.3C19.2 16.6 12 21 12 21Z"
+          />
+        </svg>
+        Support a cause
+      </a>
+
+      <details class="mobile-nav md:hidden">
+        <summary
+          class="inline-flex cursor-pointer select-none items-center justify-center rounded-lg border border-[var(--border)] px-3 py-2.5 text-[1rem] font-semibold text-[var(--fg)]"
+          aria-label="Open menu"
+        >
+          Menu
+        </summary>
+        <div class="mobile-nav-panel absolute left-0 right-0 mt-3 border-b border-[var(--border)] bg-white shadow-sm">
+          <div class="container-page grid gap-2 py-4">
+            {nav.map((item) => (
+              <a class="rounded-md px-3 py-2 text-sm font-medium hover:bg-gray-50" href={item.href}>
+                {item.label}
+              </a>
+            ))}
+            <a
+              class="mt-2 inline-flex w-fit items-center gap-2 rounded-full bg-[var(--brand-cyan)] px-4 py-2 text-sm font-semibold text-white"
+              href="/get-involved"
+            >
+              <svg viewBox="0 0 24 24" class="h-4 w-4 text-white" aria-hidden="true">
+                <path
+                  fill="currentColor"
+                  d="M12 21s-7.2-4.4-9.6-8.6C.8 9.3 2.6 6.4 5.8 6.1c1.8-.2 3.3.7 4.2 2 1-1.3 2.5-2.2 4.2-2 3.2.3 5 3.2 3.4 6.3C19.2 16.6 12 21 12 21Z"
+                />
+              </svg>
+              Support a cause
+            </a>
+          </div>
+        </div>
+      </details>
+    </div>
+  </div>
+</header>
+
