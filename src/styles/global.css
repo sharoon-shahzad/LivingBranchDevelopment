@@ -213,14 +213,6 @@ details.mobile-nav[open] .mobile-nav-panel {
   background: #f5f2f2;
 }
 
-/* Donate CTA surface */
-.donate-cta-surface {
-  background:
-    radial-gradient(900px 480px at 10% 0, color-mix(in srgb, var(--brand-cyan) 12%, white), transparent 70%),
-    radial-gradient(900px 520px at 90% 60%, color-mix(in srgb, var(--brand-lime) 10%, white), transparent 70%),
-    #ffffff;
-}
-
 /* Welcome overlay animation */
 .welcome-overlay {
   animation: welcome-backdrop 260ms ease forwards;
