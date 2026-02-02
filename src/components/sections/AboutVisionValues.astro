@@ -1,0 +1,267 @@
+---
+import Typewriter from "astro-typewriter";
+
+// Values: Community, Discipleship, Restoration, Empowerment, Integrity, Compassion (NGO-aligned)
+const values = [
+  "Community.",
+  "Discipleship.",
+  "Restoration.",
+  "Empowerment.",
+  "Integrity.",
+  "Compassion.",
+];
+---
+
+<section class="vv-section" aria-labelledby="vv-heading">
+  <div class="vv-container">
+    <!-- Card 1: Image -->
+    <div class="vv-card vv-image-card">
+      <div class="vv-image-placeholder">
+        <svg class="vv-image-icon" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+          <circle cx="8.5" cy="8.5" r="1.5"/>
+          <polyline points="21 15 16 10 5 21"/>
+        </svg>
+        <span>Impact Image</span>
+      </div>
+    </div>
+
+    <!-- Card 2: Vision -->
+    <div class="vv-card vv-vision-card">
+      <div class="vv-icon-wrap">
+        <svg class="vv-icon" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+          <circle cx="12" cy="12" r="3"/>
+        </svg>
+      </div>
+      <h2 class="vv-card-heading" id="vv-heading">Vision</h2>
+      <p class="vv-vision-text">
+        A world where every community thrives with access to quality education, healthcare, and economic opportunities—transformed from the inside out.
+      </p>
+    </div>
+
+    <!-- Card 3: Values with typewriter -->
+    <div class="vv-card vv-values-card">
+      <div class="vv-icon-wrap">
+        <svg class="vv-icon" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+        </svg>
+      </div>
+      <h2 class="vv-card-heading">Our Values</h2>
+      <div class="vv-typewriter-wrap">
+        <Typewriter
+          messages={values}
+          writeSpeed={80}
+          deleteSpeed={50}
+          waitWritten={1200}
+          waitDeleted={400}
+          class="vv-typewriter"
+        />
+      </div>
+      <a href="/our-work" class="vv-read-more">Read more →</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .vv-section {
+    padding: 0;
+    background: #f5f5f5;
+  }
+
+  .vv-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    min-height: 400px;
+  }
+
+  @media (min-width: 768px) {
+    .vv-container {
+      grid-template-columns: 1.2fr 0.9fr 0.9fr;
+      min-height: 480px;
+    }
+  }
+
+  .vv-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem 1.5rem;
+    border-radius: 0;
+  }
+
+  @media (min-width: 768px) {
+    .vv-card {
+      padding: 2.5rem;
+    }
+  }
+
+  /* Card 1: Image */
+  .vv-image-card {
+    padding: 0;
+    min-height: 280px;
+  }
+
+  @media (min-width: 768px) {
+    .vv-image-card {
+      min-height: 480px;
+    }
+  }
+
+  .vv-image-placeholder {
+    width: 100%;
+    height: 100%;
+    min-height: 280px;
+    background: #e8e8e8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+
+  .vv-image-icon {
+    color: #b0b0b0;
+  }
+
+  @media (min-width: 768px) {
+    .vv-image-placeholder {
+      min-height: 480px;
+    }
+  }
+
+  .vv-image-placeholder span {
+    font-family: "Source Sans 3", "Lato", sans-serif;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+  }
+
+  /* Icons */
+  .vv-icon-wrap {
+    margin-bottom: 1.25rem;
+  }
+
+  .vv-vision-card .vv-icon {
+    color: rgba(255, 255, 255, 0.95);
+  }
+
+  .vv-values-card .vv-icon {
+    color: #166534;
+  }
+
+  /* Card 2: Vision */
+  .vv-vision-card {
+    background: #6b21a8;
+  }
+
+  .vv-vision-card .vv-card-heading {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .vv-vision-text {
+    font-family: "Source Sans 3", "Lato", sans-serif;
+    font-size: 1.125rem;
+    font-weight: 400;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.95);
+    margin: 0;
+    margin-top: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .vv-vision-text {
+      font-size: 1.25rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .vv-vision-text {
+      font-size: 1.375rem;
+    }
+  }
+
+  /* Card 3: Values */
+  .vv-values-card {
+    background: #facc15;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  }
+
+  .vv-values-card .vv-card-heading {
+    color: #166534;
+  }
+
+  .vv-typewriter-wrap {
+    min-height: 2.75em;
+    margin-top: 1rem;
+  }
+
+  .vv-typewriter {
+    font-family: "Source Sans 3", "Lato", sans-serif;
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: #166534;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+  }
+
+  @media (min-width: 768px) {
+    .vv-typewriter {
+      font-size: 2rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .vv-typewriter {
+      font-size: 2.25rem;
+    }
+  }
+
+  .vv-typewriter-wrap :global(astro-typewriter) {
+    color: #166534;
+  }
+
+  .vv-read-more {
+    font-family: "Source Sans 3", "Lato", sans-serif;
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: #166534;
+    margin-top: 1.75rem;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+
+  @media (min-width: 768px) {
+    .vv-read-more {
+      font-size: 1.125rem;
+    }
+  }
+
+  .vv-read-more:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+  }
+
+  .vv-card-heading {
+    font-family: "Source Sans 3", "Lato", sans-serif;
+    font-size: 0.9375rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    margin: 0;
+  }
+
+  @media (min-width: 768px) {
+    .vv-card-heading {
+      font-size: 1rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .vv-card-heading {
+      font-size: 1.0625rem;
+    }
+  }
+</style>

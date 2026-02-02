@@ -1,0 +1,324 @@
+---
+const milestones = [
+  {
+    year: "2019",
+    title: "Foundation",
+    description: "Living Branch Development was established as a joint initiative committed to holistic transformation in marginalized communities across Pakistan.",
+  },
+  {
+    year: "2020",
+    title: "First Programme",
+    description: "Our inaugural education programme brought learning support and safe spaces to children in under-resourced neighbourhoods.",
+  },
+  {
+    year: "2021",
+    title: "Major Expansion",
+    description: "We expanded into health care and livelihood support, reaching families across multiple districts.",
+  },
+  {
+    year: "2022",
+    title: "Key Recognition",
+    description: "Received recognition for community-led impact and transparent programme delivery.",
+  },
+  {
+    year: "2023",
+    title: "New Region",
+    description: "Extended our reach to new regions, partnering with local leaders for sustainable development.",
+  },
+  {
+    year: "2025",
+    title: "Growing Forward",
+    description: "Continuing to strengthen education, health, and livelihood programmes with communities at the heart of every decision.",
+  },
+];
+---
+
+<section class="timeline-surface" aria-labelledby="timeline-heading">
+  <div class="container-page py-12 sm:py-16 md:py-20">
+    <div class="max-w-3xl">
+      <p class="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--muted)]">Our journey</p>
+      <h2 id="timeline-heading" class="mt-2 font-heading text-3xl font-semibold tracking-tight text-[var(--fg)] sm:text-4xl">
+        Milestones that shaped who we are
+      </h2>
+      <p class="mt-4 text-base leading-relaxed text-[var(--muted)] sm:text-lg">
+        From a shared vision to a growing network of programmes, here are the key moments in our journey.
+      </p>
+    </div>
+
+    <!-- Mobile/Tablet: Vertical timeline -->
+    <div class="timeline-vertical mt-10 lg:hidden">
+      <div class="timeline-line-vertical" aria-hidden="true"></div>
+      {milestones.map((milestone, i) => (
+        <article
+          class="timeline-item timeline-item-vertical"
+          data-timeline-item
+        >
+          <div class="timeline-dot" aria-hidden="true"></div>
+          <div class="timeline-content">
+            <time class="timeline-year" datetime={milestone.year}>{milestone.year}</time>
+            <h3 class="timeline-title font-heading">{milestone.title}</h3>
+            <p class="timeline-desc">{milestone.description}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <!-- Desktop: Horizontal timeline -->
+    <div class="timeline-horizontal mt-12 hidden lg:block">
+      <div class="timeline-line-horizontal" aria-hidden="true"></div>
+      <div class="timeline-row">
+        {milestones.map((milestone) => (
+          <article
+            class="timeline-item timeline-item-horizontal"
+            data-timeline-item
+          >
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-content">
+              <time class="timeline-year" datetime={milestone.year}>{milestone.year}</time>
+              <h3 class="timeline-title font-heading">{milestone.title}</h3>
+              <p class="timeline-desc">{milestone.description}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .timeline-surface {
+    background: #fcf8f8;
+  }
+
+  /* Vertical timeline (mobile) */
+  .timeline-vertical {
+    position: relative;
+    padding-left: 1.5rem;
+  }
+
+  .timeline-line-vertical {
+    position: absolute;
+    left: 0.25rem;
+    top: 0.5rem;
+    bottom: 0.5rem;
+    width: 4px;
+    background: linear-gradient(
+      to bottom,
+      var(--brand-cyan),
+      var(--brand-lime),
+      var(--brand-orange),
+      var(--brand-pink)
+    );
+    border-radius: 2px;
+  }
+
+  .timeline-item-vertical {
+    position: relative;
+    padding-bottom: 2.5rem;
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  .timeline-item-vertical.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .timeline-item-vertical:last-child {
+    padding-bottom: 0;
+  }
+
+  /* Horizontal timeline (desktop) */
+  .timeline-horizontal {
+    position: relative;
+    padding-top: 2rem;
+  }
+
+  .timeline-line-horizontal {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 1.5rem;
+    height: 4px;
+    background: linear-gradient(
+      to right,
+      var(--brand-cyan),
+      var(--brand-lime),
+      var(--brand-orange),
+      var(--brand-pink)
+    );
+    border-radius: 2px;
+  }
+
+  .timeline-row {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 0.75rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .timeline-item-horizontal {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  .timeline-item-horizontal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Timeline dot */
+  .timeline-dot {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--brand-cyan);
+    border: 3px solid white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  }
+
+  .timeline-item-vertical .timeline-dot {
+    left: -1.5rem;
+    top: 0.35rem;
+    margin-left: -0.35rem;
+  }
+
+  .timeline-item-horizontal .timeline-dot {
+    top: -2rem;
+    margin-top: -0.35rem;
+  }
+
+  /* Content - larger cards, more visible text */
+  .timeline-content {
+    background: white;
+    border-radius: 1rem;
+    padding: 1.5rem 1.5rem;
+    min-height: 160px;
+    border: 1px solid var(--border);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .timeline-item-vertical .timeline-content {
+    min-height: 180px;
+  }
+
+  .timeline-item-horizontal .timeline-content {
+    margin-top: 0.5rem;
+    min-height: 140px;
+    padding: 1.25rem 1rem;
+  }
+
+  @media (min-width: 1024px) {
+    .timeline-item-horizontal .timeline-content {
+      padding: 1.5rem 1.25rem;
+      min-height: 160px;
+    }
+  }
+
+  .timeline-year {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--brand-cyan);
+  }
+
+  @media (min-width: 768px) {
+    .timeline-year {
+      font-size: 0.9375rem;
+    }
+  }
+
+  .timeline-title {
+    margin-top: 0.5rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    color: var(--fg);
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  @media (min-width: 640px) {
+    .timeline-title {
+      font-size: 1.25rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .timeline-title {
+      font-size: 1.125rem;
+    }
+  }
+
+  .timeline-desc {
+    margin-top: 0.75rem;
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--muted);
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .timeline-item-horizontal .timeline-desc {
+    -webkit-line-clamp: 2;
+  }
+
+  @media (min-width: 640px) {
+    .timeline-desc {
+      font-size: 1rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .timeline-item-horizontal .timeline-desc {
+      font-size: 0.9375rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .timeline-item-vertical,
+    .timeline-item-horizontal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  if (typeof window !== "undefined" && "IntersectionObserver" in window) {
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!prefersReduced) {
+      const items = document.querySelectorAll("[data-timeline-item]");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+            }
+          });
+        },
+        { threshold: 0.2, rootMargin: "0px 0px -20px 0px" }
+      );
+
+      items.forEach((el) => observer.observe(el));
+    }
+  }
+</script>

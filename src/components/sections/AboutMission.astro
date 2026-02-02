@@ -1,0 +1,183 @@
+---
+// Mission section - Editorial style
+// Left: Mission statement | Right: Image
+---
+
+<section class="mission-section">
+  <div class="mission-container">
+    <!-- Left: Mission Statement -->
+    <div class="mission-text-block">
+      <span class="mission-label">Our Mission</span>
+      <h2 class="mission-statement">
+        To empower marginalized communities through education, health, and sustainable livelihood programmes that create lasting, measurable change.
+      </h2>
+    </div>
+
+    <!-- Right: Image -->
+    <div class="mission-image-block">
+      <!-- Replace with actual image when ready -->
+      <div class="mission-image-placeholder">
+        <span>Mission Image</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .mission-section {
+    padding: 4rem 1.5rem;
+    background: #ffffff;
+  }
+
+  @media (min-width: 768px) {
+    .mission-section {
+      padding: 6rem 2rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .mission-section {
+      padding: 8rem 2rem;
+    }
+  }
+
+  .mission-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  @media (min-width: 768px) {
+    .mission-container {
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: stretch;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .mission-container {
+      gap: 4rem;
+    }
+  }
+
+  /* Text block - left side */
+  .mission-text-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem;
+    background: #f8f8f8;
+    border-radius: 0; /* No border radius */
+  }
+
+  @media (min-width: 768px) {
+    .mission-text-block {
+      padding: 3rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .mission-text-block {
+      padding: 4rem;
+    }
+  }
+
+  .mission-label {
+    font-family: "Lato", sans-serif;
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--brand-cyan);
+    margin-bottom: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .mission-label {
+      font-size: 1rem;
+      margin-bottom: 2rem;
+    }
+  }
+
+  .mission-statement {
+    font-family: "Lato", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1.4;
+    color: #1a1a1a;
+    margin: 0;
+  }
+
+  @media (min-width: 640px) {
+    .mission-statement {
+      font-size: 1.75rem;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .mission-statement {
+      font-size: 2rem;
+      line-height: 1.35;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .mission-statement {
+      font-size: 2.25rem;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .mission-statement {
+      font-size: 2.5rem;
+    }
+  }
+
+  /* Image block - right side */
+  .mission-image-block {
+    position: relative;
+    min-height: 300px;
+    overflow: hidden;
+    border-radius: 0; /* No border radius */
+  }
+
+  @media (min-width: 768px) {
+    .mission-image-block {
+      min-height: 400px;
+    }
+  }
+
+  .mission-image-placeholder {
+    width: 100%;
+    height: 100%;
+    min-height: 300px;
+    background: linear-gradient(135deg, #e0e0e0 0%, #c0c0c0 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @media (min-width: 768px) {
+    .mission-image-placeholder {
+      min-height: 400px;
+    }
+  }
+
+  .mission-image-placeholder span {
+    font-family: "Lato", sans-serif;
+    font-size: 1rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  /* When using actual image */
+  .mission-image-block img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+</style>

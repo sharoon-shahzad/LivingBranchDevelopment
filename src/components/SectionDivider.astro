@@ -7,6 +7,8 @@ const { label } = Astro.props as Props;
 ---
 
 <div class="section-divider" aria-hidden="true">
-  <span class="section-divider-chip">{label}</span>
+  <span class="section-divider-chip">
+    <span class="section-divider-highlight">{label}</span>
+  </span>
 </div>
 

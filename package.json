@@ -6,6 +6,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "clean": "npx rimraf .astro dist node_modules/.vite",
     "astro": "astro"
   },
   "dependencies": {

@@ -1,0 +1,585 @@
+---
+import { Image } from "astro:assets";
+import SectionDivider from "../SectionDivider.astro";
+import impactOne from "../../images/placeholders/impact-1.svg";
+import impactTwo from "../../images/placeholders/impact-2.svg";
+import impactThree from "../../images/placeholders/impact-3.svg";
+import impactFour from "../../images/placeholders/impact-4.svg";
+import impactFive from "../../images/placeholders/impact-5.svg";
+
+const stats = [
+  {
+    label: "Children supported",
+    value: "2,400+",
+    detail: "learning, nutrition, and safe spaces"
+  },
+  {
+    label: "Communities reached",
+    value: "48+",
+    detail: "across urban and rural districts"
+  },
+  {
+    label: "Volunteer hours",
+    value: "12,000+",
+    detail: "local leaders and partners"
+  },
+  {
+    label: "Programmes launched",
+    value: "30+",
+    detail: "education, health, livelihoods"
+  }
+];
+
+const focusAreas = [
+  {
+    label: "Education access",
+    description: "Keeping children in school through mentoring and supplies.",
+    color: "var(--brand-cyan)"
+  },
+  {
+    label: "Mobile health",
+    description: "Preventive care and referrals for families in remote areas.",
+    color: "var(--brand-orange)"
+  },
+  {
+    label: "Women & youth",
+    description: "Skills training and safe spaces for leadership growth.",
+    color: "var(--brand-pink)"
+  }
+];
+
+const gallery = [
+  { src: impactOne, alt: "Community learning session" },
+  { src: impactTwo, alt: "Health outreach visit" },
+  { src: impactThree, alt: "Women empowerment circle" },
+  { src: impactFour, alt: "Youth skills workshop" },
+  { src: impactFive, alt: "Rural community gathering" }
+];
+---
+
+<section class="impact-story" aria-labelledby="impact-story-heading">
+  <div class="container-page impact-story-container">
+    <div class="impact-story-text">
+      <p class="impact-eyebrow">Impact & reach</p>
+      <h2 id="impact-story-heading" class="impact-heading">
+        Stories written in people, backed by measurable change.
+      </h2>
+      <p class="impact-body">
+        We listen first, then build solutions with the people who live the story every day. From
+        coastal settlements to mountain villages, our teams prioritize under-resourced communities
+        with limited access to education, healthcare, and stable livelihoods.
+      </p>
+      <p class="impact-body">
+        The numbers show reach, but the outcomes are human: children returning to classrooms,
+        mothers accessing healthcare, and young people trained for dignified work.
+      </p>
+
+      <div class="impact-focus">
+        {focusAreas.map((item) => (
+          <article class="impact-focus-card">
+            <span class="impact-focus-accent" style={`background:${item.color}`}></span>
+            <div>
+              <h3 class="impact-focus-title">{item.label}</h3>
+              <p class="impact-focus-text">{item.description}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+
+    <div class="impact-story-visual">
+      <div class="impact-map-card">
+        <div class="impact-map-header">
+          <p class="impact-map-label">Pakistan outreach map</p>
+          <p class="impact-map-sub">Dotted focus zones highlight underdeveloped areas.</p>
+        </div>
+
+        <div class="impact-map">
+          <svg viewBox="0 0 480 360" role="img" aria-label="Dotted map of Pakistan highlighting focus regions">
+            <defs>
+              <pattern id="dotPattern" width="10" height="10" patternUnits="userSpaceOnUse">
+                <circle cx="2" cy="2" r="1.6" fill="rgba(11,18,32,0.15)" />
+              </pattern>
+              <mask id="pakistanMask">
+                <rect width="480" height="360" fill="black" />
+                <path
+                  d="M267 24 300 40 320 68 348 92 340 132 362 170 334 206 336 238 304 260 278 294 236 310 198 300 170 268 150 264 128 250 108 224 108 202 126 172 140 146 140 120 152 104 170 104 190 88 206 68 214 52 236 40 252 42Z"
+                  fill="white"
+                />
+              </mask>
+            </defs>
+            <rect width="480" height="360" fill="url(#dotPattern)" mask="url(#pakistanMask)" />
+            <path
+              d="M267 24 300 40 320 68 348 92 340 132 362 170 334 206 336 238 304 260 278 294 236 310 198 300 170 268 150 264 128 250 108 224 108 202 126 172 140 146 140 120 152 104 170 104 190 88 206 68 214 52 236 40 252 42Z"
+              fill="none"
+              stroke="rgba(11,18,32,0.35)"
+              stroke-width="2"
+            />
+          </svg>
+
+          <div class="impact-marker impact-marker--north" aria-hidden="true"></div>
+          <div class="impact-marker impact-marker--west" aria-hidden="true"></div>
+          <div class="impact-marker impact-marker--south" aria-hidden="true"></div>
+          <div class="impact-marker impact-marker--central" aria-hidden="true"></div>
+          <div class="impact-marker impact-marker--east" aria-hidden="true"></div>
+        </div>
+
+        <ul class="impact-legend">
+          <li><span class="dot"></span> Gilgit-Baltistan & northern belts</li>
+          <li><span class="dot"></span> Khyber Pakhtunkhwa & tribal districts</li>
+          <li><span class="dot"></span> Balochistan communities</li>
+          <li><span class="dot"></span> South Punjab & interior Sindh</li>
+        </ul>
+      </div>
+
+      <div class="impact-stats">
+        {stats.map((stat) => (
+          <article class="impact-stat">
+            <p class="impact-stat-value">{stat.value}</p>
+            <p class="impact-stat-label">{stat.label}</p>
+            <p class="impact-stat-detail">{stat.detail}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <SectionDivider label="Stories in motion" />
+
+  <div class="container-page impact-gallery-row">
+    <div class="impact-gallery" aria-label="Community moments">
+      <div class="impact-gallery-header">
+        <p class="impact-gallery-label">Stories in motion</p>
+        <p class="impact-gallery-sub">A continuous glimpse of community-led impact.</p>
+      </div>
+
+      <div class="impact-marquee" role="region" aria-label="Scrolling community photos">
+        <div class="impact-marquee-track">
+          {gallery.map((item) => (
+            <figure class="impact-image-card">
+              <Image src={item.src} alt={item.alt} width={480} height={320} loading="lazy" />
+            </figure>
+          ))}
+        </div>
+        <div class="impact-marquee-track" aria-hidden="true">
+          {gallery.map((item) => (
+            <figure class="impact-image-card">
+              <Image src={item.src} alt="" width={480} height={320} loading="lazy" />
+            </figure>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .impact-story {
+    background: #ffffff;
+    padding: 4rem 0;
+  }
+
+  @media (min-width: 768px) {
+    .impact-story {
+      padding: 5rem 0;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .impact-story {
+      padding: 6rem 0;
+    }
+  }
+
+  .impact-story-container {
+    display: grid;
+    gap: 2.5rem;
+  }
+
+  @media (min-width: 1024px) {
+    .impact-story-container {
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+      align-items: start;
+      gap: 3rem;
+    }
+  }
+
+  .impact-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--brand-cyan);
+  }
+
+  .impact-heading {
+    margin-top: 0.75rem;
+    font-family: "Poppins", "Inter", sans-serif;
+    font-size: clamp(2rem, 3vw, 2.75rem);
+    font-weight: 600;
+    line-height: 1.15;
+    color: var(--fg);
+  }
+
+  .impact-body {
+    margin-top: 1rem;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--muted);
+  }
+
+  .impact-focus {
+    margin-top: 2rem;
+    display: grid;
+    gap: 1rem;
+  }
+
+  .impact-focus-card {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.75rem;
+    align-items: start;
+    padding: 1rem 1.25rem;
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    background: #f8f9fb;
+    animation: fade-up 520ms ease both;
+  }
+
+  .impact-focus-accent {
+    width: 0.6rem;
+    height: 2.6rem;
+    border-radius: 999px;
+  }
+
+  .impact-focus-title {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--fg);
+  }
+
+  .impact-focus-text {
+    margin-top: 0.35rem;
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
+
+  .impact-story-visual {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .impact-map-card {
+    padding: 1.5rem;
+    border-radius: 1.5rem;
+    border: 1px solid var(--border);
+    background: #6CA651;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
+    animation: fade-up 600ms ease both;
+  }
+
+  .impact-map-header {
+    display: grid;
+    gap: 0.25rem;
+  }
+
+  .impact-map-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--brand-navy);
+  }
+
+  .impact-map-sub {
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
+
+  .impact-map {
+    position: relative;
+    margin-top: 1.25rem;
+    border-radius: 1.25rem;
+    padding: 1rem;
+    background: #f3fbf6;
+    border: 1px solid color-mix(in srgb, #01411c 35%, var(--border));
+    overflow: hidden;
+  }
+
+  .impact-map svg {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .impact-marker {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--brand-cyan);
+    box-shadow: 0 0 0 6px rgba(0, 186, 242, 0.2);
+    animation: pulse 2.8s ease-in-out infinite;
+  }
+
+  .impact-marker::after {
+    content: "";
+    position: absolute;
+    inset: -6px;
+    border-radius: 999px;
+    border: 1px solid rgba(0, 186, 242, 0.3);
+  }
+
+  .impact-marker--north {
+    top: 22%;
+    left: 55%;
+  }
+
+  .impact-marker--west {
+    top: 40%;
+    left: 36%;
+    background: var(--brand-lime);
+    box-shadow: 0 0 0 6px rgba(124, 255, 0, 0.2);
+  }
+
+  .impact-marker--south {
+    top: 72%;
+    left: 52%;
+    background: var(--brand-pink);
+    box-shadow: 0 0 0 6px rgba(255, 0, 122, 0.2);
+  }
+
+  .impact-marker--central {
+    top: 52%;
+    left: 55%;
+    background: var(--brand-orange);
+    box-shadow: 0 0 0 6px rgba(255, 106, 26, 0.2);
+  }
+
+  .impact-marker--east {
+    top: 46%;
+    left: 62%;
+    background: var(--brand-navy);
+    box-shadow: 0 0 0 6px rgba(11, 11, 90, 0.2);
+  }
+
+  .impact-legend {
+    margin-top: 1rem;
+    display: grid;
+    gap: 0.5rem;
+    padding: 0;
+    list-style: none;
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+
+  .impact-legend .dot {
+    display: inline-flex;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 999px;
+    margin-right: 0.5rem;
+    background: var(--brand-cyan);
+  }
+
+  .impact-legend li:nth-child(2) .dot {
+    background: var(--brand-lime);
+  }
+
+  .impact-legend li:nth-child(3) .dot {
+    background: var(--brand-pink);
+  }
+
+  .impact-legend li:nth-child(4) .dot {
+    background: var(--brand-orange);
+  }
+
+  .impact-stats {
+    display: grid;
+    gap: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .impact-stats {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  .impact-stat {
+    padding: 1.25rem;
+    border-radius: 1.25rem;
+    border: 1px solid var(--border);
+    background: #ffffff;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.05);
+    animation: fade-up 520ms ease both;
+  }
+
+  .impact-stat-value {
+    font-family: "Poppins", "Inter", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--brand-navy);
+    margin: 0;
+  }
+
+  .impact-stat-label {
+    margin-top: 0.35rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--fg);
+  }
+
+  .impact-stat-detail {
+    margin-top: 0.25rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+
+  .impact-gallery {
+    padding: 1.5rem;
+    border-radius: 1.5rem;
+    border: 1px solid var(--border);
+    background: #ffffff;
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.06);
+    animation: fade-up 520ms ease both;
+  }
+
+  .impact-gallery-row {
+    margin-top: 2.5rem;
+  }
+
+  .impact-gallery-header {
+    display: grid;
+    gap: 0.25rem;
+  }
+
+  .impact-gallery-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--brand-navy);
+  }
+
+  .impact-gallery-sub {
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
+
+  .impact-marquee {
+    margin-top: 1.25rem;
+    display: flex;
+    gap: 1rem;
+    overflow: hidden;
+    border-radius: 1.25rem;
+    border: 1px solid var(--border);
+    background: #f8faf9;
+    padding: 0.75rem;
+  }
+
+  .impact-marquee-track {
+    display: flex;
+    gap: 1rem;
+    flex-shrink: 0;
+    width: max-content;
+    animation: marquee 32s linear infinite;
+  }
+
+  .impact-image-card {
+    width: clamp(220px, 32vw, 280px);
+    height: 170px;
+    border-radius: 1rem;
+    overflow: hidden;
+    border: 1px solid rgba(1, 65, 28, 0.15);
+    background: #ffffff;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+  }
+
+  .impact-image-card :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .impact-focus-card:nth-child(1) {
+    animation-delay: 120ms;
+  }
+
+  .impact-focus-card:nth-child(2) {
+    animation-delay: 200ms;
+  }
+
+  .impact-focus-card:nth-child(3) {
+    animation-delay: 280ms;
+  }
+
+  .impact-stat:nth-child(1) {
+    animation-delay: 140ms;
+  }
+
+  .impact-stat:nth-child(2) {
+    animation-delay: 220ms;
+  }
+
+  .impact-stat:nth-child(3) {
+    animation-delay: 300ms;
+  }
+
+  .impact-stat:nth-child(4) {
+    animation-delay: 380ms;
+  }
+
+  .impact-gallery {
+    animation-delay: 240ms;
+  }
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 12px, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  @keyframes pulse {
+    0%,
+    100% {
+      transform: scale(1);
+      box-shadow: 0 0 0 6px rgba(0, 186, 242, 0.2);
+    }
+    50% {
+      transform: scale(1.05);
+      box-shadow: 0 0 0 10px rgba(0, 186, 242, 0.15);
+    }
+  }
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .impact-focus-card,
+    .impact-map-card,
+    .impact-stat,
+    .impact-marker,
+    .impact-gallery,
+    .impact-marquee-track {
+      animation: none !important;
+      transform: none !important;
+    }
+
+    .impact-marquee {
+      overflow-x: auto;
+    }
+  }
+</style>

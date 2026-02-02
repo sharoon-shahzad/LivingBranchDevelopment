@@ -1,0 +1,367 @@
+---
+const infoCards = [
+  {
+    title: "Education",
+    stat: "1 in 3",
+    text: "children in underserved areas lack reliable learning support.",
+    accent: "#22c55e",
+  },
+  {
+    title: "Health",
+    stat: "2 hours",
+    text: "is the average travel time to reach basic care in remote communities.",
+    accent: "#0ea5e9",
+  },
+  {
+    title: "Livelihoods",
+    stat: "60%",
+    text: "of youth seek skills training to access stable income paths.",
+    accent: "#f97316",
+  },
+];
+---
+
+<section class="about-cta" aria-labelledby="about-cta-heading">
+  <div class="container-page about-cta-grid">
+    <div class="about-cta-story">
+      <p class="about-cta-eyebrow">Take action</p>
+      <h2 id="about-cta-heading" class="about-cta-heading">
+        When one family rises, a whole community follows.
+      </h2>
+      <p class="about-cta-body">
+        Living Branch Development partners with local leaders to meet families
+        where they are— bringing learning support, mobile health care, and
+        skills training into neighborhoods that need it most. Your support fuels
+        stories of resilience, dignity, and long-term change.
+      </p>
+      <p class="about-cta-body">
+        Join donors and volunteers who believe in steady, community-led
+        progress. Together, we can grow stronger futures—branch by branch.
+      </p>
+
+      <div class="about-cta-actions">
+        <a class="about-cta-primary" href="/get-involved">Become a partner</a>
+        <a class="about-cta-secondary" href="/donate">Support a cause</a>
+      </div>
+    </div>
+
+    <div class="about-cta-infographics">
+      <div class="about-cta-panel">
+        <p class="about-cta-panel-label">Why your support matters</p>
+        <div class="about-cta-cards">
+          {
+            infoCards.map((card) => (
+              <article class="about-cta-card" style={`--accent:${card.accent}`}>
+                <div class="about-cta-card-header">
+                  <p class="about-cta-card-title">{card.title}</p>
+                  <span class="about-cta-card-pill">{card.stat}</span>
+                </div>
+                <p class="about-cta-card-text">{card.text}</p>
+                <div class="about-cta-card-bar" />
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about-cta {
+    background: #f6faf8;
+    padding: 4rem 0;
+  }
+
+  @media (min-width: 768px) {
+    .about-cta {
+      padding: 5rem 0;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .about-cta {
+      padding: 6rem 0;
+    }
+  }
+
+  .about-cta-grid {
+    display: grid;
+    gap: 2.5rem;
+  }
+
+  @media (min-width: 1024px) {
+    .about-cta-grid {
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+      align-items: start;
+      gap: 3rem;
+    }
+  }
+
+  .about-cta-story {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .about-cta-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: #0f6b3f;
+  }
+
+  .about-cta-heading {
+    font-family: "Poppins", "Inter", sans-serif;
+    font-size: clamp(2.1rem, 3.2vw, 2.9rem);
+    font-weight: 600;
+    line-height: 1.15;
+    color: var(--fg);
+  }
+
+  .about-cta-body {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--muted);
+  }
+
+  .about-cta-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+  }
+
+  .about-cta-primary,
+  .about-cta-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    padding: 0.85rem 1.75rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition:
+      transform 160ms ease,
+      box-shadow 160ms ease;
+  }
+
+  .about-cta-primary {
+    background: #0f6b3f;
+    color: #ffffff;
+    box-shadow: 0 10px 20px rgba(15, 107, 63, 0.3);
+  }
+
+  .about-cta-secondary {
+    border: 1.5px solid #0f6b3f;
+    color: #0f6b3f;
+    background: #ffffff;
+  }
+
+  .about-cta-primary:hover,
+  .about-cta-secondary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 12px 24px rgba(15, 107, 63, 0.18);
+  }
+
+  .about-cta-infographics {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .about-cta-panel {
+    padding: 1.5rem;
+    border-radius: 1.5rem;
+    background: #ffffff;
+    border: 1px solid var(--border);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
+  }
+
+  .about-cta-panel-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--brand-navy);
+  }
+
+  .about-cta-cards {
+    margin-top: 1.25rem;
+    display: grid;
+    gap: 1rem;
+  }
+
+  .about-cta-card {
+    border-radius: 1.25rem;
+    border: 1px solid var(--border);
+    padding: 1rem 1.25rem;
+    background: #fdfdfb;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-cta-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.6) 60%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    opacity: 0.25;
+    pointer-events: none;
+  }
+
+  .about-cta-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+
+  .about-cta-card-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--fg);
+  }
+
+  .about-cta-card-pill {
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 0.25rem 0.6rem;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--accent) 20%, white);
+    color: var(--accent);
+  }
+
+  .about-cta-card-text {
+    margin-top: 0.65rem;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--muted);
+  }
+
+  .about-cta-card-bar {
+    margin-top: 0.85rem;
+    height: 6px;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--accent) 70%, white);
+  }
+
+  /* Impact Pathway Section - Full Width */
+  .about-cta-impact-section {
+    background: linear-gradient(180deg, transparent, rgba(15, 107, 63, 0.04));
+    padding: 3.5rem 0;
+    margin-top: 2rem;
+    border-top: 1px solid var(--border);
+  }
+
+  @media (min-width: 768px) {
+    .about-cta-impact-section {
+      padding: 4.5rem 0;
+    }
+  }
+
+  .about-cta-impact-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: #0f6b3f;
+  }
+
+  .about-cta-impact-heading {
+    margin-top: 0.5rem;
+    font-family: "Poppins", "Inter", sans-serif;
+    font-size: clamp(1.8rem, 2.5vw, 2.4rem);
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--fg);
+    max-width: 600px;
+  }
+
+  .about-cta-impact-flow {
+    margin-top: 2.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    align-items: center;
+  }
+
+  @media (min-width: 768px) {
+    .about-cta-impact-flow {
+      grid-template-columns: 1fr auto 1fr auto 1fr;
+      gap: 1.5rem;
+    }
+  }
+
+  .about-cta-impact-stage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .about-cta-impact-icon {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(
+      135deg,
+      rgba(15, 107, 63, 0.08),
+      rgba(255, 255, 255, 0.5)
+    );
+    border-radius: 50%;
+    margin-bottom: 1.5rem;
+    border: 2px solid rgba(15, 107, 63, 0.15);
+  }
+
+  .about-cta-impact-icon svg {
+    width: 60px;
+    height: 60px;
+  }
+
+  .about-cta-impact-stage-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--fg);
+    margin-bottom: 0.75rem;
+  }
+
+  .about-cta-impact-stage-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--muted);
+  }
+
+  .about-cta-impact-connector {
+    display: none;
+    min-width: 50px;
+    flex-shrink: 0;
+  }
+
+  @media (min-width: 768px) {
+    .about-cta-impact-connector {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .about-cta-impact-connector svg {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .about-cta-primary,
+    .about-cta-secondary {
+      transition: none;
+    }
+  }
+</style>

@@ -161,15 +161,33 @@ body {
 }
 
 .section-divider-chip {
-  border-radius: 999px;
-  padding: 0.25rem 0.9rem;
-  font-size: 0.7rem;
-  letter-spacing: 0.12em;
+  padding: 0.35rem 0.5rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  font-weight: 600;
-  color: color-mix(in srgb, var(--brand-navy) 80%, black);
-  background: color-mix(in srgb, var(--brand-cyan) 10%, white);
-  box-shadow: 0 8px 20px rgb(15 23 42 / 0.04);
+  font-weight: 700;
+  color: color-mix(in srgb, var(--brand-navy) 85%, black);
+  background: transparent;
+}
+
+/* Text highlighter - marker stroke effect (MagicUI-inspired, CSS-only) */
+.section-divider-highlight {
+  position: relative;
+  display: inline;
+  padding-inline: 0.2em;
+}
+
+.section-divider-highlight::before {
+  content: "";
+  position: absolute;
+  left: -0.08em;
+  right: -0.08em;
+  bottom: 0.08em;
+  height: 0.5em;
+  background: color-mix(in srgb, var(--brand-lime) 45%, white);
+  transform: skew(-2deg);
+  z-index: -1;
+  border-radius: 2px;
 }
 
 /* Programmes section background */

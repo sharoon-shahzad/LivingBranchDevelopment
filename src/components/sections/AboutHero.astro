@@ -1,140 +1,37 @@
 ---
-// Import your image here when ready:
-// import heroImage from "../../images/your-hero-image.jpg";
+// About Hero - heading only
 ---
 
-<!-- Wrapper to contain the parallax effect - limits image visibility to hero section -->
-<div class="about-hero-parallax-wrapper">
-  <!-- Background Image Section -->
-  <section class="about-hero-image-section" aria-hidden="true">
-    <div class="about-hero-image-wrapper">
-      <!-- Replace this placeholder with your actual image -->
-      <!-- Example: <img src={heroImage.src} alt="" class="about-hero-image" /> -->
-      <div class="about-hero-image-placeholder"></div>
-      <div class="about-hero-image-overlay"></div>
-    </div>
-  </section>
-
-  <section class="about-hero-surface" aria-labelledby="about-hero-heading">
-    <div class="container-page about-hero-content py-12 sm:py-16 md:py-20 lg:py-24 xl:py-32">
-      <div class="mx-auto max-w-4xl">
-        <!-- Eyebrow -->
-        <div class="text-center">
-          <p class="inline-flex items-center gap-2 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-[color-mix(in_srgb,var(--brand-navy)_85%,black)] shadow-lg ring-1 ring-black/5 backdrop-blur-sm sm:px-4 sm:py-1.5">
-            <span class="relative flex h-2 w-2">
-              <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--brand-cyan)] opacity-75"></span>
-              <span class="relative inline-flex h-2 w-2 rounded-full bg-[var(--brand-cyan)]"></span>
-            </span>
-            About Us
-          </p>
-        </div>
-
-        <!-- Main Heading -->
-        <h1
-          id="about-hero-heading"
-          class="mt-6 text-center font-heading text-3xl font-bold tracking-tight text-[var(--fg)] sm:mt-8 sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl"
-        >
-          <span class="block">Growing futures,</span>
-          <span class="block text-[color-mix(in_srgb,var(--brand-cyan)_90%,black)]">
-            branch by branch.
+<section class="about-hero" aria-labelledby="about-hero-heading">
+  <div class="container-page about-hero-content py-12 sm:py-16 md:py-20 lg:py-24 xl:py-32">
+    <div class="mx-auto max-w-4xl">
+      <!-- Eyebrow -->
+      <div class="text-center">
+        <p class="inline-flex items-center gap-2 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-[color-mix(in_srgb,var(--brand-navy)_85%,black)] shadow-lg ring-1 ring-black/5 backdrop-blur-sm sm:px-4 sm:py-1.5">
+          <span class="relative flex h-2 w-2">
+            <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--brand-cyan)] opacity-75"></span>
+            <span class="relative inline-flex h-2 w-2 rounded-full bg-[var(--brand-cyan)]"></span>
           </span>
-        </h1>
-
-        <!-- Introduction Text -->
-        <div class="mt-8 sm:mt-10 md:mt-12 lg:mt-16">
-          <div class="about-intro-card">
-            <p class="about-intro-text">
-              Living Branch Development is a values-driven organization, legally registered under the Societies Act of 1860. Established as a joint initiative, LBD began its journey in 2019 with a strong commitment to bringing about holistic transformation and sustainable development in marginalized communities across Pakistan.
-            </p>
-          </div>
-        </div>
+          About Us
+        </p>
       </div>
+
+      <!-- Main Heading -->
+      <h1
+        id="about-hero-heading"
+        class="mt-6 text-center font-heading text-3xl font-bold tracking-tight text-[var(--fg)] sm:mt-8 sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl"
+      >
+        <span class="block">Growing futures,</span>
+        <span class="block text-[color-mix(in_srgb,var(--brand-cyan)_90%,black)]">
+          branch by branch.
+        </span>
+      </h1>
     </div>
-  </section>
-</div>
+  </div>
+</section>
 
 <style>
-  /* Wrapper that limits parallax effect to hero section only */
-  .about-hero-parallax-wrapper {
-    position: relative;
-    overflow: hidden;
-    /* Height will be calculated by JavaScript to match hero section */
-  }
-
-  /* Background image section - mobile: static, desktop: fixed for parallax */
-  .about-hero-image-section {
-    position: relative;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 50vh;
-    min-height: 300px;
-    max-height: 400px;
-    z-index: 1;
-    overflow: hidden;
-  }
-
-  /* Desktop: Enable parallax effect */
-  @media (min-width: 768px) {
-    .about-hero-image-section {
-      position: fixed;
-      height: 100vh;
-      min-height: 100vh;
-      max-height: none;
-      transition: opacity 0.3s ease;
-    }
-
-    /* Hide image when scrolled past hero section (desktop only) */
-    .about-hero-parallax-wrapper.scrolled-past .about-hero-image-section {
-      opacity: 0;
-      pointer-events: none;
-    }
-  }
-
-  .about-hero-image-wrapper {
-    position: relative;
-    width: 100%;
-    height: 100%;
-  }
-
-  .about-hero-image-placeholder {
-    width: 100%;
-    height: 100%;
-    background:
-      linear-gradient(135deg, var(--brand-cyan) 0%, var(--brand-lime) 50%, var(--brand-pink) 100%),
-      url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23f0f0f0" width="1200" height="800"/><text x="50%25" y="50%25" font-family="Arial" font-size="24" fill="%23999" text-anchor="middle" dominant-baseline="middle">About Us Hero Image</text></svg>');
-    background-size: cover;
-    background-position: center;
-    background-blend-mode: overlay;
-  }
-
-  /* When using actual image, use this class */
-  .about-hero-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-  }
-
-  /* Dark overlay for better text readability */
-  .about-hero-image-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.3) 0%,
-      rgba(0, 0, 0, 0.4) 50%,
-      rgba(0, 0, 0, 0.5) 100%
-    );
-    pointer-events: none;
-  }
-
-  /* Hero content section - mobile: normal flow, desktop: scrolls over image */
-  .about-hero-surface {
-    position: relative;
-    z-index: 10;
-    margin-top: 0;
-    padding-top: 1.5rem;
+  .about-hero {
     background:
       radial-gradient(1400px 600px at 20% 10%, color-mix(in srgb, var(--brand-cyan) 16%, white), transparent 70%),
       radial-gradient(1200px 550px at 80% 20%, color-mix(in srgb, var(--brand-lime) 14%, white), transparent 68%),
@@ -143,139 +40,8 @@
       linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.98) 30%, #ffffff 100%);
   }
 
-  /* Desktop: Enable parallax overlay effect */
-  @media (min-width: 768px) {
-    .about-hero-surface {
-      margin-top: calc(100vh - 250px);
-      padding-top: 0;
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .about-hero-surface {
-      margin-top: calc(100vh - 300px);
-    }
-  }
-
   .about-hero-content {
     position: relative;
     z-index: 1;
   }
-
-  /* Introduction text card - mobile-first */
-  .about-intro-card {
-    position: relative;
-    padding: 1.5rem 1.25rem;
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 1rem;
-    border: 1px solid rgba(255, 255, 255, 0.6);
-    box-shadow:
-      0 4px 6px -1px rgb(0 0 0 / 0.05),
-      0 10px 15px -3px rgb(0 0 0 / 0.08),
-      0 20px 25px -5px rgb(0 0 0 / 0.04);
-    backdrop-filter: blur(12px);
-  }
-
-  @media (min-width: 640px) {
-    .about-intro-card {
-      padding: 2rem 1.75rem;
-      border-radius: 1.25rem;
-    }
-  }
-
-  @media (min-width: 768px) {
-    .about-intro-card {
-      padding: 2.5rem 2.5rem;
-      border-radius: 1.5rem;
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .about-intro-card {
-      padding: 3rem 3.5rem;
-    }
-  }
-
-  @media (min-width: 1280px) {
-    .about-intro-card {
-      padding: 4rem 4rem;
-    }
-  }
-
-  /* Introduction text styling */
-  .about-intro-text {
-    font-family: "Georgia", "Times New Roman", serif;
-    font-size: 1rem;
-    line-height: 1.75;
-    color: var(--fg);
-    text-align: left;
-    font-weight: 400;
-    letter-spacing: 0.01em;
-  }
-
-  @media (min-width: 640px) {
-    .about-intro-text {
-      font-size: 1.125rem;
-      line-height: 1.8;
-    }
-  }
-
-  @media (min-width: 768px) {
-    .about-intro-text {
-      font-size: 1.25rem;
-      line-height: 1.85;
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .about-intro-text {
-      font-size: 1.375rem;
-      line-height: 1.9;
-    }
-  }
-
-  /* Subtle accent gradient on card */
-  .about-intro-card::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(
-      90deg,
-      var(--brand-cyan),
-      var(--brand-lime),
-      var(--brand-pink),
-      var(--brand-orange)
-    );
-    border-radius: 1.5rem 1.5rem 0 0;
-  }
 </style>
-
-<script>
-  if (typeof window !== "undefined") {
-    const wrapper = document.querySelector(".about-hero-parallax-wrapper");
-    const heroSurface = document.querySelector(".about-hero-surface");
-    
-    if (wrapper && heroSurface) {
-      const handleScroll = () => {
-        const wrapperBottom = wrapper.offsetTop + wrapper.offsetHeight;
-        const scrollPosition = window.scrollY + window.innerHeight;
-        
-        // Hide image when scrolled past the hero section
-        if (scrollPosition > wrapperBottom) {
-          wrapper.classList.add("scrolled-past");
-        } else {
-          wrapper.classList.remove("scrolled-past");
-        }
-      };
-
-      // Check on scroll
-      window.addEventListener("scroll", handleScroll, { passive: true });
-      
-      // Check on load
-      handleScroll();
-    }
-  }
-</script>

@@ -1,6 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import AboutHero from "../components/sections/AboutHero.astro";
+import AboutMission from "../components/sections/AboutMission.astro";
+import AboutVisionValues from "../components/sections/AboutVisionValues.astro";
+import SectionDivider from "../components/SectionDivider.astro";
+import AboutTimeline from "../components/sections/AboutTimeline.astro";
+import AboutImpact from "../components/sections/AboutImpact.astro";
+import AboutCta from "../components/sections/AboutCta.astro";
 ---
 
 <Layout
@@ -8,4 +14,14 @@ import AboutHero from "../components/sections/AboutHero.astro";
   description="Learn about Living Branch Development's mission, vision, and journey in empowering communities through education, health, and livelihood programmes."
 >
   <AboutHero />
+  <SectionDivider label="Our mission" />
+  <AboutMission />
+  <SectionDivider label="Vision & values" />
+  <AboutVisionValues />
+  <SectionDivider label="Our journey" />
+  <AboutTimeline />
+  <SectionDivider label="Impact & reach" />
+  <AboutImpact />
+  <SectionDivider label="Take action" />
+  <AboutCta />
 </Layout>
