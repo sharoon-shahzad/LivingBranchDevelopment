@@ -63,7 +63,7 @@ const nav = [
 
       <details class="mobile-nav md:hidden">
         <summary
-          class="inline-flex cursor-pointer select-none items-center justify-center rounded-lg border border-[var(--border)] px-3 py-2.5 text-[1rem] font-semibold text-[var(--fg)]"
+          class="mobile-nav-button inline-flex cursor-pointer select-none items-center justify-center rounded-lg border border-[var(--border)] px-3 py-2.5 text-[1rem] font-semibold text-[var(--fg)]"
           aria-label="Open menu"
         >
           Menu
@@ -93,4 +93,87 @@ const nav = [
     </div>
   </div>
 </header>
+
+<style>
+  .mobile-nav > summary {
+    list-style: none;
+  }
+
+  .mobile-nav > summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .mobile-nav-panel {
+    opacity: 0;
+    transform: translateY(-6px);
+    transition: opacity 200ms ease, transform 200ms ease;
+  }
+
+  .mobile-nav[open] > .mobile-nav-panel {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .mobile-nav-button {
+    position: relative;
+    transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+  }
+
+  .mobile-nav-button::after {
+    content: "";
+    position: absolute;
+    inset: -6px;
+    border-radius: 12px;
+    border: 1px solid rgba(15, 107, 63, 0.35);
+    opacity: 0;
+    transform: scale(0.98);
+    pointer-events: none;
+  }
+
+  .mobile-nav-button:active {
+    transform: scale(0.98);
+  }
+
+  .mobile-nav-button:focus-visible {
+    transform: translateY(-1px);
+    border-color: color-mix(in srgb, var(--brand-cyan) 35%, var(--border));
+    box-shadow: 0 10px 20px rgba(15, 107, 63, 0.15);
+  }
+
+  .mobile-nav[open] > .mobile-nav-button {
+    transform: translateY(-1px);
+    border-color: color-mix(in srgb, var(--brand-cyan) 45%, var(--border));
+    box-shadow: 0 10px 20px rgba(15, 107, 63, 0.15);
+  }
+
+  .mobile-nav[open] > .mobile-nav-button::after {
+    opacity: 1;
+    animation: mobile-menu-pulse 1.6s ease-out infinite;
+  }
+
+  @keyframes mobile-menu-pulse {
+    0% {
+      transform: scale(0.96);
+      opacity: 0.4;
+    }
+    70% {
+      transform: scale(1.08);
+      opacity: 0.05;
+    }
+    100% {
+      transform: scale(1.12);
+      opacity: 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .mobile-nav-button {
+      transition: none;
+    }
+
+    .mobile-nav[open] > .mobile-nav-button::after {
+      animation: none;
+    }
+  }
+</style>
 
