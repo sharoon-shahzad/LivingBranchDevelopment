@@ -1,11 +1,287 @@
 ---
 import Layout from "../layouts/Layout.astro";
+
+const contactInfo = [
+  {
+    icon: "email",
+    title: "Email",
+    items: ["hello@livingbranch.org", "contact@livingbranch.org"]
+  },
+  {
+    icon: "phone",
+    title: "Phone",
+    items: ["(92) 300-1234567", "(92) 213-456-7890"]
+  },
+  {
+    icon: "location",
+    title: "Address",
+    items: ["Karachi, Sindh", "Pakistan"]
+  }
+];
+
+const hours = [
+  { day: "Monday – Friday", time: "9am – 5pm" },
+  { day: "Saturdays", time: "11am – 5pm" },
+  { day: "Sundays", time: "9am – 3pm" }
+];
 ---
 
 <Layout title="Contact | Living Branch Development">
-  <section class="container-page py-16">
-    <h1 class="font-heading text-3xl font-semibold tracking-tight">Contact</h1>
-    <p class="mt-4 text-[var(--muted)]">Coming soon.</p>
-  </section>
+  <main id="main">
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-br from-emerald-900 via-teal-900 to-cyan-900 py-12 md:py-16">
+      <div class="container-page">
+        <div class="mx-auto max-w-3xl text-center">
+          <p class="font-semibold uppercase tracking-widest text-orange-400">Get in touch</p>
+          <h1 class="mt-3 font-heading text-4xl font-semibold tracking-tight text-white md:text-5xl">
+            We'd love to hear from you
+          </h1>
+          <p class="mt-4 text-lg text-cyan-100">
+            Questions about our programmes? Ready to partner with us? Let's connect and build stronger communities together.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Info Cards -->
+    <section class="py-12 md:py-16">
+      <div class="container-page">
+        <div class="grid gap-6 md:grid-cols-3">
+          {contactInfo.map((item) => (
+            <div class="contact-info-card group rounded-2xl border border-(--border) bg-white p-8 shadow-sm transition-all duration-300 hover:border-(--brand-cyan) hover:shadow-lg hover:shadow-cyan-500/10">
+              <div class="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-100 to-cyan-50 text-(--brand-cyan) group-hover:from-cyan-200">
+                {item.icon === "email" && (
+                  <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                  </svg>
+                )}
+                {item.icon === "phone" && (
+                  <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M17.92 7.02C17.45 6.18 16.51 5.55 15.46 5.55c-1.05 0-1.99.63-2.46 1.47C11.99 5.18 11.05 4.55 10 4.55 8.95 4.55 8.01 5.18 7.54 6.02 7.07 5.18 6.13 4.55 5.08 4.55 3.87 4.55 2.92 5.5 2.92 6.71v10.78C2.92 18.5 3.87 19.45 5.08 19.45c1.05 0 1.99-.63 2.46-1.47.47.84 1.41 1.47 2.46 1.47s1.99-.63 2.46-1.47c.47.84 1.41 1.47 2.46 1.47 1.21 0 2.16-.95 2.16-2.16V6.71c0-1.21-.95-2.16-2.16-2.16zM7 17.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm5 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm5 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z" />
+                  </svg>
+                )}
+                {item.icon === "location" && (
+                  <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5z" />
+                  </svg>
+                )}
+              </div>
+              <h3 class="font-heading text-xl font-semibold text-(--fg)">{item.title}</h3>
+              <div class="mt-4 space-y-2">
+                {item.items.map((contact) => (
+                  <p class="text-(--muted) hover:text-(--brand-cyan) transition-colors">
+                    {item.icon === "email" ? (
+                      <a href={`mailto:${contact}`} class="hover:underline">{contact}</a>
+                    ) : item.icon === "phone" ? (
+                      <a href={`tel:${contact}`} class="hover:underline">{contact}</a>
+                    ) : (
+                      contact
+                    )}
+                  </p>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Contact Section -->
+    <section class="py-12 md:py-20 lg:py-24">
+      <div class="container-page">
+        <div class="grid gap-12 lg:grid-cols-2 lg:gap-16 lg:items-start">
+          {/* Left Column */}
+          <div class="space-y-8">
+            <div>
+              <p class="text-sm font-semibold uppercase tracking-widest text-(--brand-lime)">Our locations</p>
+              <h2 class="mt-3 font-heading text-4xl font-semibold tracking-tight text-(--fg) md:text-5xl">
+                Visit our office or headquarters
+              </h2>
+            </div>
+
+            <p class="text-lg leading-relaxed text-(--muted)">
+              We believe in face-to-face connections. Our teams work from vibrant community spaces where you can meet programme managers, learn about our impact, and discover ways to partner with us. Drop by any time during office hours.
+            </p>
+
+            <a
+              href="#map"
+              class="inline-flex items-center gap-2 rounded-full border-2 border-(--brand-orange) px-8 py-3.5 font-semibold text-(--brand-orange) transition-all duration-300 hover:bg-(--brand-orange) hover:text-white"
+            >
+              <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+              </svg>
+              Get directions
+            </a>
+          </div>
+
+          {/* Right Column - Hours Card */}
+          <div class="lg:sticky lg:top-32">
+            <div class="relative rounded-3xl bg-gradient-to-br from-emerald-900 via-teal-900 to-cyan-900 p-8 md:p-10 shadow-2xl overflow-hidden">
+              {/* Decorative elements */}
+              <div class="absolute -top-20 -right-20 h-40 w-40 rounded-full bg-cyan-500/10 blur-3xl"></div>
+              <div class="absolute -bottom-20 -left-20 h-40 w-40 rounded-full bg-lime-500/10 blur-3xl"></div>
+
+              <div class="relative z-10">
+                {/* Hours Badge */}
+                <div class="mb-8 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-orange-400 to-orange-500 px-5 py-2 text-sm font-bold text-white shadow-lg">
+                  <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8zm.5-13H11v6l5.2 3.2.8-1.3-5-3V7z" />
+                  </svg>
+                  HOURS
+                </div>
+
+                {/* Hours List */}
+                <div class="space-y-6">
+                  {hours.map((hour) => (
+                    <div>
+                      <h4 class="font-heading text-lg font-semibold text-white">{hour.day}</h4>
+                      <p class="mt-1 text-cyan-100 text-base font-medium">{hour.time}</p>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Contact CTA */}
+                <div class="mt-8 border-t border-cyan-500/30 pt-8">
+                  <p class="text-sm text-cyan-100/80">
+                    Questions about visiting? Email us at <span class="font-semibold text-white">hello@livingbranch.org</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="bg-gradient-to-b from-blue-50 to-white py-16 md:py-24">
+      <div class="container-page">
+        <div class="mx-auto max-w-2xl">
+          <div class="rounded-2xl border border-(--border) bg-white p-8 md:p-12 shadow-sm">
+            <h2 class="font-heading text-3xl font-semibold tracking-tight text-(--fg)">Send us a message</h2>
+            <p class="mt-3 text-(--muted)">Fill out the form below and we'll get back to you within 24 hours.</p>
+
+            <form class="mt-8 space-y-6">
+              <div class="grid gap-6 md:grid-cols-2">
+                <div class="group">
+                  <label for="name" class="block text-sm font-semibold text-(--fg)">Full name</label>
+                  <input
+                    type="text"
+                    id="name"
+                    placeholder="Your name"
+                    class="mt-2 w-full rounded-xl border border-(--border) bg-white px-4 py-3 text-(--fg) transition-colors focus:border-(--brand-cyan) focus:outline-none focus:ring-2 focus:ring-(--brand-cyan) focus:ring-opacity-20"
+                  />
+                </div>
+                <div class="group">
+                  <label for="email" class="block text-sm font-semibold text-(--fg)">Email</label>
+                  <input
+                    type="email"
+                    id="email"
+                    placeholder="your@email.com"
+                    class="mt-2 w-full rounded-xl border border-(--border) bg-white px-4 py-3 text-(--fg) transition-colors focus:border-(--brand-cyan) focus:outline-none focus:ring-2 focus:ring-(--brand-cyan) focus:ring-opacity-20"
+                  />
+                </div>
+              </div>
+
+              <div class="group">
+                <label for="subject" class="block text-sm font-semibold text-(--fg)">Subject</label>
+                <input
+                  type="text"
+                  id="subject"
+                  placeholder="How can we help?"
+                  class="mt-2 w-full rounded-xl border border-(--border) bg-white px-4 py-3 text-(--fg) transition-colors focus:border-(--brand-cyan) focus:outline-none focus:ring-2 focus:ring-(--brand-cyan) focus:ring-opacity-20"
+                />
+              </div>
+
+              <div class="group">
+                <label for="message" class="block text-sm font-semibold text-(--fg)">Message</label>
+                <textarea
+                  id="message"
+                  rows={6}
+                  placeholder="Tell us more about your inquiry..."
+                  class="mt-2 w-full rounded-xl border border-(--border) bg-white px-4 py-3 text-(--fg) transition-colors focus:border-(--brand-cyan) focus:outline-none focus:ring-2 focus:ring-(--brand-cyan) focus:ring-opacity-20"
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                class="w-full rounded-xl bg-gradient-to-r from-cyan-500 via-blue-500 to-cyan-600 px-6 py-3 font-semibold text-white shadow-lg transition-all duration-300 hover:shadow-xl hover:shadow-cyan-500/30"
+              >
+                Send message
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 </Layout>
+
+<style>
+  /* Vibrant contact cards with smooth transitions */
+  .contact-info-card {
+    animation: fade-up 520ms ease both;
+  }
+
+  .contact-info-card:nth-child(2) {
+    animation-delay: 120ms;
+  }
+
+  .contact-info-card:nth-child(3) {
+    animation-delay: 240ms;
+  }
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Form input animations */
+  input,
+  textarea {
+    background-color: #ffffff;
+  }
+
+  input:focus,
+  textarea:focus {
+    background-color: #f0f9ff;
+  }
+
+  /* Smooth hover effects */
+  button {
+    position: relative;
+    overflow: hidden;
+  }
+
+  button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 300ms ease;
+  }
+
+  button:hover::before {
+    left: 100%;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .contact-info-card,
+    input,
+    textarea,
+    button {
+      animation: none;
+      transition: none;
+    }
+  }
+</style>
 
