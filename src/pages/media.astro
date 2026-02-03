@@ -1,11 +1,242 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import impactOne from "../images/placeholders/impact-1.svg";
+import impactTwo from "../images/placeholders/impact-2.svg";
+import impactThree from "../images/placeholders/impact-3.svg";
+import impactFour from "../images/placeholders/impact-4.svg";
+import impactFive from "../images/placeholders/impact-5.svg";
+
+const galleries = [
+  {
+    niche: "Education Access",
+    description: "Learning spaces, mentoring programmes, and school supply initiatives",
+    color: "#22c55e",
+    images: [
+      { src: impactOne, alt: "Classroom learning session" },
+      { src: impactTwo, alt: "Student mentoring" },
+      { src: impactThree, alt: "School supplies distribution" },
+      { src: impactFour, alt: "Digital literacy class" },
+      { src: impactFive, alt: "School graduation ceremony" },
+      { src: impactOne, alt: "Library opening" }
+    ]
+  },
+  {
+    niche: "Health & Wellness",
+    description: "Mobile clinics, health camps, and preventive care outreach",
+    color: "#0ea5e9",
+    images: [
+      { src: impactTwo, alt: "Mobile health camp" },
+      { src: impactThree, alt: "Medical checkup" },
+      { src: impactFour, alt: "Health awareness session" },
+      { src: impactFive, alt: "Vaccination drive" },
+      { src: impactOne, alt: "Maternal health program" }
+    ]
+  },
+  {
+    niche: "Women Empowerment",
+    description: "Skills training, income generation, and leadership circles",
+    color: "#ff007a",
+    images: [
+      { src: impactThree, alt: "Women skills training" },
+      { src: impactFour, alt: "Women cooperative group" },
+      { src: impactFive, alt: "Female entrepreneur" },
+      { src: impactOne, alt: "Women leadership circle" },
+      { src: impactTwo, alt: "Vocational training" }
+    ]
+  },
+  {
+    niche: "Youth Development",
+    description: "Career skills, digital literacy, and mentorship programmes",
+    color: "#ff6a1a",
+    images: [
+      { src: impactFour, alt: "Youth vocational training" },
+      { src: impactFive, alt: "Digital skills workshop" },
+      { src: impactOne, alt: "Youth mentorship" },
+      { src: impactTwo, alt: "Career counseling" },
+      { src: impactThree, alt: "Youth entrepreneurship" },
+      { src: impactFour, alt: "Job placement ceremony" }
+    ]
+  },
+  {
+    niche: "Disaster Response",
+    description: "Emergency relief, rehabilitation, and community resilience",
+    color: "#00baf2",
+    images: [
+      { src: impactFive, alt: "Relief distribution" },
+      { src: impactOne, alt: "Disaster rehabilitation" },
+      { src: impactTwo, alt: "Community resilience building" },
+      { src: impactThree, alt: "Emergency aid" }
+    ]
+  },
+  {
+    niche: "Livelihood Support",
+    description: "Microenterprises, skill development, and economic stability",
+    color: "#7cff00",
+    images: [
+      { src: impactOne, alt: "Microenterprise training" },
+      { src: impactTwo, alt: "Handicraft workshop" },
+      { src: impactThree, alt: "Market linkage program" },
+      { src: impactFour, alt: "Income generation group" },
+      { src: impactFive, alt: "Business skills training" },
+      { src: impactOne, alt: "Cooperative success story" }
+    ]
+  }
+];
 ---
 
-<Layout title="Media | Living Branch Development">
-  <section class="container-page py-16">
-    <h1 class="font-heading text-3xl font-semibold tracking-tight">Media</h1>
-    <p class="mt-4 text-[var(--muted)]">Coming soon.</p>
-  </section>
+<Layout title="Media Gallery | Living Branch Development">
+  <main id="main">
+    <!-- Hero Section -->
+    <section class="bg-linear-to-br from-slate-900 via-blue-900 to-cyan-900 py-16 md:py-24">
+      <div class="container-page">
+        <div class="mx-auto max-w-3xl text-center">
+          <p class="font-semibold uppercase tracking-widest text-orange-400">Visual Impact</p>
+          <h1 class="mt-3 font-heading text-4xl font-semibold tracking-tight text-white md:text-5xl">
+            Stories told through images
+          </h1>
+          <p class="mt-4 text-lg text-cyan-100">
+            Explore our work across diverse communities. Every photograph captures a moment of change, connection, and hope.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery Grid Section -->
+    <section class="py-16 md:py-24">
+      <div class="container-page">
+        {/* Gallery Niche Sections */}
+        {galleries.map((gallery) => (
+          <div class="mb-20 md:mb-28">
+            <div class="mb-8">
+              <div class="inline-flex items-center gap-3 rounded-full px-4 py-2 bg-linear-to-r from-blue-50 to-cyan-50 border border-blue-200">
+                <span
+                  class="h-3 w-3 rounded-full"
+                  style={`background-color: ${gallery.color}`}
+                  aria-hidden="true"
+                ></span>
+                <p class="font-semibold text-(--fg)">{gallery.niche}</p>
+              </div>
+              <p class="mt-3 text-(--muted) text-lg">{gallery.description}</p>
+            </div>
+
+            {/* Bento Grid - Responsive Multi-Card Layout */}
+            <div class="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4 lg:gap-5">
+              {gallery.images.map((image, idx) => {
+                let cardClasses = "group relative overflow-hidden rounded-xl shadow-md transition-all duration-300 hover:shadow-xl cursor-pointer";
+                
+                // Bento grid pattern
+                if (idx === 0) {
+                  // Featured card - large
+                  cardClasses += " col-span-2 md:col-span-2 md:row-span-2 h-40 md:h-80 lg:h-96";
+                } else if (idx === 1 || idx === 2) {
+                  // Top cards next to featured
+                  cardClasses += " col-span-1 h-40 md:h-40 lg:h-48";
+                } else if (idx === 3) {
+                  // Medium card
+                  cardClasses += " col-span-2 md:col-span-2 h-40 md:h-48 lg:h-56";
+                } else if (idx === 4 || idx === 5) {
+                  // Small cards
+                  cardClasses += " col-span-1 h-40 md:h-48 lg:h-56";
+                } else {
+                  // Default
+                  cardClasses += " col-span-1 h-40 md:h-48 lg:h-56";
+                }
+
+                return (
+                  <div class={cardClasses}>
+                    <Image
+                      src={image.src}
+                      alt={image.alt}
+                      width={300}
+                      height={300}
+                      loading="lazy"
+                      class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300"></div>
+                    <div class="absolute inset-0 flex items-end justify-start p-3 md:p-4">
+                      <p class="text-xs md:text-sm font-semibold text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        {image.alt}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Gallery Statistics -->
+    <section class="bg-linear-to-r from-slate-50 to-blue-50 py-16 md:py-20">
+      <div class="container-page">
+        <div class="grid gap-8 md:grid-cols-4">
+          {[
+            { stat: "2,400+", label: "Moments captured" },
+            { stat: "48+", label: "Communities featured" },
+            { stat: "6", label: "Impact niches" },
+            { stat: "1", label: "Shared mission" }
+          ].map((item) => (
+            <div class="text-center">
+              <p class="font-heading text-4xl font-bold text-(--brand-cyan)">{item.stat}</p>
+              <p class="mt-2 text-(--muted)">{item.label}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-16 md:py-24">
+      <div class="container-page">
+        <div class="rounded-2xl border border-(--border) bg-linear-to-br from-white to-blue-50 p-12 text-center">
+          <h2 class="font-heading text-3xl font-semibold text-(--fg)">Ready to see more?</h2>
+          <p class="mt-3 text-(--muted) text-lg">
+            Follow our social media for real-time updates, stories, and behind-the-scenes moments from the field.
+          </p>
+          <div class="mt-8 flex flex-wrap justify-center gap-4">
+            <a
+              href="#"
+              class="inline-flex items-center gap-2 rounded-full bg-(--brand-cyan) px-6 py-3 font-semibold text-white hover:shadow-lg transition-shadow"
+            >
+              Follow on Instagram
+            </a>
+            <a
+              href="#"
+              class="inline-flex items-center gap-2 rounded-full border-2 border-(--brand-cyan) px-6 py-3 font-semibold text-(--brand-cyan) hover:bg-(--brand-cyan) hover:text-white transition-colors"
+            >
+              Watch on YouTube
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 </Layout>
+
+<style>
+  /* Smooth hover effects for gallery cards */
+  .group {
+    animation: fade-up 520ms ease both;
+  }
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .group {
+      animation: none;
+      transition: none;
+    }
+  }
+</style>
 
