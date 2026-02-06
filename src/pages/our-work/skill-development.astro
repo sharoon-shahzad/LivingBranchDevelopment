@@ -1,13 +1,406 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import impact1 from "../../images/placeholders/impact-1.svg";
+import impact2 from "../../images/placeholders/impact-2.svg";
+import impact3 from "../../images/placeholders/impact-3.svg";
+
+const tiers = [
+  {
+    title: "Foundation skills",
+    description: "Literacy, numeracy, and workplace readiness for new learners."
+  },
+  {
+    title: "Vocational track",
+    description: "Hands-on training in in-demand trades with assessments."
+  },
+  {
+    title: "Placement support",
+    description: "Mentorship, interview prep, and placement connections."
+  }
+];
+
+const outcomes = [
+  { value: "900+", label: "Trainees" },
+  { value: "60%", label: "Placed" },
+  { value: "18", label: "Training cohorts" }
+];
+
+const curriculum = [
+  {
+    title: "Orientation",
+    text: "Goal setting, confidence building, and baseline assessments."
+  },
+  {
+    title: "Hands-on labs",
+    text: "Project-based practice with mentors and peer learning."
+  },
+  {
+    title: "Certification",
+    text: "Skill evaluation aligned with employer needs."
+  },
+  {
+    title: "Placement",
+    text: "Hiring connects, entrepreneurship guidance, and follow-up."
+  }
+];
+
+const mentorNotes = [
+  "Weekly coaching to remove barriers",
+  "Career mapping for long-term growth",
+  "Support for entrepreneurship and micro-businesses"
+];
+
+const techHubFeatures = [
+  {
+    title: "Digital literacy",
+    description: "Foundational computer skills, safe internet use, and workplace tools."
+  },
+  {
+    title: "Industry labs",
+    description: "Hands-on training with real-world simulations and guided practice."
+  },
+  {
+    title: "Career launch",
+    description: "Portfolio building, mock interviews, and placement pipelines."
+  }
+];
+
+const techHubHighlights = [
+  "Open 6 days a week with community trainers",
+  "Accessible equipment and learning pods",
+  "Scholarship seats for vulnerable learners"
+];
 ---
 
-<Layout title="Skill Development | Living Branch Development">
-  <section class="container-page py-16">
-    <h1 class="font-heading text-3xl font-semibold tracking-tight">Skill Development</h1>
-    <p class="mt-4 max-w-2xl text-[var(--muted)]">
-      This page will highlight vocational training, mentorship, and livelihood support initiatives.
-    </p>
+<Layout
+  title="Skill Development | Living Branch Development"
+  description="Living Branch Development skill development programmes deliver training, mentorship, and livelihood support."
+>
+  <section class="skills-hero">
+    <div class="container-page grid gap-10 py-16 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+      <div>
+        <p
+          class="inline-flex items-center gap-2 rounded-full bg-white/75 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-[color-mix(in_srgb,var(--brand-navy)_80%,black)] shadow-sm ring-1 ring-black/5"
+        >
+          Programme focus
+        </p>
+        <h1 class="mt-4 font-heading text-4xl font-semibold tracking-tight text-[var(--fg)] sm:text-5xl">
+          Skills that open pathways to stable income.
+        </h1>
+        <p class="mt-4 max-w-xl text-base leading-relaxed text-[var(--muted)] sm:text-lg">
+          We train youth and caregivers with market-ready skills, mentorship, and placement support so they can
+          secure meaningful work.
+        </p>
+        <div class="mt-7 flex flex-wrap gap-3">
+          <a
+            href="/donate"
+            class="inline-flex items-center justify-center rounded-full bg-[var(--brand-orange)] px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-[color-mix(in_srgb,var(--brand-orange)_88%,black)]"
+          >
+            Support training
+          </a>
+          <a
+            href="/get-involved"
+            class="inline-flex items-center justify-center rounded-full border border-[var(--border)] bg-white/80 px-6 py-3 text-sm font-semibold text-[var(--fg)] transition hover:border-[var(--brand-navy)] hover:bg-white"
+          >
+            Become a mentor
+          </a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <img
+          src={impact1.src}
+          alt="Skill training placeholder"
+          width="520"
+          height="420"
+          loading="lazy"
+          decoding="async"
+          class="h-full w-full object-contain"
+        />
+        <div class="tier-grid">
+          {tiers.map((tier) => (
+            <div class="tier-card">
+              <h3 class="font-heading text-sm font-semibold text-[var(--fg)]">{tier.title}</h3>
+              <p class="mt-2 text-xs leading-relaxed text-[var(--muted)]">{tier.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="outcomes-band">
+    <div class="container-page py-10 sm:py-12">
+      <div class="outcomes-grid">
+        {outcomes.map((stat) => (
+          <div class="outcome-card">
+            <p class="text-2xl font-semibold text-[var(--fg)]">{stat.value}</p>
+            <p class="mt-1 text-xs uppercase tracking-[0.2em] text-[var(--muted)]">{stat.label}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="container-page py-12 sm:py-14">
+    <div class="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[color-mix(in_srgb,var(--brand-navy)_70%,var(--muted))]">
+          Curriculum journey
+        </p>
+        <h2 class="mt-3 font-heading text-2xl font-semibold tracking-tight text-[var(--fg)] sm:text-3xl">
+          A clear path from training to placement.
+        </h2>
+        <div class="timeline">
+          {curriculum.map((step, index) => (
+            <div class="timeline-step">
+              <div class="timeline-marker">
+                <span>{index + 1}</span>
+              </div>
+              <div>
+                <h3 class="font-heading text-lg font-semibold text-[var(--fg)]">{step.title}</h3>
+                <p class="mt-2 text-sm leading-relaxed text-[var(--muted)]">{step.text}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div class="mentor-card">
+        <img
+          src={impact2.src}
+          alt="Mentor support placeholder"
+          width="420"
+          height="320"
+          loading="lazy"
+          decoding="async"
+          class="h-full w-full object-contain"
+        />
+        <div class="mt-5">
+          <h3 class="font-heading text-lg font-semibold text-[var(--fg)]">Mentor spotlight</h3>
+          <ul class="mt-3 grid gap-2 text-sm text-[var(--muted)]">
+            {mentorNotes.map((note) => (
+              <li class="flex items-start gap-3">
+                <span class="mt-1 h-2 w-2 rounded-full bg-[var(--brand-orange)]" aria-hidden="true"></span>
+                <span>{note}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="techhub-band">
+    <div class="container-page py-12 sm:py-14">
+      <div class="techhub-grid">
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[color-mix(in_srgb,var(--brand-navy)_70%,var(--muted))]">
+            TechHub development center
+          </p>
+          <h2 class="mt-3 font-heading text-2xl font-semibold tracking-tight text-[var(--fg)] sm:text-3xl">
+            A community tech space for future-ready skills.
+          </h2>
+          <p class="mt-3 max-w-xl text-sm leading-relaxed text-[var(--muted)] sm:text-base">
+            Our TechHub gives learners access to devices, mentors, and structured pathways that connect training
+            to real job opportunities.
+          </p>
+          <div class="mt-6 grid gap-4">
+            {techHubFeatures.map((feature) => (
+              <div class="techhub-card">
+                <h3 class="font-heading text-base font-semibold text-[var(--fg)]">{feature.title}</h3>
+                <p class="mt-2 text-sm leading-relaxed text-[var(--muted)]">{feature.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div class="techhub-media">
+          <img
+            src={impact3.src}
+            alt="TechHub development center placeholder"
+            width="520"
+            height="420"
+            loading="lazy"
+            decoding="async"
+            class="h-full w-full object-contain"
+          />
+          <div class="techhub-highlight">
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--muted)]">What happens here</p>
+            <ul class="mt-3 grid gap-2 text-sm text-[var(--muted)]">
+              {techHubHighlights.map((item) => (
+                <li class="flex items-start gap-3">
+                  <span class="mt-1 h-2 w-2 rounded-full bg-[var(--brand-orange)]" aria-hidden="true"></span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-page py-12 sm:py-14">
+    <div class="cta-panel">
+      <div>
+        <h2 class="font-heading text-2xl font-semibold tracking-tight text-[var(--fg)] sm:text-3xl">
+          Help learners turn skills into livelihoods.
+        </h2>
+        <p class="mt-3 max-w-xl text-sm leading-relaxed text-[var(--muted)] sm:text-base">
+          Your support keeps training labs open, mentors available, and placements accessible.
+        </p>
+      </div>
+      <div class="flex flex-wrap gap-3">
+        <a
+          href="/donate"
+          class="inline-flex items-center justify-center rounded-full bg-[var(--brand-navy)] px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-[color-mix(in_srgb,var(--brand-navy)_85%,black)]"
+        >
+          Donate for skills
+        </a>
+        <a
+          href="/get-involved"
+          class="inline-flex items-center justify-center rounded-full border border-[var(--border)] bg-white px-6 py-3 text-sm font-semibold text-[var(--fg)] transition hover:border-[var(--brand-navy)]"
+        >
+          Join the mentor team
+        </a>
+      </div>
+    </div>
   </section>
 </Layout>
+
+<style>
+  .skills-hero {
+    background: #fff8f2;
+  }
+
+  .hero-card {
+    border-radius: 28px;
+    border: 1px solid var(--border);
+    background: #ffffff;
+    padding: 1.8rem;
+    box-shadow: 0 18px 40px rgba(12, 16, 34, 0.08);
+  }
+
+  .tier-grid {
+    margin-top: 1.4rem;
+    display: grid;
+    gap: 0.8rem;
+  }
+
+  .tier-card {
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    background: #fffaf5;
+    padding: 0.8rem 0.9rem;
+  }
+
+  .outcomes-band {
+    background: #fff2e7;
+  }
+
+  .outcomes-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+
+  .outcome-card {
+    border-radius: 18px;
+    border: 1px solid var(--border);
+    background: #ffffff;
+    padding: 1rem 1.2rem;
+    box-shadow: 0 10px 18px rgba(12, 16, 34, 0.06);
+  }
+
+  .timeline {
+    margin-top: 2rem;
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .timeline-step {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: auto 1fr;
+    align-items: flex-start;
+  }
+
+  .timeline-marker {
+    height: 40px;
+    width: 40px;
+    border-radius: 14px;
+    background: color-mix(in srgb, var(--brand-orange) 20%, white);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: color-mix(in srgb, var(--brand-navy) 80%, black);
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--brand-orange) 40%, white);
+  }
+
+  .mentor-card {
+    border-radius: 24px;
+    border: 1px solid var(--border);
+    background: #ffffff;
+    padding: 1.5rem;
+    box-shadow: 0 16px 32px rgba(12, 16, 34, 0.08);
+  }
+
+  .techhub-band {
+    background: #fff7f0;
+  }
+
+  .techhub-grid {
+    display: grid;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .techhub-card {
+    border-radius: 18px;
+    border: 1px solid var(--border);
+    background: #ffffff;
+    padding: 1rem 1.2rem;
+    box-shadow: 0 10px 18px rgba(12, 16, 34, 0.06);
+  }
+
+  .techhub-media {
+    border-radius: 24px;
+    border: 1px solid var(--border);
+    background: #ffffff;
+    padding: 1.5rem;
+    box-shadow: 0 16px 32px rgba(12, 16, 34, 0.08);
+  }
+
+  .techhub-highlight {
+    margin-top: 1.2rem;
+    border-radius: 18px;
+    border: 1px dashed color-mix(in srgb, var(--brand-orange) 35%, white);
+    background: #fffaf6;
+    padding: 1rem 1.1rem;
+  }
+
+  .cta-panel {
+    border-radius: 28px;
+    border: 1px solid var(--border);
+    background: #fff1e2;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .cta-panel {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .techhub-grid {
+      grid-template-columns: 1.05fr 0.95fr;
+    }
+  }
+</style>
 
