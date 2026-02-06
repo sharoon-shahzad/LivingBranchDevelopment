@@ -1,5 +1,28 @@
 ---
 import Layout from "../layouts/Layout.astro";
+
+const programmeLinks = [
+  {
+    title: "Education",
+    description: "Keep children learning with tutoring and family support.",
+    href: "/our-work/education"
+  },
+  {
+    title: "Health Care",
+    description: "Bring screening, maternal care, and referrals closer to families.",
+    href: "/our-work/health-care"
+  },
+  {
+    title: "Skill Development",
+    description: "Train youth and caregivers for steady, dignified livelihoods.",
+    href: "/our-work/skill-development"
+  },
+  {
+    title: "Women Empowerment",
+    description: "Support safety, leadership, and economic resilience for women.",
+    href: "/our-work/women-empowerment"
+  }
+];
 ---
 
 <Layout title="Get involved | Living Branch Development">
@@ -95,6 +118,31 @@ import Layout from "../layouts/Layout.astro";
       </div>
     </div>
   </section>
+
+  <section class="container-page py-12 sm:py-14">
+    <div class="programme-header">
+      <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[color-mix(in_srgb,var(--brand-navy)_70%,var(--muted))]">
+        Support a programme
+      </p>
+      <h2 class="mt-3 font-heading text-2xl font-semibold tracking-tight text-[var(--fg)] sm:text-3xl">
+        Choose where you want your impact to begin.
+      </h2>
+      <p class="mt-3 max-w-2xl text-sm leading-relaxed text-[var(--muted)] sm:text-base">
+        Each programme meets a different community need. Pick a focus area and we will guide you to the right team.
+      </p>
+    </div>
+    <div class="programme-grid">
+      {programmeLinks.map((programme) => (
+        <a href={programme.href} class="programme-card">
+          <div>
+            <h3 class="font-heading text-lg font-semibold text-[var(--fg)]">{programme.title}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-[var(--muted)]">{programme.description}</p>
+          </div>
+          <span class="programme-link">Explore programme</span>
+        </a>
+      ))}
+    </div>
+  </section>
 </Layout>
 
 <style>
@@ -143,6 +191,44 @@ import Layout from "../layouts/Layout.astro";
     border: 1px dashed color-mix(in srgb, var(--brand-navy) 20%, white);
     background: #f7f8ff;
     padding: 1rem 1.1rem;
+  }
+
+  .programme-header {
+    max-width: 44rem;
+  }
+
+  .programme-grid {
+    margin-top: 2rem;
+    display: grid;
+    gap: 1.2rem;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+
+  .programme-card {
+    border-radius: 22px;
+    border: 1px solid var(--border);
+    background: #ffffff;
+    padding: 1.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    justify-content: space-between;
+    box-shadow: 0 12px 22px rgba(12, 16, 34, 0.08);
+    transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+  }
+
+  .programme-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 30px rgba(12, 16, 34, 0.12);
+    border-color: color-mix(in srgb, var(--brand-navy) 20%, var(--border));
+  }
+
+  .programme-link {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: color-mix(in srgb, var(--brand-navy) 80%, black);
   }
 
   @media (min-width: 1024px) {
