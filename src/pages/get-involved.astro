@@ -23,6 +23,21 @@ const programmeLinks = [
     href: "/our-work/women-empowerment"
   }
 ];
+
+const partnerReasons = [
+  {
+    title: "Community-led delivery",
+    description: "We co-design every intervention with local leaders so support stays relevant and trusted."
+  },
+  {
+    title: "Transparent reporting",
+    description: "Clear updates, budgets, and milestones keep partners informed at every stage."
+  },
+  {
+    title: "Measured outcomes",
+    description: "We track progress with simple, human metrics that show real changes in daily life."
+  }
+];
 ---
 
 <Layout title="Get involved | Living Branch Development">
@@ -143,6 +158,45 @@ const programmeLinks = [
       ))}
     </div>
   </section>
+
+  <section class="partner-band" id="partner">
+    <div class="container-page py-12 sm:py-14">
+      <div class="partner-header">
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[color-mix(in_srgb,var(--brand-navy)_70%,var(--muted))]">
+          Why partner with us
+        </p>
+        <h2 class="mt-3 font-heading text-2xl font-semibold tracking-tight text-[var(--fg)] sm:text-3xl">
+          Trusted collaboration that turns support into outcomes.
+        </h2>
+        <p class="mt-3 max-w-2xl text-sm leading-relaxed text-[var(--muted)] sm:text-base">
+          We build long-term partnerships rooted in local insight, shared accountability, and measurable impact.
+        </p>
+      </div>
+      <div class="partner-grid">
+        {partnerReasons.map((reason, index) => (
+          <div class="partner-card">
+            <span class="partner-index">0{index + 1}</span>
+            <h3 class="mt-4 font-heading text-lg font-semibold text-[var(--fg)]">{reason.title}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-[var(--muted)]">{reason.description}</p>
+          </div>
+        ))}
+      </div>
+      <div class="partner-cta">
+        <div>
+          <h3 class="font-heading text-xl font-semibold text-[var(--fg)]">Let’s build a partnership plan.</h3>
+          <p class="mt-2 text-sm text-[var(--muted)]">
+            We will align your goals with the programmes that need you most.
+          </p>
+        </div>
+        <a
+          href="/contact"
+          class="inline-flex items-center justify-center rounded-full bg-[var(--brand-navy)] px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-[color-mix(in_srgb,var(--brand-navy)_85%,black)]"
+        >
+          Start a partnership
+        </a>
+      </div>
+    </div>
+  </section>
 </Layout>
 
 <style>
@@ -229,6 +283,63 @@ const programmeLinks = [
     letter-spacing: 0.18em;
     text-transform: uppercase;
     color: color-mix(in srgb, var(--brand-navy) 80%, black);
+  }
+
+  .partner-band {
+    background: #f8f5ff;
+  }
+
+  .partner-header {
+    max-width: 44rem;
+  }
+
+  .partner-grid {
+    margin-top: 2rem;
+    display: grid;
+    gap: 1.2rem;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+
+  .partner-card {
+    border-radius: 22px;
+    border: 1px solid var(--border);
+    background: #ffffff;
+    padding: 1.4rem;
+    box-shadow: 0 12px 22px rgba(12, 16, 34, 0.08);
+  }
+
+  .partner-index {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--brand-navy) 12%, white);
+    padding: 0.35rem 0.7rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: color-mix(in srgb, var(--brand-navy) 80%, black);
+  }
+
+  .partner-cta {
+    margin-top: 2rem;
+    border-radius: 22px;
+    border: 1px solid var(--border);
+    background: #ffffff;
+    padding: 1.2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    box-shadow: 0 12px 22px rgba(12, 16, 34, 0.08);
+  }
+
+  @media (min-width: 768px) {
+    .partner-cta {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
   }
 
   @media (min-width: 1024px) {
