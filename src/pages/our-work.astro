@@ -1,11 +1,416 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import impact1 from "../images/placeholders/impact-1.svg";
+import impact2 from "../images/placeholders/impact-2.svg";
+import impact3 from "../images/placeholders/impact-3.svg";
+import impact4 from "../images/placeholders/impact-4.svg";
+import impact5 from "../images/placeholders/impact-5.svg";
+
+const programmes = [
+  {
+    key: "education",
+    label: "Education",
+    promise: "Safe learning pathways for every child.",
+    summary:
+      "We partner with schools and communities to create consistent, joyful learning environments. Our focus is on access, attendance, and confidence in the classroom.",
+    serves: "Children aged 6-18 in under-resourced communities.",
+    bullets: [
+      "Bridge classes and learning support",
+      "Nutrition and wellness check-ins",
+      "Family engagement for attendance"
+    ],
+    stats: ["1,200+ learners", "45 community educators", "68% attendance lift"],
+    accent: "var(--brand-lime)",
+    image: impact1,
+    href: "/our-work/education"
+  },
+  {
+    key: "healthcare",
+    label: "Health Care",
+    promise: "Care that reaches families where they live.",
+    summary:
+      "We deliver preventative and primary care through mobile outreach and community health partners. The goal is early care, quick referrals, and healthier households.",
+    serves: "Families in hard-to-reach and low-income areas.",
+    bullets: [
+      "Mobile clinics and screenings",
+      "Maternal and child health support",
+      "Referral pathways for critical cases"
+    ],
+    stats: ["3,500+ screenings", "120+ camps", "24 partner clinics"],
+    accent: "var(--brand-cyan)",
+    image: impact2,
+    href: "/our-work/health-care"
+  },
+  {
+    key: "skills",
+    label: "Skill Development",
+    promise: "Skills that open doors to stable income.",
+    summary:
+      "We train youth and caregivers with job-ready skills and mentoring. Graduates are supported with placement and micro-entrepreneurship guidance.",
+    serves: "Youth and caregivers seeking livelihood pathways.",
+    bullets: [
+      "Short-term vocational training",
+      "Mentoring and placement support",
+      "Digital and financial literacy"
+    ],
+    stats: ["900+ trainees", "60% placed", "18 training cohorts"],
+    accent: "var(--brand-orange)",
+    image: impact3,
+    href: "/our-work/skill-development"
+  },
+  {
+    key: "women",
+    label: "Women Empowerment",
+    promise: "Leadership and safety for girls and women.",
+    summary:
+      "We create community spaces for leadership, safety, and economic resilience. Women and girls lead the change in their homes and neighborhoods.",
+    serves: "Adolescent girls and women in vulnerable settings.",
+    bullets: [
+      "Leadership and rights awareness",
+      "Community safety networks",
+      "Enterprise and savings groups"
+    ],
+    stats: ["520+ women leaders", "40+ groups formed", "75% retention"],
+    accent: "var(--brand-pink)",
+    image: impact4,
+    href: "/our-work/women-empowerment"
+  },
+  {
+    key: "counselling",
+    label: "Counselling",
+    promise: "Mental health support that is compassionate and local.",
+    summary:
+      "We provide psychosocial support for children and families coping with stress and trauma. The focus is on safe conversations and practical recovery plans.",
+    serves: "Children, caregivers, and families under stress.",
+    bullets: [
+      "Individual and family counselling",
+      "Group sessions for resilience",
+      "Referral networks for specialized care"
+    ],
+    stats: ["1,100+ sessions", "12 local partners", "85% follow-up rate"],
+    accent: "var(--brand-navy)",
+    image: impact5,
+    href: "/our-work/counselling"
+  },
+  {
+    key: "disaster",
+    label: "Disaster Response",
+    promise: "Rapid relief and long-term recovery.",
+    summary:
+      "We respond quickly with essentials and continue into recovery with shelter, health, and livelihood support. Communities are guided to rebuild with dignity.",
+    serves: "Families affected by disasters and emergencies.",
+    bullets: [
+      "Emergency relief and essentials",
+      "Short-term recovery kits",
+      "Community-led resilience planning"
+    ],
+    stats: ["2,400+ families", "8 rapid responses", "6 recovery hubs"],
+    accent: "#ff4b3a",
+    image: impact1,
+    href: "/our-work/disaster-response"
+  }
+];
+
+const impactTotals = [
+  { value: "15k+", label: "People reached" },
+  { value: "120+", label: "Communities served" },
+  { value: "260+", label: "Local volunteers" },
+  { value: "35+", label: "Partners and allies" }
+];
+
 ---
 
-<Layout title="Our Work | Living Branch Development">
-  <section class="container-page py-16">
-    <h1 class="font-heading text-3xl font-semibold tracking-tight">Our Work</h1>
-    <p class="mt-4 text-[var(--muted)]">Coming soon.</p>
+<Layout
+  title="Our Work | Living Branch Development"
+  description="Explore Living Branch Development programmes in education, health, livelihoods, and community resilience."
+>
+  <section class="our-work-hero">
+    <div class="container-page py-16 sm:py-20">
+      <p
+        class="inline-flex items-center gap-2 rounded-full bg-white/75 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-[color-mix(in_srgb,var(--brand-navy)_80%,black)] shadow-sm ring-1 ring-black/5"
+      >
+        Our work
+      </p>
+      <h1 class="mt-4 font-heading text-4xl font-semibold tracking-tight text-[var(--fg)] sm:text-5xl">
+        Programmes that protect dignity and opportunity.
+      </h1>
+      <p class="mt-4 max-w-2xl text-base leading-relaxed text-[var(--muted)] sm:text-lg">
+        We run six connected programmes that respond to real community needs, from education and health
+        to livelihoods, wellbeing, and disaster recovery.
+      </p>
+
+      <nav class="mt-8 flex flex-wrap gap-2" aria-label="Programme jump links">
+        {programmes.map((p) => (
+          <a href={`#${p.key}`} class="programme-chip">
+            {p.label}
+          </a>
+        ))}
+      </nav>
+    </div>
+  </section>
+
+  {programmes.map((p, index) => (
+    <section id={p.key} class="container-page scroll-mt-24 py-12 sm:py-14" aria-labelledby={`${p.key}-title`}>
+      <div
+        class={`grid items-center gap-10 lg:gap-16 ${
+          index % 2 === 1 ? "md:grid-cols-[1.1fr_1.2fr]" : "md:grid-cols-[1.2fr_1.1fr]"
+        }`}
+      >
+        <div class={`programme-media ${index % 2 === 1 ? "md:order-2" : ""}`}>
+          <img
+            src={p.image.src}
+            alt={`${p.label} programme placeholder`}
+            width="560"
+            height="420"
+            loading="lazy"
+            decoding="async"
+            class="h-full w-full object-contain"
+          />
+        </div>
+
+        <div class={`${index % 2 === 1 ? "md:order-1" : ""}`}>
+          <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[color-mix(in_srgb,var(--brand-navy)_70%,var(--muted))]">
+            Programme
+          </p>
+          <div class="mt-2 flex items-center gap-3">
+            <span
+              class="inline-flex h-10 w-10 items-center justify-center rounded-2xl text-white shadow-sm"
+              style={`background:${p.accent}`}
+              aria-hidden="true"
+            >
+              {p.key === "education" && (
+                <svg viewBox="0 0 24 24" class="h-5 w-5" aria-hidden="true">
+                  <path
+                    fill="currentColor"
+                    d="M4 9.5 12 6l8 3.5-8 3.5L4 9.5Zm1 3.1 7 3.1 7-3.1V14l-7 3.5L5 14v-1.4Z"
+                  />
+                </svg>
+              )}
+              {p.key === "healthcare" && (
+                <svg viewBox="0 0 24 24" class="h-5 w-5" aria-hidden="true">
+                  <path
+                    fill="currentColor"
+                    d="M5 13c-1.7-1.7-1.7-4.5 0-6.2A4.4 4.4 0 0 1 8.1 6c1.1 0 2.1.4 2.9 1.2.8-.8 1.8-1.2 2.9-1.2 1.2 0 2.3.5 3.1 1.4 1.7 1.7 1.7 4.5 0 6.2l-6 6-6-6Z"
+                  />
+                  <path
+                    fill="#fff"
+                    d="M11 15h2l.7-2.1H15a1 1 0 0 0 .9-.6l.6-1.3h-2l-.3.7h-1l-.7-2.1-1.5 4.4-.5-1.6H9l.7 2.6a1 1 0 0 0 1 .7Z"
+                  />
+                </svg>
+              )}
+              {p.key === "skills" && (
+                <svg viewBox="0 0 24 24" class="h-5 w-5" aria-hidden="true">
+                  <path
+                    fill="currentColor"
+                    d="M5 6.5A2.5 2.5 0 0 1 7.5 4h9A2.5 2.5 0 0 1 19 6.5v11A2.5 2.5 0 0 1 16.5 20h-9A2.5 2.5 0 0 1 5 17.5v-11Z"
+                  />
+                  <path
+                    fill="#fff"
+                    d="M9 8h6v1.5H9V8Zm0 3h4.5v1.5H9V11Zm0 3h3v1.5H9V14Z"
+                  />
+                </svg>
+              )}
+              {p.key === "women" && (
+                <svg viewBox="0 0 24 24" class="h-5 w-5" aria-hidden="true">
+                  <path
+                    fill="currentColor"
+                    d="M12 4a5 5 0 0 1 1.5 9.8V16h2v2h-2v2h-2v-2H9v-2h2v-2.2A5 5 0 0 1 12 4Z"
+                  />
+                  <circle cx="12" cy="9" r="2.8" fill="#fff" />
+                </svg>
+              )}
+              {p.key === "counselling" && (
+                <svg viewBox="0 0 24 24" class="h-5 w-5" aria-hidden="true">
+                  <path
+                    fill="currentColor"
+                    d="M5 6.5A2.5 2.5 0 0 1 7.5 4h9A2.5 2.5 0 0 1 19 6.5V13a2.5 2.5 0 0 1-2.5 2.5H13l-3.3 3.1a.9.9 0 0 1-1.5-.7V15H7.5A2.5 2.5 0 0 1 5 12.5v-6Z"
+                  />
+                  <path
+                    fill="#fff"
+                    d="M9 8.25h6V9.5H9V8.25Zm0 2.75h4.5v1.25H9V11Z"
+                  />
+                </svg>
+              )}
+              {p.key === "disaster" && (
+                <svg viewBox="0 0 24 24" class="h-5 w-5" aria-hidden="true">
+                  <path
+                    fill="currentColor"
+                    d="M12 3 4 7v5c0 4.4 2.7 8.4 8 9 5.3-.6 8-4.6 8-9V7l-8-4Z"
+                  />
+                  <path
+                    fill="#fff"
+                    d="M11.2 8.5 9 12h2.3L10.8 16l3.4-4h-2.2l1.2-3.5h-2Z"
+                  />
+                </svg>
+              )}
+            </span>
+            <h2
+              id={`${p.key}-title`}
+              class="font-heading text-2xl font-semibold tracking-tight text-[var(--fg)] sm:text-3xl"
+            >
+              {p.label}
+            </h2>
+          </div>
+          <p class="mt-3 text-sm font-semibold text-[color-mix(in_srgb,var(--brand-navy)_70%,black)]">
+            {p.promise}
+          </p>
+          <p class="mt-3 text-sm leading-relaxed text-[var(--muted)] sm:text-base">{p.summary}</p>
+
+          <div class="mt-4">
+            <p class="text-sm font-semibold text-[var(--fg)]">Who it serves</p>
+            <p class="mt-1 text-sm text-[var(--muted)]">{p.serves}</p>
+          </div>
+
+          <ul class="mt-4 grid gap-2 text-sm text-[var(--muted)]">
+            {p.bullets.map((item) => (
+              <li class="flex gap-2">
+                <span class="mt-1.5 h-2 w-2 rounded-full" style={`background:${p.accent}`} aria-hidden="true"></span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+
+          <div class="mt-5 flex flex-wrap gap-2">
+            {p.stats.map((stat) => (
+              <span class="stat-chip">{stat}</span>
+            ))}
+          </div>
+
+          <a
+            href={p.href}
+            class="mt-6 inline-flex items-center justify-center rounded-full bg-[var(--brand-navy)] px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-[color-mix(in_srgb,var(--brand-navy)_85%,black)]"
+          >
+            Read more
+          </a>
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <section class="impact-band">
+    <div class="container-page py-14 sm:py-16">
+      <div class="max-w-2xl">
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[color-mix(in_srgb,var(--brand-navy)_70%,var(--muted))]">
+          Cross-programme impact
+        </p>
+        <h2 class="mt-3 font-heading text-2xl font-semibold tracking-tight text-[var(--fg)] sm:text-3xl">
+          One mission, many pathways.
+        </h2>
+        <p class="mt-3 text-sm leading-relaxed text-[var(--muted)] sm:text-base">
+          These totals reflect combined efforts across education, health, livelihoods, wellbeing, and rapid response.
+        </p>
+      </div>
+
+      <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {impactTotals.map((stat) => (
+          <div class="impact-card">
+            <p class="text-2xl font-semibold text-[var(--fg)]">{stat.value}</p>
+            <p class="mt-1 text-xs uppercase tracking-[0.2em] text-[var(--muted)]">{stat.label}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="container-page py-12 sm:py-14">
+      <div class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+        <div>
+          <h2 class="font-heading text-2xl font-semibold tracking-tight text-[var(--fg)] sm:text-3xl">
+            Support a programme that speaks to you.
+          </h2>
+          <p class="mt-3 max-w-xl text-sm leading-relaxed text-[var(--muted)] sm:text-base">
+            Your time and contributions help us keep services consistent and community-led.
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-3">
+          <a
+            href="/donate"
+            class="inline-flex items-center justify-center rounded-full bg-[var(--brand-cyan)] px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-[color-mix(in_srgb,var(--brand-cyan)_88%,black)]"
+          >
+            Donate now
+          </a>
+          <a
+            href="/get-involved"
+            class="inline-flex items-center justify-center rounded-full border border-[var(--border)] bg-white/80 px-6 py-3 text-sm font-semibold text-[var(--fg)] transition hover:border-[var(--brand-navy)] hover:bg-white"
+          >
+            Get involved
+          </a>
+        </div>
+      </div>
+    </div>
   </section>
 </Layout>
+
+<style>
+  .our-work-hero {
+    background:
+      radial-gradient(900px 420px at 10% 15%, color-mix(in srgb, var(--brand-cyan) 14%, white), transparent 62%),
+      radial-gradient(800px 400px at 90% 25%, color-mix(in srgb, var(--brand-lime) 12%, white), transparent 60%),
+      linear-gradient(180deg, #ffffff, color-mix(in srgb, var(--brand-pink) 6%, white));
+  }
+
+  .programme-chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: #ffffff;
+    padding: 0.35rem 0.9rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: color-mix(in srgb, var(--brand-navy) 80%, black);
+    transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+  }
+
+  .programme-chip:hover {
+    transform: translateY(-1px);
+    border-color: color-mix(in srgb, var(--brand-navy) 30%, white);
+    box-shadow: 0 8px 16px rgba(13, 14, 30, 0.08);
+  }
+
+  .programme-media {
+    border-radius: 28px;
+    border: 1px solid var(--border);
+    background:
+      radial-gradient(120px 120px at 15% 20%, color-mix(in srgb, var(--brand-cyan) 18%, white), transparent 70%),
+      radial-gradient(140px 140px at 80% 70%, color-mix(in srgb, var(--brand-orange) 18%, white), transparent 70%),
+      #ffffff;
+    padding: 2rem;
+    box-shadow: 0 18px 40px rgba(12, 16, 34, 0.08);
+  }
+
+  .stat-chip {
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: #ffffff;
+    padding: 0.35rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: color-mix(in srgb, var(--brand-navy) 75%, black);
+  }
+
+  .impact-band {
+    background:
+      radial-gradient(800px 360px at 12% 20%, color-mix(in srgb, var(--brand-lime) 10%, white), transparent 65%),
+      #f9f7f5;
+  }
+
+  .impact-card {
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    background: #ffffff;
+    padding: 1rem 1.2rem;
+    box-shadow: 0 10px 18px rgba(12, 16, 34, 0.06);
+  }
+
+  .cta-band {
+    background:
+      radial-gradient(700px 300px at 85% 20%, color-mix(in srgb, var(--brand-cyan) 16%, white), transparent 60%),
+      linear-gradient(180deg, #ffffff, color-mix(in srgb, var(--brand-navy) 5%, white));
+  }
+</style>
 
