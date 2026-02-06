@@ -1,13 +1,366 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import impact1 from "../../images/placeholders/impact-1.svg";
+import impact2 from "../../images/placeholders/impact-2.svg";
+import impact3 from "../../images/placeholders/impact-3.svg";
+import impact4 from "../../images/placeholders/impact-4.svg";
+import impact5 from "../../images/placeholders/impact-5.svg";
+
+const stats = [
+  { value: "1,200+", label: "Learners supported" },
+  { value: "45", label: "Community educators" },
+  { value: "68%", label: "Attendance lift" }
+];
+
+const focusAreas = [
+  {
+    title: "Learning access",
+    description: "Bridge classes, school kits, and after-school tutoring to keep children enrolled."
+  },
+  {
+    title: "Nutrition support",
+    description: "Healthy meals and wellness check-ins that improve concentration in class."
+  },
+  {
+    title: "Family engagement",
+    description: "Work with caregivers to build routines and reduce dropout risks."
+  }
+];
+
+const journey = [
+  {
+    title: "Identify gaps",
+    text: "Community leaders map out-of-school children and learning barriers."
+  },
+  {
+    title: "Run learning hubs",
+    text: "Local educators deliver daily sessions and track attendance."
+  },
+  {
+    title: "Sustain outcomes",
+    text: "Families receive ongoing support so children stay in school."
+  }
+];
 ---
 
-<Layout title="Education | Living Branch Development">
-  <section class="container-page py-16">
-    <h1 class="font-heading text-3xl font-semibold tracking-tight">Education</h1>
-    <p class="mt-4 max-w-2xl text-[var(--muted)]">
-      This page will share detailed information about Living Branch Development's education programmes.
-    </p>
+<Layout
+  title="Education | Living Branch Development"
+  description="Living Branch Development education programmes support learning access, nutrition, and family engagement."
+>
+  <section class="education-hero">
+    <div class="container-page grid gap-10 py-16 md:grid-cols-[1.1fr_0.9fr] md:items-center">
+      <div>
+        <p
+          class="inline-flex items-center gap-2 rounded-full bg-white/75 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-[color-mix(in_srgb,var(--brand-navy)_80%,black)] shadow-sm ring-1 ring-black/5"
+        >
+          Programme focus
+        </p>
+        <h1 class="mt-4 font-heading text-4xl font-semibold tracking-tight text-[var(--fg)] sm:text-5xl">
+          Education that keeps children learning and thriving.
+        </h1>
+        <p class="mt-4 max-w-xl text-base leading-relaxed text-[var(--muted)] sm:text-lg">
+          We create safe learning pathways through tutoring, nutrition support, and family engagement so children
+          can stay in school and build confidence.
+        </p>
+        <div class="mt-7 flex flex-wrap gap-3">
+          <a
+            href="/donate"
+            class="inline-flex items-center justify-center rounded-full bg-[var(--brand-cyan)] px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-[color-mix(in_srgb,var(--brand-cyan)_88%,black)]"
+          >
+            Support education
+          </a>
+          <a
+            href="/get-involved"
+            class="inline-flex items-center justify-center rounded-full border border-[var(--border)] bg-white/80 px-6 py-3 text-sm font-semibold text-[var(--fg)] transition hover:border-[var(--brand-navy)] hover:bg-white"
+          >
+            Volunteer with us
+          </a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img
+          src={impact1.src}
+          alt="Education programme placeholder"
+          width="520"
+          height="420"
+          loading="lazy"
+          decoding="async"
+          class="h-full w-full object-contain"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="container-page py-10 sm:py-12">
+    <div class="stats-grid">
+      {stats.map((stat) => (
+        <div class="stat-card">
+          <p class="text-2xl font-semibold text-[var(--fg)]">{stat.value}</p>
+          <p class="mt-1 text-xs uppercase tracking-[0.2em] text-[var(--muted)]">{stat.label}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="container-page py-12 sm:py-14">
+    <div class="grid gap-10 md:grid-cols-[0.9fr_1.1fr] md:items-center">
+      <div class="focus-media">
+        <img
+          src={impact2.src}
+          alt="Learning support placeholder"
+          width="480"
+          height="360"
+          loading="lazy"
+          decoding="async"
+          class="h-full w-full object-contain"
+        />
+      </div>
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[color-mix(in_srgb,var(--brand-navy)_70%,var(--muted))]">
+          What we do
+        </p>
+        <h2 class="mt-3 font-heading text-2xl font-semibold tracking-tight text-[var(--fg)] sm:text-3xl">
+          Practical support that keeps classrooms full.
+        </h2>
+        <div class="mt-6 grid gap-4">
+          {focusAreas.map((area) => (
+            <div class="focus-card">
+              <h3 class="font-heading text-lg font-semibold text-[var(--fg)]">{area.title}</h3>
+              <p class="mt-2 text-sm leading-relaxed text-[var(--muted)]">{area.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="journey-band">
+    <div class="container-page py-12 sm:py-14">
+      <div class="max-w-2xl">
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[color-mix(in_srgb,var(--brand-navy)_70%,var(--muted))]">
+          Programme journey
+        </p>
+        <h2 class="mt-3 font-heading text-2xl font-semibold tracking-tight text-[var(--fg)] sm:text-3xl">
+          From learning gaps to lasting progress.
+        </h2>
+      </div>
+      <div class="mt-8 grid gap-4 sm:grid-cols-3">
+        {journey.map((step, index) => (
+          <div class="journey-card">
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--muted)]">
+              Step {index + 1}
+            </p>
+            <h3 class="mt-3 font-heading text-lg font-semibold text-[var(--fg)]">{step.title}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-[var(--muted)]">{step.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="container-page py-12 sm:py-14">
+    <div class="grid gap-8 md:grid-cols-[0.9fr_1.1fr] md:items-center">
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[color-mix(in_srgb,var(--brand-navy)_70%,var(--muted))]">
+          Impact gallery
+        </p>
+        <h2 class="mt-3 font-heading text-2xl font-semibold tracking-tight text-[var(--fg)] sm:text-3xl">
+          Real moments from our learning spaces.
+        </h2>
+        <p class="mt-3 text-sm leading-relaxed text-[var(--muted)] sm:text-base">
+          Replace these placeholders with your programme photos to show classrooms, mentors, and learning hubs.
+        </p>
+      </div>
+      <div class="bento-grid">
+        <div class="bento-card bento-tall">
+          <img
+            src={impact4.src}
+            alt="Learning moment placeholder"
+            width="420"
+            height="520"
+            loading="lazy"
+            decoding="async"
+            class="h-full w-full object-contain"
+          />
+        </div>
+        <div class="bento-card">
+          <img
+            src={impact2.src}
+            alt="Classroom activity placeholder"
+            width="420"
+            height="320"
+            loading="lazy"
+            decoding="async"
+            class="h-full w-full object-contain"
+          />
+        </div>
+        <div class="bento-card">
+          <img
+            src={impact5.src}
+            alt="Learning resources placeholder"
+            width="420"
+            height="320"
+            loading="lazy"
+            decoding="async"
+            class="h-full w-full object-contain"
+          />
+        </div>
+        <div class="bento-card bento-wide">
+          <img
+            src={impact3.src}
+            alt="Community learning placeholder"
+            width="520"
+            height="320"
+            loading="lazy"
+            decoding="async"
+            class="h-full w-full object-contain"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-page py-12 sm:py-14">
+    <div class="cta-panel">
+      <div>
+        <h2 class="font-heading text-2xl font-semibold tracking-tight text-[var(--fg)] sm:text-3xl">
+          Help a child stay in school.
+        </h2>
+        <p class="mt-3 max-w-xl text-sm leading-relaxed text-[var(--muted)] sm:text-base">
+          Your support funds learning materials, nutrition, and the educators who keep children motivated.
+        </p>
+      </div>
+      <div class="flex flex-wrap gap-3">
+        <a
+          href="/donate"
+          class="inline-flex items-center justify-center rounded-full bg-[var(--brand-navy)] px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-[color-mix(in_srgb,var(--brand-navy)_85%,black)]"
+        >
+          Donate for education
+        </a>
+        <a
+          href="/get-involved"
+          class="inline-flex items-center justify-center rounded-full border border-[var(--border)] bg-white px-6 py-3 text-sm font-semibold text-[var(--fg)] transition hover:border-[var(--brand-navy)]"
+        >
+          Explore volunteering
+        </a>
+      </div>
+    </div>
   </section>
 </Layout>
+
+<style>
+  .education-hero {
+    background:
+      radial-gradient(800px 360px at 12% 20%, color-mix(in srgb, var(--brand-lime) 16%, white), transparent 65%),
+      radial-gradient(700px 320px at 85% 10%, color-mix(in srgb, var(--brand-cyan) 14%, white), transparent 60%),
+      linear-gradient(180deg, #ffffff, color-mix(in srgb, var(--brand-pink) 5%, white));
+  }
+
+  .hero-image {
+    border-radius: 28px;
+    border: 1px solid var(--border);
+    background:
+      radial-gradient(140px 140px at 20% 20%, color-mix(in srgb, var(--brand-lime) 20%, white), transparent 70%),
+      radial-gradient(140px 140px at 80% 80%, color-mix(in srgb, var(--brand-cyan) 18%, white), transparent 70%),
+      #ffffff;
+    padding: 2rem;
+    box-shadow: 0 18px 40px rgba(12, 16, 34, 0.08);
+  }
+
+  .stats-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+
+  .stat-card {
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    background: #ffffff;
+    padding: 1rem 1.2rem;
+    box-shadow: 0 10px 18px rgba(12, 16, 34, 0.06);
+  }
+
+  .focus-media {
+    border-radius: 24px;
+    border: 1px solid var(--border);
+    background:
+      radial-gradient(160px 160px at 15% 30%, color-mix(in srgb, var(--brand-cyan) 14%, white), transparent 70%),
+      #ffffff;
+    padding: 1.5rem;
+    box-shadow: 0 16px 32px rgba(12, 16, 34, 0.08);
+  }
+
+  .focus-card {
+    border-radius: 18px;
+    border: 1px solid var(--border);
+    background: #ffffff;
+    padding: 1rem 1.2rem;
+    box-shadow: 0 10px 18px rgba(12, 16, 34, 0.06);
+  }
+
+  .journey-band {
+    background:
+      radial-gradient(700px 320px at 90% 20%, color-mix(in srgb, var(--brand-orange) 10%, white), transparent 60%),
+      #f8f5f2;
+  }
+
+  .journey-card {
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    background: #ffffff;
+    padding: 1.2rem 1.3rem;
+    box-shadow: 0 12px 20px rgba(12, 16, 34, 0.06);
+  }
+
+  .cta-panel {
+    border-radius: 28px;
+    border: 1px solid var(--border);
+    background:
+      radial-gradient(260px 260px at 15% 20%, color-mix(in srgb, var(--brand-lime) 12%, white), transparent 70%),
+      linear-gradient(180deg, #ffffff, color-mix(in srgb, var(--brand-cyan) 5%, white));
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .bento-grid {
+    display: grid;
+    gap: 0.9rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .bento-card {
+    border-radius: 22px;
+    border: 1px solid var(--border);
+    background:
+      radial-gradient(140px 140px at 15% 20%, color-mix(in srgb, var(--brand-lime) 12%, white), transparent 70%),
+      #ffffff;
+    padding: 1.2rem;
+    box-shadow: 0 12px 22px rgba(12, 16, 34, 0.08);
+  }
+
+  .bento-tall {
+    grid-row: span 2;
+  }
+
+  .bento-wide {
+    grid-column: span 2;
+  }
+
+  @media (min-width: 768px) {
+    .bento-grid {
+      gap: 1.1rem;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .cta-panel {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+</style>
 
