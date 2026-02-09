@@ -43,16 +43,16 @@ import HeroImageUrl from "../../images/placeholders/impact-4.svg?url";
             />
             <div class="mt-6 grid gap-4 sm:grid-cols-3">
               <div class="stat-card rounded-2xl border p-4 text-center">
-                <span class="block text-2xl font-semibold text-[var(--women-ink)]">3,200+</span>
-                <span class="mt-1 block text-xs uppercase tracking-[0.2em] text-[var(--women-muted)]">Women trained</span>
+                <span class="stat-value block text-2xl font-semibold">3,200+</span>
+                <span class="stat-label mt-1 block text-xs uppercase tracking-[0.2em]">Women trained</span>
               </div>
               <div class="stat-card rounded-2xl border p-4 text-center">
-                <span class="block text-2xl font-semibold text-[var(--women-ink)]">54%</span>
-                <span class="mt-1 block text-xs uppercase tracking-[0.2em] text-[var(--women-muted)]">Income growth</span>
+                <span class="stat-value block text-2xl font-semibold">54%</span>
+                <span class="stat-label mt-1 block text-xs uppercase tracking-[0.2em]">Income growth</span>
               </div>
               <div class="stat-card rounded-2xl border p-4 text-center">
-                <span class="block text-2xl font-semibold text-[var(--women-ink)]">18</span>
-                <span class="mt-1 block text-xs uppercase tracking-[0.2em] text-[var(--women-muted)]">Community hubs</span>
+                <span class="stat-value block text-2xl font-semibold">18</span>
+                <span class="stat-label mt-1 block text-xs uppercase tracking-[0.2em]">Community hubs</span>
               </div>
             </div>
           </div>
@@ -174,7 +174,17 @@ import HeroImageUrl from "../../images/placeholders/impact-4.svg?url";
   }
 
   :global(.women-empowerment .stat-card) {
-    border-color: color-mix(in srgb, var(--brand-pink) 18%, white);
+    background: var(--women-pink);
+    border-color: transparent;
+    box-shadow: 0 14px 28px rgba(255, 0, 122, 0.18);
+  }
+
+  :global(.women-empowerment .stat-value) {
+    color: white;
+  }
+
+  :global(.women-empowerment .stat-label) {
+    color: color-mix(in srgb, white 82%, var(--brand-pink));
   }
 
   :global(.women-empowerment .mini-card) {
