@@ -1,8 +1,11 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "../../layouts/Layout.astro";
 import impact1 from "../../images/placeholders/impact-1.svg";
 import impact2 from "../../images/placeholders/impact-2.svg";
 import impact3 from "../../images/placeholders/impact-3.svg";
+import impact4 from "../../images/placeholders/impact-4.svg";
+import impact5 from "../../images/placeholders/impact-5.svg";
 
 const tiers = [
   {
@@ -69,6 +72,18 @@ const techHubHighlights = [
   "Open 6 days a week with community trainers",
   "Accessible equipment and learning pods",
   "Scholarship seats for vulnerable learners"
+];
+
+const galleryItems = [
+  { src: impact1, alt: "Learners collaborating in a skills lab", className: "bento-item bento-large" },
+  { src: impact2, alt: "Mentor guiding a trainee", className: "bento-item bento-tall" },
+  { src: impact3, alt: "Hands-on digital practice", className: "bento-item" },
+  { src: impact4, alt: "Community training session", className: "bento-item bento-wide" },
+  { src: impact5, alt: "Learning hub teamwork", className: "bento-item" },
+  { src: impact1, alt: "Workshop facilitation", className: "bento-item" },
+  { src: impact2, alt: "Skills assessment in progress", className: "bento-item bento-wide" },
+  { src: impact3, alt: "Career readiness coaching", className: "bento-item" },
+  { src: impact4, alt: "Laptop training session", className: "bento-item" }
 ];
 ---
 
@@ -238,6 +253,38 @@ const techHubHighlights = [
     </div>
   </section>
 
+  <section class="bento-band">
+    <div class="container-page py-12 sm:py-14">
+      <div class="bento-header">
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[color-mix(in_srgb,var(--brand-navy)_70%,var(--muted))]">
+            TechHub in action
+          </p>
+          <h2 class="mt-3 font-heading text-2xl font-semibold tracking-tight text-[var(--fg)] sm:text-3xl">
+            A visual snapshot of real learning moments.
+          </h2>
+        </div>
+        <p class="max-w-xl text-sm leading-relaxed text-[var(--muted)] sm:text-base">
+          From lab practice to mentor coaching, the gallery highlights how learners engage with training every day.
+        </p>
+      </div>
+      <div class="bento-grid">
+        {galleryItems.map((item) => (
+          <div class={item.className}>
+            <Image
+              src={item.src}
+              alt={item.alt}
+              width={520}
+              height={700}
+              loading="lazy"
+              class="bento-image"
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <section class="container-page py-12 sm:py-14">
     <div class="cta-panel">
       <div>
@@ -379,6 +426,51 @@ const techHubHighlights = [
     padding: 1rem 1.1rem;
   }
 
+  .bento-band {
+    background: #fffdfb;
+  }
+
+  .bento-header {
+    display: grid;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .bento-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-auto-rows: 190px;
+    grid-auto-flow: dense;
+  }
+
+  .bento-item {
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: #ffffff;
+    box-shadow: 0 12px 24px rgba(12, 16, 34, 0.08);
+  }
+
+  .bento-item.bento-wide {
+    grid-column: span 2;
+  }
+
+  .bento-item.bento-tall {
+    grid-row: span 2;
+  }
+
+  .bento-item.bento-large {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+
+  .bento-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
   .cta-panel {
     border-radius: 28px;
     border: 1px solid var(--border);
@@ -394,6 +486,32 @@ const techHubHighlights = [
       flex-direction: row;
       align-items: center;
       justify-content: space-between;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .bento-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-auto-rows: 150px;
+    }
+
+    .bento-item.bento-wide,
+    .bento-item.bento-large {
+      grid-column: span 2;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .bento-grid {
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+      grid-auto-rows: 200px;
+    }
+
+    .bento-item.bento-wide,
+    .bento-item.bento-large,
+    .bento-item.bento-tall {
+      grid-column: span 1;
+      grid-row: span 1;
     }
   }
 
