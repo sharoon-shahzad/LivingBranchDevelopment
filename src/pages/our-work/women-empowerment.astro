@@ -1,13 +1,310 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import HeroImageUrl from "../../images/placeholders/impact-4.svg?url";
 ---
 
 <Layout title="Women Empowerment | Living Branch Development">
-  <section class="container-page py-16">
-    <h1 class="font-heading text-3xl font-semibold tracking-tight">Women Empowerment</h1>
-    <p class="mt-4 max-w-2xl text-[var(--muted)]">
-      This page will cover programmes focused on girls' and women's rights, safety, leadership, and livelihoods.
-    </p>
-  </section>
+  <div class="women-empowerment">
+    <section class="hero-surface">
+      <div class="container-page grid gap-12 py-16 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-[0.36em] text-[var(--women-pink)]">
+            Women Empowerment
+          </p>
+          <h1 class="font-heading mt-4 text-4xl font-semibold tracking-tight text-[var(--women-ink)] sm:text-5xl">
+            Build power, income, and leadership for every woman.
+          </h1>
+          <p class="mt-5 max-w-2xl text-lg text-[var(--women-muted)]">
+            We partner with women and girls to expand safety, skills, and opportunity through holistic programmes
+            that strengthen families and local economies.
+          </p>
+          <div class="mt-8 flex flex-wrap gap-4">
+            <a
+              href="/get-involved"
+              class="primary-cta rounded-full px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+            >
+              Join the movement
+            </a>
+            <a
+              href="/donate"
+              class="secondary-cta rounded-full border px-6 py-3 text-sm font-semibold transition hover:-translate-y-0.5"
+            >
+              Support a woman today
+            </a>
+          </div>
+        </div>
+        <div class="relative">
+          <div class="float-card rounded-3xl bg-white p-6 shadow-lg" style="--float-dur: 9s">
+            <img
+              src={HeroImageUrl}
+              alt="Women leading a community skills session"
+              class="h-64 w-full rounded-2xl object-cover"
+              loading="lazy"
+            />
+            <div class="mt-6 grid gap-4 sm:grid-cols-3">
+              <div class="stat-card rounded-2xl border p-4 text-center">
+                <span class="block text-2xl font-semibold text-[var(--women-ink)]">3,200+</span>
+                <span class="mt-1 block text-xs uppercase tracking-[0.2em] text-[var(--women-muted)]">Women trained</span>
+              </div>
+              <div class="stat-card rounded-2xl border p-4 text-center">
+                <span class="block text-2xl font-semibold text-[var(--women-ink)]">54%</span>
+                <span class="mt-1 block text-xs uppercase tracking-[0.2em] text-[var(--women-muted)]">Income growth</span>
+              </div>
+              <div class="stat-card rounded-2xl border p-4 text-center">
+                <span class="block text-2xl font-semibold text-[var(--women-ink)]">18</span>
+                <span class="mt-1 block text-xs uppercase tracking-[0.2em] text-[var(--women-muted)]">Community hubs</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container-page py-16">
+      <div class="grid gap-8 rounded-3xl border border-[var(--women-border)] bg-white p-8 shadow-sm lg:grid-cols-[1.1fr_0.9fr]">
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-[0.36em] text-[var(--women-pink)]">Impact snapshot</p>
+          <h2 class="font-heading mt-4 text-3xl font-semibold text-[var(--women-ink)]">
+            From survivor support to thriving enterprises.
+          </h2>
+          <p class="mt-4 text-[var(--women-muted)]">
+            Our women-first model combines protection services, livelihood acceleration, and leadership coaching
+            so every participant can move from crisis to confidence.
+          </p>
+        </div>
+        <div class="grid gap-4 sm:grid-cols-2">
+          <div class="mini-card rounded-2xl p-5">
+            <p class="text-sm font-semibold text-[var(--women-ink)]">Safety + Healing</p>
+            <p class="mt-2 text-sm text-[var(--women-muted)]">Trauma-informed counseling and legal referrals.</p>
+          </div>
+          <div class="mini-card rounded-2xl p-5">
+            <p class="text-sm font-semibold text-[var(--women-ink)]">Skills + Jobs</p>
+            <p class="mt-2 text-sm text-[var(--women-muted)]">Market-ready skills, apprenticeships, and coaching.</p>
+          </div>
+          <div class="mini-card rounded-2xl p-5">
+            <p class="text-sm font-semibold text-[var(--women-ink)]">Capital Access</p>
+            <p class="mt-2 text-sm text-[var(--women-muted)]">Savings circles, micro-grants, and mentor networks.</p>
+          </div>
+          <div class="mini-card rounded-2xl p-5">
+            <p class="text-sm font-semibold text-[var(--women-ink)]">Leadership</p>
+            <p class="mt-2 text-sm text-[var(--women-muted)]">Community advocacy and women-led committees.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bloom-surface py-16">
+      <div class="container-page">
+        <div class="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-[0.36em] text-[var(--women-pink)]">
+              Bloom map
+            </p>
+            <h2 class="font-heading mt-4 text-3xl font-semibold text-[var(--women-ink)] sm:text-4xl">
+              Women thrive when every support system blooms together.
+            </h2>
+            <p class="mt-4 text-[var(--women-muted)]">
+              Each petal represents a core pillar of our work. Together, they surround the woman at the
+              center, creating a full circle of protection, opportunity, and leadership.
+            </p>
+            <div class="mt-6 grid gap-3 text-sm text-[var(--women-muted)]">
+              <p><span class="font-semibold text-[var(--women-ink)]">Empowerment focus:</span> safety, skills, income, and voice.</p>
+              <p><span class="font-semibold text-[var(--women-ink)]">Delivery model:</span> community hubs led by women mentors.</p>
+            </div>
+          </div>
+          <div class="bloom-map" aria-label="Women empowerment program pillars">
+            <div class="bloom-petal bloom-n" role="listitem">
+              <span class="bloom-title">Safety + Healing</span>
+              <span class="bloom-copy">Counseling, legal support, and crisis care.</span>
+            </div>
+            <div class="bloom-petal bloom-ne" role="listitem">
+              <span class="bloom-title">Skills + Jobs</span>
+              <span class="bloom-copy">Training, apprenticeships, and placement.</span>
+            </div>
+            <div class="bloom-petal bloom-se" role="listitem">
+              <span class="bloom-title">Capital Access</span>
+              <span class="bloom-copy">Savings circles and micro-grants.</span>
+            </div>
+            <div class="bloom-petal bloom-s" role="listitem">
+              <span class="bloom-title">Enterprise</span>
+              <span class="bloom-copy">Business coaching and market linkages.</span>
+            </div>
+            <div class="bloom-petal bloom-sw" role="listitem">
+              <span class="bloom-title">Leadership</span>
+              <span class="bloom-copy">Advocacy training and community seats.</span>
+            </div>
+            <div class="bloom-petal bloom-nw" role="listitem">
+              <span class="bloom-title">Network</span>
+              <span class="bloom-copy">Peer mentors and alumni circles.</span>
+            </div>
+            <div class="bloom-center" aria-label="Women Thrive">Women Thrive</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
 </Layout>
+
+<style>
+  :global(.women-empowerment) {
+    --women-pink: var(--brand-pink);
+    --women-ink: #1a0b2e;
+    --women-muted: #5d5667;
+    --women-border: color-mix(in srgb, var(--brand-pink) 18%, white);
+  }
+
+  :global(.women-empowerment .hero-surface) {
+    background:
+      radial-gradient(1100px 520px at 18% 12%, color-mix(in srgb, var(--brand-pink) 14%, white), transparent 62%),
+      radial-gradient(900px 520px at 82% 20%, color-mix(in srgb, var(--brand-pink) 8%, white), transparent 70%),
+      linear-gradient(180deg, #fff, color-mix(in srgb, var(--brand-pink) 4%, white));
+  }
+
+  :global(.women-empowerment .primary-cta) {
+    background: var(--women-pink);
+  }
+
+  :global(.women-empowerment .secondary-cta) {
+    color: var(--women-pink);
+    border-color: color-mix(in srgb, var(--brand-pink) 40%, white);
+  }
+
+  :global(.women-empowerment .secondary-cta:hover) {
+    background: color-mix(in srgb, var(--brand-pink) 8%, white);
+  }
+
+  :global(.women-empowerment .stat-card) {
+    border-color: color-mix(in srgb, var(--brand-pink) 18%, white);
+  }
+
+  :global(.women-empowerment .mini-card) {
+    background: color-mix(in srgb, var(--brand-pink) 8%, white);
+    border: 1px solid color-mix(in srgb, var(--brand-pink) 16%, white);
+  }
+
+  :global(.women-empowerment .bloom-surface) {
+    background:
+      radial-gradient(900px 480px at 20% 15%, color-mix(in srgb, var(--brand-pink) 14%, white), transparent 65%),
+      radial-gradient(900px 480px at 80% 20%, color-mix(in srgb, var(--brand-pink) 10%, white), transparent 68%),
+      #fff;
+  }
+
+  :global(.women-empowerment .bloom-map) {
+    position: relative;
+    margin: 0 auto;
+    height: min(82vw, 420px);
+    width: min(82vw, 420px);
+  }
+
+  :global(.women-empowerment .bloom-petal) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: min(46vw, 220px);
+    height: min(30vw, 140px);
+    padding: 1rem 1.1rem;
+    border-radius: 999px;
+    background: white;
+    color: var(--women-pink);
+    border: 1px solid color-mix(in srgb, var(--brand-pink) 35%, white);
+    box-shadow: 0 18px 40px rgba(255, 0, 122, 0.12);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    gap: 0.35rem;
+    z-index: 1;
+  }
+
+  :global(.women-empowerment .bloom-title) {
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+  }
+
+  :global(.women-empowerment .bloom-copy) {
+    font-size: 0.78rem;
+    color: color-mix(in srgb, var(--brand-pink) 70%, #4a0030);
+  }
+
+  :global(.women-empowerment .bloom-center) {
+    position: absolute;
+    inset: 50% auto auto 50%;
+    transform: translate(-50%, -50%);
+    width: min(34vw, 160px);
+    height: min(34vw, 160px);
+    border-radius: 999px;
+    background: var(--women-pink);
+    color: white;
+    display: grid;
+    place-items: center;
+    font-weight: 700;
+    font-size: 1.05rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    box-shadow: 0 22px 45px rgba(255, 0, 122, 0.28);
+    z-index: 2;
+  }
+
+  :global(.women-empowerment .bloom-n) {
+    transform: translate(-50%, -50%) translate(0, -100%);
+  }
+
+  :global(.women-empowerment .bloom-ne) {
+    transform: translate(-50%, -50%) translate(75%, -32%);
+  }
+
+  :global(.women-empowerment .bloom-se) {
+    transform: translate(-50%, -50%) translate(75%, 32%);
+  }
+
+  :global(.women-empowerment .bloom-s) {
+    transform: translate(-50%, -50%) translate(0, 100%);
+  }
+
+  :global(.women-empowerment .bloom-sw) {
+    transform: translate(-50%, -50%) translate(-75%, 40%);
+  }
+
+  :global(.women-empowerment .bloom-nw) {
+    transform: translate(-50%, -50%) translate(-75%, -40%);
+  }
+
+  @media (max-width: 640px) {
+    :global(.women-empowerment .bloom-map) {
+      height: min(90vw, 420px);
+      width: min(90vw, 420px);
+    }
+
+    :global(.women-empowerment .bloom-petal) {
+      width: min(58vw, 220px);
+      height: min(34vw, 140px);
+      padding: 0.85rem 0.9rem;
+    }
+
+    :global(.women-empowerment .bloom-n) {
+      transform: translate(-50%, -50%) translate(0, -95%);
+    }
+
+    :global(.women-empowerment .bloom-ne) {
+      transform: translate(-50%, -50%) translate(70%, -30%);
+    }
+
+    :global(.women-empowerment .bloom-se) {
+      transform: translate(-50%, -50%) translate(70%, 30%);
+    }
+
+    :global(.women-empowerment .bloom-s) {
+      transform: translate(-50%, -50%) translate(0, 95%);
+    }
+
+    :global(.women-empowerment .bloom-sw) {
+      transform: translate(-50%, -50%) translate(-70%, 38%);
+    }
+
+    :global(.women-empowerment .bloom-nw) {
+      transform: translate(-50%, -50%) translate(-70%, -38%);
+    }
+  }
+</style>
 
