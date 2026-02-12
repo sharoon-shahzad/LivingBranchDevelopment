@@ -1,0 +1,202 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../layouts/Layout.astro";
+import portrait from "../images/placeholders/impact-5.svg";
+
+const kpis = [
+  { value: "12+", label: "Years leading impact" },
+  { value: "38", label: "Community programs" },
+  { value: "24K", label: "People reached" },
+  { value: "91%", label: "Program retention" }
+];
+
+const values = [
+  {
+    title: "Community-first leadership",
+    text: "Every decision begins with listening to women and families on the ground."
+  },
+  {
+    title: "Evidence-backed action",
+    text: "We invest where results are proven and measure what matters to livelihoods."
+  },
+  {
+    title: "Dignity and safety",
+    text: "We protect well-being while building skills, confidence, and economic freedom."
+  }
+];
+---
+
+<Layout title="CEO Message | Living Branch Development">
+  <section class="ceo-hero">
+    <div class="container-page grid gap-10 py-16 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+      <div>
+        <p class="hero-tag">Leadership message</p>
+        <h1 class="font-heading mt-4 text-4xl font-semibold tracking-tight text-[var(--fg)] sm:text-5xl">
+          Building dignity, opportunity, and lasting change.
+        </h1>
+        <p class="mt-4 max-w-xl text-base leading-relaxed text-[var(--muted)] sm:text-lg">
+          As CEO of Living Branch Development, I am committed to a future where every woman and youth has
+          the tools, protection, and support to thrive.
+        </p>
+        <div class="mt-7 flex flex-wrap gap-3">
+          <a
+            href="/get-involved"
+            class="inline-flex items-center justify-center rounded-full bg-[var(--brand-navy)] px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-[color-mix(in_srgb,var(--brand-navy)_85%,black)]"
+          >
+            Partner with us
+          </a>
+          <a
+            href="/donate"
+            class="inline-flex items-center justify-center rounded-full border border-[var(--border)] bg-white px-6 py-3 text-sm font-semibold text-[var(--fg)] transition hover:border-[var(--brand-navy)]"
+          >
+            Support the mission
+          </a>
+        </div>
+      </div>
+      <div class="ceo-portrait-card">
+        <div class="ceo-portrait">
+          <Image src={portrait} alt="CEO portrait placeholder" width={520} height={520} loading="lazy" />
+        </div>
+        <div class="mt-6">
+          <p class="text-sm font-semibold text-[var(--fg)]">Dr. Amara Nwosu</p>
+          <p class="text-xs uppercase tracking-[0.2em] text-[var(--muted)]">Chief Executive Officer</p>
+          <p class="mt-4 text-sm leading-relaxed text-[var(--muted)]">
+            "We build confidence and income at the same time. When women thrive, communities rise."
+          </p>
+          <p class="mt-4 text-sm font-semibold text-[var(--fg)]">— Dr. Amara Nwosu</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="kpi-band">
+    <div class="container-page py-10">
+      <div class="kpi-grid">
+        {kpis.map((item) => (
+          <div class="kpi-card">
+            <p class="text-2xl font-semibold text-[var(--fg)]">{item.value}</p>
+            <p class="mt-1 text-xs uppercase tracking-[0.2em] text-[var(--muted)]">{item.label}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="container-page py-12 sm:py-14">
+    <div class="grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
+      <div class="message-card">
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[color-mix(in_srgb,var(--brand-navy)_70%,var(--muted))]">
+          Message from the CEO
+        </p>
+        <h2 class="mt-3 font-heading text-2xl font-semibold tracking-tight text-[var(--fg)] sm:text-3xl">
+          A commitment to scale what works.
+        </h2>
+        <div class="mt-5 grid gap-4 text-sm leading-relaxed text-[var(--muted)] sm:text-base">
+          <p>
+            Our teams work alongside women leaders to create safe spaces, skills training, and sustainable
+            income pathways. We believe in listening first, then acting with evidence and compassion.
+          </p>
+          <p>
+            In the coming year, we are expanding community hubs, strengthening survivor support systems,
+            and launching more mentorship networks so every learner has someone to guide her journey.
+          </p>
+          <p>
+            Thank you for standing with us. Your partnership transforms futures and strengthens entire
+            communities.
+          </p>
+        </div>
+      </div>
+      <div class="values-card">
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[color-mix(in_srgb,var(--brand-navy)_70%,var(--muted))]">
+          Leadership values
+        </p>
+        <div class="mt-5 grid gap-4">
+          {values.map((item) => (
+            <div class="value-tile">
+              <p class="text-sm font-semibold text-[var(--fg)]">{item.title}</p>
+              <p class="mt-2 text-sm leading-relaxed text-[var(--muted)]">{item.text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .ceo-hero {
+    background: #f6f5fb;
+  }
+
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 999px;
+    background: white;
+    padding: 0.4rem 0.9rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: color-mix(in srgb, var(--brand-navy) 75%, black);
+    box-shadow: 0 12px 20px rgba(12, 16, 34, 0.08);
+  }
+
+  .ceo-portrait-card {
+    border-radius: 28px;
+    border: 1px solid var(--border);
+    background: white;
+    padding: 1.8rem;
+    box-shadow: 0 18px 40px rgba(12, 16, 34, 0.1);
+  }
+
+  .ceo-portrait {
+    border-radius: 24px;
+    background: #fff5fb;
+    padding: 1.5rem;
+    display: grid;
+    place-items: center;
+  }
+
+  .kpi-band {
+    background: #fff0f6;
+  }
+
+  .kpi-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  }
+
+  .kpi-card {
+    border-radius: 18px;
+    border: 1px solid var(--border);
+    background: white;
+    padding: 1rem 1.2rem;
+    box-shadow: 0 10px 18px rgba(12, 16, 34, 0.06);
+  }
+
+  .message-card {
+    border-radius: 24px;
+    border: 1px solid var(--border);
+    background: white;
+    padding: 1.7rem;
+    box-shadow: 0 16px 32px rgba(12, 16, 34, 0.08);
+  }
+
+  .values-card {
+    border-radius: 24px;
+    border: 1px solid var(--border);
+    background: #fbfbff;
+    padding: 1.7rem;
+    box-shadow: 0 16px 32px rgba(12, 16, 34, 0.08);
+  }
+
+  .value-tile {
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    background: white;
+    padding: 1rem 1.1rem;
+  }
+</style>

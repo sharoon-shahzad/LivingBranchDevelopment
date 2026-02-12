@@ -1,17 +1,25 @@
 ---
+import { Image } from "astro:assets";
+import agapeTrust from "../../images/partners/AGAPE TRUST.jpeg";
+import assembliesOfGod from "../../images/partners/AssembliesofGod.jpeg";
+import award from "../../images/partners/Award.jpeg";
+import cornerstone from "../../images/partners/cornerstone.jpeg";
+import familiesSetFree from "../../images/partners/FamiliesSetFree.jpeg";
+import livingBranchChurch from "../../images/partners/LBC(LivingBranchChurch).jpeg";
+import peaceAmbassadorSociety from "../../images/partners/PeaceAmbassadorSociety.jpeg";
+import pakistanPartnershipInitiative from "../../images/partners/ppi(PakistanPartnership initiative).jpeg";
+import resilientWomenNetwork from "../../images/partners/ResilientWomenNetwork.jpeg";
+
 const partners = [
-  { name: "BrightLeaf Health", slug: "brightleaf-health" },
-  { name: "HopeWorks Education", slug: "hopeworks-education" },
-  { name: "Riverstone Finance", slug: "riverstone-finance" },
-  { name: "GreenRoots Foods", slug: "greenroots-foods" },
-  { name: "Northbridge Telecom", slug: "northbridge-telecom" },
-  { name: "Sunrise Media", slug: "sunrise-media" },
-  { name: "Skyline Tech", slug: "skyline-tech" },
-  { name: "KindPath Foundation", slug: "kindpath-foundation" },
-  { name: "UrbanSeeds Collective", slug: "urbanseeds-collective" },
-  { name: "CareFirst Labs", slug: "carefirst-labs" },
-  { name: "ForwardStep Careers", slug: "forwardstep-careers" },
-  { name: "Local Community Network", slug: "local-community-network" }
+  { name: "Agape Trust", image: agapeTrust },
+  { name: "Assemblies of God", image: assembliesOfGod },
+  { name: "Award", image: award },
+  { name: "Cornerstone", image: cornerstone },
+  { name: "Families Set Free", image: familiesSetFree },
+  { name: "Living Branch Church", image: livingBranchChurch },
+  { name: "Peace Ambassador Society", image: peaceAmbassadorSociety },
+  { name: "Pakistan Partnership Initiative", image: pakistanPartnershipInitiative },
+  { name: "Resilient Women Network", image: resilientWomenNetwork }
 ];
 ---
 
@@ -31,16 +39,21 @@ const partners = [
       </p>
     </div>
 
-    <div class="mt-10 grid gap-6 sm:grid-cols-3 lg:grid-cols-4">
+    <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {partners.map((partner) => (
         <article
-          class="group flex h-28 items-center justify-center rounded-3xl border border-[var(--border)] bg-white shadow-sm transition hover:-translate-y-1 hover:border-[color-mix(in_srgb,var(--brand-cyan)_50%,var(--border))] hover:shadow-lg"
+          class="group flex h-28 items-center justify-center rounded-3xl border border-[var(--border)] bg-white p-4 shadow-sm transition hover:-translate-y-1 hover:border-[color-mix(in_srgb,var(--brand-cyan)_50%,var(--border))] hover:shadow-lg"
         >
-          <div class="flex flex-col items-center gap-2">
-            <div class="flex h-14 w-32 items-center justify-center rounded-2xl bg-[color-mix(in_srgb,white_70%,var(--brand-cyan)_8%)] text-[color-mix(in_srgb,var(--brand-navy)_90%,black)] sm:h-16 sm:w-40">
-              <span class="max-w-[8.5rem] text-center text-sm font-semibold leading-snug sm:text-base">
-                {partner.name}
-              </span>
+          <div class="flex flex-col items-center gap-3">
+            <div class="flex h-14 w-full items-center justify-center sm:h-16">
+              <Image
+                src={partner.image}
+                alt={partner.name}
+                width={240}
+                height={120}
+                loading="lazy"
+                class="max-h-14 w-auto object-contain sm:max-h-16"
+              />
             </div>
             <p class="max-w-[11rem] text-center text-[0.8rem] font-medium tracking-tight text-[color-mix(in_srgb,var(--brand-navy)_65%,black)] sm:text-[0.85rem]">
               {partner.name}

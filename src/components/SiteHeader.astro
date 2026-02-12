@@ -3,7 +3,11 @@ import logo from "../images/logo.jpg";
 
 const nav = [
   { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
+  {
+    label: "About",
+    href: "/about",
+    children: [{ label: "CEO Message", href: "/ceo-profile" }]
+  },
   { label: "Our Work", href: "/our-work" },
   { label: "Get involved", href: "/get-involved" },
   { label: "Media", href: "/media" },
@@ -37,13 +41,29 @@ const nav = [
 
     <nav class="hidden items-center gap-7 md:flex" aria-label="Primary">
       {nav.map((item) => (
-        <a
-          class="group relative text-[1rem] font-semibold text-(--muted) hover:text-(--fg)"
-          href={item.href}
-        >
-          {item.label}
-          <span class="pointer-events-none absolute -bottom-2 left-0 h-0.75 w-full origin-left scale-x-0 rounded-full bg-(--brand-cyan) transition-transform duration-200 group-hover:scale-x-100"></span>
-        </a>
+        <div class="nav-item group relative">
+          <a
+            class="group relative inline-flex items-center gap-2 text-[1rem] font-semibold text-(--muted) hover:text-(--fg)"
+            href={item.href}
+          >
+            {item.label}
+            {item.children ? (
+              <svg viewBox="0 0 20 20" class="h-4 w-4 text-(--muted)" aria-hidden="true">
+                <path fill="currentColor" d="M5.4 7.6 10 12.2l4.6-4.6 1.4 1.4L10 15 4 9l1.4-1.4Z" />
+              </svg>
+            ) : null}
+            <span class="pointer-events-none absolute -bottom-2 left-0 h-0.75 w-full origin-left scale-x-0 rounded-full bg-(--brand-cyan) transition-transform duration-200 group-hover:scale-x-100"></span>
+          </a>
+          {item.children ? (
+            <div class="nav-dropdown" role="menu">
+              {item.children.map((child) => (
+                <a class="nav-dropdown-link" href={child.href} role="menuitem">
+                  {child.label}
+                </a>
+              ))}
+            </div>
+          ) : null}
+        </div>
       ))}
     </nav>
 
@@ -71,9 +91,20 @@ const nav = [
         <div class="mobile-nav-panel absolute left-0 right-0 mt-3 border-b border-(--border) bg-white shadow-sm">
           <div class="container-page grid gap-2 py-4">
             {nav.map((item) => (
-              <a class="rounded-md px-3 py-2 text-sm font-medium hover:bg-gray-50" href={item.href}>
-                {item.label}
-              </a>
+              <div>
+                <a class="rounded-md px-3 py-2 text-sm font-medium hover:bg-gray-50" href={item.href}>
+                  {item.label}
+                </a>
+                {item.children ? (
+                  <div class="mt-1 grid gap-1 pl-3">
+                    {item.children.map((child) => (
+                      <a class="rounded-md px-3 py-2 text-sm text-(--muted) hover:bg-gray-50" href={child.href}>
+                        {child.label}
+                      </a>
+                    ))}
+                  </div>
+                ) : null}
+              </div>
             ))}
             <a
               class="mt-2 inline-flex w-fit items-center gap-2 rounded-full bg-(--brand-cyan) px-4 py-2 text-sm font-semibold text-white"
@@ -149,6 +180,57 @@ const nav = [
   .mobile-nav[open] > .mobile-nav-button::after {
     opacity: 1;
     animation: mobile-menu-pulse 1.6s ease-out infinite;
+  }
+
+  .nav-item {
+    position: relative;
+  }
+
+  .nav-dropdown {
+    position: absolute;
+    top: calc(100% + 0.75rem);
+    left: 0;
+    min-width: 180px;
+    padding: 0.5rem;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    background: white;
+    box-shadow: 0 18px 36px rgba(12, 16, 34, 0.12);
+    opacity: 0;
+    transform: translateY(-6px);
+    pointer-events: none;
+    transition: opacity 180ms ease, transform 180ms ease;
+    z-index: 30;
+  }
+
+  .nav-dropdown::before {
+    content: "";
+    position: absolute;
+    top: -12px;
+    left: 0;
+    right: 0;
+    height: 12px;
+  }
+
+  .nav-item:focus-within .nav-dropdown,
+  .nav-item:hover .nav-dropdown {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .nav-dropdown-link {
+    display: block;
+    padding: 0.55rem 0.75rem;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--fg);
+  }
+
+  .nav-dropdown-link:hover,
+  .nav-dropdown-link:focus-visible {
+    background: color-mix(in srgb, var(--brand-cyan) 12%, white);
   }
 
   @keyframes mobile-menu-pulse {
