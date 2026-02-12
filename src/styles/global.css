@@ -66,7 +66,8 @@ body {
   background:
     radial-gradient(1200px 500px at 15% 10%, color-mix(in srgb, var(--brand-cyan) 10%, white), transparent 65%),
     radial-gradient(900px 460px at 80% 30%, color-mix(in srgb, var(--brand-lime) 10%, white), transparent 62%),
-    radial-gradient(900px 520px at 75% 85%, color-mix(in srgb, var(--brand-pink) 8%, white), transparent 70%),
+    radial-gradient(900px 520px at 75% 85%, color-mix(in srgb, var(--brand-orange) 26%, white), transparent 70%),
+    radial-gradient(700px 380px at 70% 80%, color-mix(in srgb, var(--brand-orange) 32%, white), transparent 72%),
     linear-gradient(180deg, #fff, color-mix(in srgb, var(--brand-cyan) 2%, white));
 }
 

@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+import aboutMission from "../../images/hero/about_missio.jpeg";
 // Mission section - Editorial style
 // Left: Mission statement | Right: Image
 ---
@@ -15,10 +17,13 @@
 
     <!-- Right: Image -->
     <div class="mission-image-block">
-      <!-- Replace with actual image when ready -->
-      <div class="mission-image-placeholder">
-        <span>Mission Image</span>
-      </div>
+      <Image
+        src={aboutMission}
+        alt="Living Branch Development mission in action"
+        width={1200}
+        height={900}
+        loading="lazy"
+      />
     </div>
   </div>
 </section>
@@ -140,44 +145,22 @@
   .mission-image-block {
     position: relative;
     min-height: 300px;
+    max-height: 420px;
     overflow: hidden;
     border-radius: 0; /* No border radius */
   }
 
   @media (min-width: 768px) {
     .mission-image-block {
-      min-height: 400px;
+      min-height: 360px;
+      max-height: 520px;
     }
   }
 
-  .mission-image-placeholder {
-    width: 100%;
-    height: 100%;
-    min-height: 300px;
-    background: linear-gradient(135deg, #e0e0e0 0%, #c0c0c0 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  @media (min-width: 768px) {
-    .mission-image-placeholder {
-      min-height: 400px;
-    }
-  }
-
-  .mission-image-placeholder span {
-    font-family: "Lato", sans-serif;
-    font-size: 1rem;
-    color: #666;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-  }
-
-  /* When using actual image */
   .mission-image-block img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center 20%;
   }
 </style>
