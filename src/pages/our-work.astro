@@ -25,21 +25,21 @@ const programmes = [
     href: "/our-work/education"
   },
   {
-    key: "healthcare",
-    label: "Health Care",
-    promise: "Care that reaches families where they live.",
+    key: "youth",
+    label: "Youth Empowerment",
+    promise: "Youth leaders with skills, safety, and opportunity.",
     summary:
-      "We deliver preventative and primary care through mobile outreach and community health partners. The goal is early care, quick referrals, and healthier households.",
-    serves: "Families in hard-to-reach and low-income areas.",
+      "We support young people with mentoring, life skills, and pathways to education and work. The focus is on confidence, career readiness, and community leadership.",
+    serves: "Adolescents and young adults navigating school-to-work transitions.",
     bullets: [
-      "Mobile clinics and screenings",
-      "Maternal and child health support",
-      "Referral pathways for critical cases"
+      "Leadership and life skills",
+      "Mentorship and coaching",
+      "Scholarships and career pathways"
     ],
-    stats: ["3,500+ screenings", "120+ camps", "24 partner clinics"],
+    stats: ["1,800+ youth", "65 mentorship circles", "140 scholarships"],
     accent: "var(--brand-cyan)",
     image: impact2,
-    href: "/our-work/health-care"
+    href: "/our-work/youth-empowerment"
   },
   {
     key: "skills",
@@ -186,15 +186,15 @@ const impactTotals = [
                   />
                 </svg>
               )}
-              {p.key === "healthcare" && (
+              {p.key === "youth" && (
                 <svg viewBox="0 0 24 24" class="h-5 w-5" aria-hidden="true">
                   <path
                     fill="currentColor"
-                    d="M5 13c-1.7-1.7-1.7-4.5 0-6.2A4.4 4.4 0 0 1 8.1 6c1.1 0 2.1.4 2.9 1.2.8-.8 1.8-1.2 2.9-1.2 1.2 0 2.3.5 3.1 1.4 1.7 1.7 1.7 4.5 0 6.2l-6 6-6-6Z"
+                    d="M9 5a3 3 0 1 1 0 6 3 3 0 0 1 0-6Zm8 1.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z"
                   />
                   <path
                     fill="#fff"
-                    d="M11 15h2l.7-2.1H15a1 1 0 0 0 .9-.6l.6-1.3h-2l-.3.7h-1l-.7-2.1-1.5 4.4-.5-1.6H9l.7 2.6a1 1 0 0 0 1 .7Z"
+                    d="M4.8 19.2v-1.1a4.2 4.2 0 0 1 8.4 0v1.1H4.8Zm9.3-1.1a3.4 3.4 0 0 1 6.8 0v1.1h-6.8v-1.1Z"
                   />
                 </svg>
               )}
