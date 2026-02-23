@@ -1,10 +1,12 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
-import impact1 from "../images/placeholders/impact-1.svg";
-import impact2 from "../images/placeholders/impact-2.svg";
-import impact3 from "../images/placeholders/impact-3.svg";
-import impact4 from "../images/placeholders/impact-4.svg";
-import impact5 from "../images/placeholders/impact-5.svg";
+import imgEducation from "../images/programmes/education/living_branch_school/WhatsApp Image 2026-02-02 at 2.08.54 PM.jpeg";
+import imgYouth from "../images/programmes/youth/youth_empowerment/WhatsApp Image 2026-02-16 at 4.57.15 PM (1).jpeg";
+import imgSkills from "../images/programmes/skill_development/TechHub/WhatsApp Image 2026-01-20 at 2.04.02 PM.jpeg";
+import imgWomen from "../images/programmes/women_empowerment/women_empowerment6.jpeg";
+import imgCounselling from "../images/programmes/counselling/WhatsApp Image 2026-02-17 at 2.41.25 PM.jpeg";
+import imgDisaster from "../images/programmes/disaster_response/img1.jpeg";
 
 const programmes = [
   {
@@ -21,7 +23,7 @@ const programmes = [
     ],
     stats: ["1,200+ learners", "45 community educators", "68% attendance lift"],
     accent: "var(--brand-lime)",
-    image: impact1,
+    image: imgEducation,
     href: "/our-work/education"
   },
   {
@@ -38,7 +40,7 @@ const programmes = [
     ],
     stats: ["1,800+ youth", "65 mentorship circles", "140 scholarships"],
     accent: "var(--brand-cyan)",
-    image: impact2,
+    image: imgYouth,
     href: "/our-work/youth-empowerment"
   },
   {
@@ -55,7 +57,7 @@ const programmes = [
     ],
     stats: ["900+ trainees", "60% placed", "18 training cohorts"],
     accent: "var(--brand-orange)",
-    image: impact3,
+    image: imgSkills,
     href: "/our-work/skill-development"
   },
   {
@@ -72,7 +74,7 @@ const programmes = [
     ],
     stats: ["520+ women leaders", "40+ groups formed", "75% retention"],
     accent: "var(--brand-pink)",
-    image: impact4,
+    image: imgWomen,
     href: "/our-work/women-empowerment"
   },
   {
@@ -89,7 +91,7 @@ const programmes = [
     ],
     stats: ["1,100+ sessions", "12 local partners", "85% follow-up rate"],
     accent: "var(--brand-navy)",
-    image: impact5,
+    image: imgCounselling,
     href: "/our-work/counselling"
   },
   {
@@ -106,7 +108,7 @@ const programmes = [
     ],
     stats: ["2,400+ families", "8 rapid responses", "6 recovery hubs"],
     accent: "#ff4b3a",
-    image: impact1,
+    image: imgDisaster,
     href: "/our-work/disaster-response"
   }
 ];
@@ -157,14 +159,13 @@ const impactTotals = [
         }`}
       >
         <div class={`programme-media ${index % 2 === 1 ? "md:order-2" : ""}`}>
-          <img
-            src={p.image.src}
-            alt={`${p.label} programme placeholder`}
-            width="560"
-            height="420"
+          <Image
+            src={p.image}
+            alt={`${p.label} programme`}
+            width={560}
+            height={420}
             loading="lazy"
-            decoding="async"
-            class="h-full w-full object-contain"
+            class="programme-image"
           />
         </div>
 
@@ -370,6 +371,14 @@ const impactTotals = [
     transform: translateY(-1px);
     border-color: color-mix(in srgb, var(--brand-navy) 30%, white);
     box-shadow: 0 8px 16px rgba(13, 14, 30, 0.08);
+  }
+
+  .programme-media :global(.programme-image),
+  .programme-media :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
   }
 
   .programme-media {
