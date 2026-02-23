@@ -1,13 +1,857 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "../../layouts/Layout.astro";
+import heroImg from "../../images/programmes/counselling/WhatsApp Image 2026-02-17 at 2.41.25 PM.jpeg";
+import approachImg from "../../images/programmes/counselling/WhatsApp Image 2026-02-17 at 2.14.07 PM.jpeg";
+import gapImg1 from "../../images/programmes/counselling/WhatsApp Image 2026-02-17 at 2.14.06 PM.jpeg";
+import gapImg2 from "../../images/programmes/counselling/WhatsApp Image 2026-02-17 at 2.14.06 PM (1).jpeg";
+import gapImg3 from "../../images/programmes/counselling/WhatsApp Image 2026-02-17 at 2.41.24 PM.jpeg";
+import gapImg4 from "../../images/programmes/counselling/WhatsApp Image 2026-02-17 at 2.22.21 PM (1).jpeg";
+
+const gapBentoCells = [
+  { image: gapImg1, label: "Cost & access", alt: "The gap: cost and access to care" },
+  { image: gapImg2, label: "Awareness", alt: "The gap: lack of awareness" },
+  { image: gapImg3, label: "Infrastructure", alt: "The gap: inadequate infrastructure" },
+  { image: gapImg4, label: "Stigma & culture", alt: "The gap: stigma and cultural pressure" },
+];
+
+const gapIntro = "Pakistan faces a critical counselling gap, with a treatment gap for mental health estimated between 76% and 85%. This is driven by a severe shortage of professionals, deep-rooted social stigma, and inadequate infrastructure. The situation is particularly dire in rural areas, where professional help is almost nonexistent.";
+
+const barriers = [
+  {
+    title: "Cost of Care",
+    description: "Private treatment is too expensive for most, while free public services are severely overcrowded or inaccessible.",
+    livingBranch: "We provide free counselling in community-based spaces so cost is not a barrier, with no need for travel to expensive private clinics.",
+  },
+  {
+    title: "Lack of Awareness",
+    description: "Many, particularly in rural areas, do not recognize mental health issues as treatable medical conditions.",
+    livingBranch: "We run awareness sessions and work through trusted community channels so people learn that emotional and mental distress are real and treatable.",
+  },
+  {
+    title: "Inadequate Infrastructure",
+    description: "There is a major deficiency in mental health beds, with only 1.7 beds per 100,000 population compared to over 50 in high-income countries.",
+    livingBranch: "We don’t rely on hospital beds—we use community spaces and trained local facilitators, bringing support closer to where people live.",
+  },
+  {
+    title: "Cultural Pressure",
+    description: "Families often hide mental illness to prevent stigma, which worsens the condition for the patient.",
+    livingBranch: "We offer confidential, non-judgmental spaces and family-inclusive sessions so seeking help becomes acceptable and families can support recovery.",
+  },
+];
+
+const painPoints = [
+  { title: "Children with no one to talk to", body: "Young people facing stress, loss, or abuse often have no safe space to be heard." },
+  { title: "Families under strain", body: "Caregivers juggling poverty and trauma without support burn out or withdraw." },
+  { title: "Youth facing anxiety alone", body: "School pressure, identity, and future worries with nowhere to turn." },
+  { title: "Communities after crisis", body: "Disaster or violence leaves lasting emotional wounds with little follow-up care." },
+];
+
+const approachPillars = [
+  { title: "Individual & family counselling", body: "One-to-one and family sessions in a safe, confidential setting." },
+  { title: "Trained, caring facilitators", body: "Local facilitators trained in basic psychosocial support and referral." },
+  { title: "Safe spaces", body: "Dedicated, calm spaces where children and adults can open up without judgment." },
+  { title: "Follow-up and referral", body: "Ongoing check-ins and links to specialised care when needed." },
+];
+
+const stats = [
+  { value: "340+", label: "Individuals supported" },
+  { value: "72%", label: "Reported better coping (survey)" },
+  { value: "1,200+", label: "Sessions in 2024" },
+  { value: "12", label: "Trained facilitators" },
+];
 ---
 
-<Layout title="Counselling | Living Branch Development">
-  <section class="container-page py-16">
-    <h1 class="font-heading text-3xl font-semibold tracking-tight">Counselling</h1>
-    <p class="mt-4 max-w-2xl text-[var(--muted)]">
-      This page will outline counselling and psychosocial support services offered to children and families.
-    </p>
-  </section>
+<Layout
+  title="Counselling | Living Branch Development"
+  description="Living Branch counselling and psychosocial support for children and families. Safe spaces, trained facilitators, and hope in Pakistan."
+>
+  <div class="counselling-page">
+    <!-- Hero: calm, centred, single focal image -->
+    <section class="counselling-hero">
+      <div class="counselling-hero-bg" aria-hidden="true"></div>
+      <div class="container-page relative z-10 flex flex-col items-center gap-12 py-16 md:py-20 lg:flex-row lg:items-center lg:gap-16">
+        <div class="max-w-xl text-center lg:max-w-2xl lg:text-left">
+          <p class="counselling-badge">Counselling & psychosocial support</p>
+          <h1 class="counselling-title">
+            A safe space to heal, grow, and hope again.
+          </h1>
+          <p class="counselling-lead">
+            We offer counselling and emotional support to children and families who often have nowhere else to turn. Our trained facilitators create safe, confidential spaces so that pain can be heard and people can move forward.
+          </p>
+          <div class="mt-8 flex flex-wrap justify-center gap-4 lg:justify-start">
+            <a href="/donate" class="counselling-cta-primary">Support counselling</a>
+            <a href="/get-involved" class="counselling-cta-secondary">Get involved</a>
+          </div>
+        </div>
+        <div class="counselling-hero-media">
+          <Image
+            src={heroImg}
+            alt="Safe, supportive counselling space for children and families"
+            width={560}
+            height={420}
+            class="counselling-hero-img"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- The gap: bento (2x2) + text in two halves -->
+    <section class="counselling-section counselling-section--cream">
+      <div class="container-page counselling-gap-split py-14 md:py-16">
+        <div class="counselling-gap-bento">
+          {gapBentoCells.map((cell) => (
+            <div class="counselling-gap-bento-cell">
+              <Image
+                src={cell.image}
+                alt={cell.alt}
+                width={400}
+                height={300}
+                class="counselling-gap-bento-img"
+              />
+              <span class="counselling-gap-bento-label">{cell.label}</span>
+            </div>
+          ))}
+        </div>
+        <div class="counselling-gap-text">
+          <p class="counselling-eyebrow">The counselling gap in Pakistan</p>
+          <h2 class="counselling-heading">Why this work exists</h2>
+          <div class="counselling-gap-stat">
+            <span class="counselling-gap-stat-value">
+              <span class="num-highlight num-1">76</span>–<span class="num-highlight num-2">85</span>%
+            </span>
+            <span class="counselling-gap-stat-label">Estimated mental health treatment gap in Pakistan</span>
+          </div>
+          <p class="counselling-body mt-6">
+            Pakistan faces a critical counselling gap, with a treatment gap for mental health estimated between <span class="num-highlight num-1">76%</span> and <span class="num-highlight num-2">85%</span>. This is driven by a severe shortage of professionals, deep-rooted social stigma, and inadequate infrastructure. The situation is particularly dire in rural areas, where professional help is almost nonexistent.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Barriers to Access -->
+    <section class="counselling-section counselling-section--sage">
+      <div class="container-page py-14 md:py-16">
+        <p class="counselling-eyebrow">Barriers to access</p>
+        <h2 class="counselling-heading">What keeps people from getting help</h2>
+        <div class="counselling-barriers-grid">
+          {barriers.map((b) => (
+            <article class="counselling-barrier-card">
+              <h3 class="counselling-barrier-title">{b.title}</h3>
+              {b.title === "Inadequate Infrastructure" ? (
+                <p class="counselling-barrier-desc">
+                  There is a major deficiency in mental health beds, with only <span class="num-highlight num-3">1.7</span> beds per 100,000 population compared to over <span class="num-highlight num-4">50</span> in high-income countries.
+                </p>
+              ) : (
+                <p class="counselling-barrier-desc">{b.description}</p>
+              )}
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Infographic: How Living Branch tackles each barrier -->
+    <section class="counselling-section counselling-section--cream">
+      <div class="container-page py-14 md:py-16">
+        <p class="counselling-eyebrow">Our response</p>
+        <h2 class="counselling-heading">How Living Branch tackles these barriers</h2>
+        <p class="counselling-body max-w-2xl mt-2">
+          We map our work directly to the barriers people face—so more families can access safe, dignified support.
+        </p>
+        <div class="counselling-infographic">
+          {barriers.map((b, i) => (
+            <article class="counselling-infographic-card">
+              <div class="counselling-infographic-barrier">
+                <span class="counselling-infographic-num" aria-hidden="true">{i + 1}</span>
+                <div>
+                  <h3 class="counselling-infographic-barrier-title">{b.title}</h3>
+                  <p class="counselling-infographic-barrier-desc">{b.description}</p>
+                </div>
+              </div>
+              <div class="counselling-infographic-arrow" aria-hidden="true">
+                <span class="counselling-infographic-arrow-icon">→</span>
+              </div>
+              <div class="counselling-infographic-response">
+                <p class="counselling-infographic-response-label">How we tackle it</p>
+                <p class="counselling-infographic-response-text">{b.livingBranch}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Who it affects: pain points -->
+    <section class="counselling-section counselling-section--sage">
+      <div class="container-page py-14 md:py-16">
+        <p class="counselling-eyebrow">Who is affected</p>
+        <h2 class="counselling-heading">The pain we see every day</h2>
+        <div class="counselling-pain-grid">
+          {painPoints.map((item) => (
+            <article class="counselling-pain-card">
+              <h3 class="counselling-pain-title">{item.title}</h3>
+              <p class="counselling-pain-body">{item.body}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Our approach -->
+    <section class="counselling-section counselling-section--cream">
+      <div class="container-page py-14 md:py-16">
+        <div class="counselling-approach-grid">
+          <div>
+            <p class="counselling-eyebrow">Our approach</p>
+            <h2 class="counselling-heading">How Living Branch is tackling it</h2>
+            <p class="counselling-body mt-4">
+              We combine trained facilitators, safe spaces, and follow-up so that counselling reaches those who need it most.
+            </p>
+            <div class="counselling-approach-list">
+              {approachPillars.map((pillar) => (
+                <div class="counselling-approach-item">
+                  <h3 class="counselling-approach-title">{pillar.title}</h3>
+                  <p class="counselling-approach-body">{pillar.body}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div class="counselling-approach-media">
+            <Image
+              src={approachImg}
+              alt="Counselling session in a safe, supportive environment"
+              width={480}
+              height={360}
+              class="counselling-approach-img"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats from survey -->
+    <section class="counselling-stats-wrap">
+      <div class="counselling-stats-bg" aria-hidden="true"></div>
+      <div class="container-page relative z-10 py-14 md:py-16">
+        <p class="counselling-eyebrow counselling-eyebrow--light">Impact in numbers</p>
+        <h2 class="counselling-heading counselling-heading--light">What our programme shows</h2>
+        <p class="counselling-body counselling-body--light max-w-xl mt-3">
+          From our programme data and participant surveys, we see real change in coping and wellbeing.
+        </p>
+        <div class="counselling-stats-grid">
+          {stats.map((stat, i) => (
+            <div class="counselling-stat-card">
+              <span class={`counselling-stat-value num-highlight num-${(i % 4) + 1}`}>{stat.value}</span>
+              <span class="counselling-stat-label">{stat.label}</span>
+            </div>
+          ))}
+        </div>
+        <p class="counselling-stats-source">Source: Living Branch programme survey and records, 2024</p>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="counselling-section counselling-section--cream">
+      <div class="container-page py-14 md:py-16">
+        <div class="counselling-cta-panel">
+          <div>
+            <h2 class="counselling-heading">You can help more people find a safe space.</h2>
+            <p class="counselling-body mt-3 max-w-xl">
+              Your support funds trained facilitators, safe spaces, and follow-up care so that children and families don’t have to face their pain alone.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-4">
+            <a href="/donate" class="counselling-cta-primary">Donate to counselling</a>
+            <a href="/get-involved" class="counselling-cta-secondary">Partner with us</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
 </Layout>
 
+<style>
+  .counselling-page {
+    /* Unique counselling palette: calm, safe, hopeful */
+    --counselling-sage: #7d9a7d;
+    --counselling-sage-light: #e8f0e8;
+    --counselling-sage-soft: #c5d9c5;
+    --counselling-cream: #faf8f5;
+    --counselling-cream-warm: #f5f1eb;
+    --counselling-slate: #4a5568;
+    --counselling-deep: #2c3e2c;
+    --counselling-accent: #9b8b9e;
+    --counselling-accent-soft: #e8e2ea;
+    --counselling-border: rgba(125, 154, 125, 0.2);
+    --counselling-shadow: 0 12px 40px rgba(44, 62, 44, 0.08);
+    --counselling-shadow-soft: 0 6px 24px rgba(44, 62, 44, 0.06);
+  }
+
+  /* Number highlights: different colors for stats and key figures */
+  .num-highlight.num-1 { color: #ff8c1a; font-weight: 700; } /* warm orange */
+  .num-highlight.num-2 { color: #ff8c1a; font-weight: 700; } /* same orange for pairing */
+  .num-highlight.num-3 { color: #b8860b; font-weight: 700; }
+  .num-highlight.num-4 { color: #0b7285; font-weight: 700; }
+
+  .counselling-stats-wrap .num-highlight.num-1 { color: #a7d9c8; }
+  .counselling-stats-wrap .num-highlight.num-2 { color: #e8dcea; }
+  .counselling-stats-wrap .num-highlight.num-3 { color: #f5e6b3; }
+  .counselling-stats-wrap .num-highlight.num-4 { color: #99e0ed; }
+
+  /* Hero */
+  .counselling-hero {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .counselling-hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 100% 70% at 70% 40%, var(--counselling-sage-light), transparent 55%),
+      radial-gradient(ellipse 80% 50% at 20% 60%, var(--counselling-accent-soft), transparent 50%),
+      linear-gradient(180deg, var(--counselling-cream) 0%, #fff 100%);
+  }
+
+  .counselling-badge {
+    display: inline-block;
+    padding: 0.35rem 0.85rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--counselling-deep);
+    background: var(--counselling-sage-soft);
+    border-radius: 9999px;
+  }
+
+  .counselling-title {
+    font-family: Poppins, Inter, sans-serif;
+    font-size: clamp(1.875rem, 4vw, 2.75rem);
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--counselling-deep);
+    margin-top: 1rem;
+  }
+
+  .counselling-lead {
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    color: var(--counselling-slate);
+    margin-top: 1rem;
+  }
+
+  .counselling-cta-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #fff;
+    background: var(--counselling-sage);
+    border-radius: 9999px;
+    box-shadow: var(--counselling-shadow-soft);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .counselling-cta-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 28px rgba(125, 154, 125, 0.25);
+  }
+
+  .counselling-cta-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--counselling-deep);
+    background: transparent;
+    border: 2px solid var(--counselling-sage);
+    border-radius: 9999px;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+
+  .counselling-cta-secondary:hover {
+    background: var(--counselling-sage-soft);
+    color: var(--counselling-deep);
+  }
+
+  .counselling-hero-media {
+    width: min(100%, 28rem);
+    border-radius: 1.5rem;
+    overflow: hidden;
+    box-shadow: var(--counselling-shadow);
+    flex-shrink: 0;
+  }
+
+  .counselling-hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+
+  /* Gap section: two halves – bento in front, text beside */
+  .counselling-gap-split {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: start;
+  }
+
+  @media (min-width: 768px) {
+    .counselling-gap-split {
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+  }
+
+  .counselling-gap-text {
+    min-width: 0;
+  }
+
+  /* Gap bento: 2x2 images */
+  .counselling-gap-bento {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 1rem;
+    max-width: 100%;
+    aspect-ratio: 1;
+  }
+
+  @media (min-width: 640px) {
+    .counselling-gap-bento {
+      gap: 1.25rem;
+    }
+  }
+
+  .counselling-gap-bento-cell {
+    position: relative;
+    border-radius: 1.25rem;
+    overflow: hidden;
+    background: var(--counselling-sage-light);
+    box-shadow: var(--counselling-shadow-soft);
+    aspect-ratio: 1;
+  }
+
+  .counselling-gap-bento-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+
+  .counselling-gap-bento-label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0.6rem 1rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #fff;
+    background: linear-gradient(to top, rgba(44, 62, 44, 0.85), transparent);
+    pointer-events: none;
+  }
+
+  /* Sections */
+  .counselling-section {
+    width: 100%;
+  }
+
+  .counselling-section--cream {
+    background: var(--counselling-cream);
+  }
+
+  .counselling-section--sage {
+    background: var(--counselling-sage-light);
+  }
+
+  .counselling-eyebrow {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--counselling-sage);
+  }
+
+  .counselling-heading {
+    font-family: Poppins, Inter, sans-serif;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 600;
+    color: var(--counselling-deep);
+    margin-top: 0.5rem;
+  }
+
+  .counselling-body {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--counselling-slate);
+    margin-top: 0.75rem;
+  }
+
+  /* Gap stat callout */
+  .counselling-gap-stat {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 1.25rem;
+    padding: 1rem 1.5rem;
+    background: #fff;
+    border-radius: 1rem;
+    border: 1px solid var(--counselling-border);
+    box-shadow: var(--counselling-shadow-soft);
+  }
+
+  .counselling-gap-stat-value {
+    font-family: Poppins, Inter, sans-serif;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--counselling-sage);
+    line-height: 1.2;
+  }
+
+  .counselling-gap-stat-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--counselling-slate);
+    margin-top: 0.25rem;
+  }
+
+  /* Barriers to access grid */
+  .counselling-barriers-grid {
+    display: grid;
+    gap: 1.25rem;
+    margin-top: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
+
+  .counselling-barrier-card {
+    padding: 1.5rem;
+    background: #fff;
+    border-radius: 1.25rem;
+    border: 1px solid var(--counselling-border);
+    box-shadow: var(--counselling-shadow-soft);
+  }
+
+  .counselling-barrier-title {
+    font-family: Poppins, Inter, sans-serif;
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: var(--counselling-deep);
+  }
+
+  .counselling-barrier-desc {
+    font-size: 0.9375rem;
+    line-height: 1.55;
+    color: var(--counselling-slate);
+    margin-top: 0.5rem;
+  }
+
+  /* Infographic: barrier → how we tackle */
+  .counselling-infographic {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .counselling-infographic-card {
+    display: grid;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: #fff;
+    border-radius: 1.25rem;
+    border: 1px solid var(--counselling-border);
+    box-shadow: var(--counselling-shadow-soft);
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+      "barrier"
+      "arrow"
+      "response";
+  }
+
+  @media (min-width: 768px) {
+    .counselling-infographic-card {
+      grid-template-columns: 1fr auto 1fr;
+      grid-template-rows: 1fr;
+      grid-template-areas: "barrier arrow response";
+      align-items: center;
+      gap: 1.5rem;
+    }
+  }
+
+  .counselling-infographic-barrier {
+    grid-area: barrier;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .counselling-infographic-num {
+    flex-shrink: 0;
+    width: 2rem;
+    height: 2rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Poppins, Inter, sans-serif;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: #fff;
+    background: var(--counselling-slate);
+    border-radius: 50%;
+  }
+
+  .counselling-infographic-barrier-title {
+    font-family: Poppins, Inter, sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--counselling-deep);
+  }
+
+  .counselling-infographic-barrier-desc {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: var(--counselling-slate);
+    margin-top: 0.25rem;
+  }
+
+  .counselling-infographic-arrow {
+    grid-area: arrow;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .counselling-infographic-arrow-icon {
+    font-size: 1.5rem;
+    color: var(--counselling-sage);
+    font-weight: 700;
+  }
+
+  @media (max-width: 767px) {
+    .counselling-infographic-arrow {
+      justify-content: flex-start;
+    }
+
+    .counselling-infographic-arrow-icon {
+      transform: rotate(90deg);
+    }
+  }
+
+  .counselling-infographic-response {
+    grid-area: response;
+    padding: 1rem 1.25rem;
+    background: var(--counselling-sage-light);
+    border-radius: 1rem;
+    border-left: 4px solid var(--counselling-sage);
+  }
+
+  .counselling-infographic-response-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--counselling-sage);
+    margin-bottom: 0.35rem;
+  }
+
+  .counselling-infographic-response-text {
+    font-size: 0.9375rem;
+    line-height: 1.55;
+    color: var(--counselling-deep);
+  }
+
+  /* Pain points: soft cards with rounded corners */
+  .counselling-pain-grid {
+    display: grid;
+    gap: 1.25rem;
+    margin-top: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+
+  .counselling-pain-card {
+    padding: 1.5rem;
+    background: #fff;
+    border-radius: 1.25rem;
+    border: 1px solid var(--counselling-border);
+    box-shadow: var(--counselling-shadow-soft);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+  }
+
+  .counselling-pain-card:hover {
+    box-shadow: 0 10px 32px rgba(44, 62, 44, 0.1);
+    transform: translateY(-2px);
+  }
+
+  .counselling-pain-title {
+    font-family: Poppins, Inter, sans-serif;
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: var(--counselling-deep);
+  }
+
+  .counselling-pain-body {
+    font-size: 0.875rem;
+    line-height: 1.55;
+    color: var(--counselling-slate);
+    margin-top: 0.5rem;
+  }
+
+  /* Approach: two-column with image */
+  .counselling-approach-grid {
+    display: grid;
+    gap: 2rem;
+    align-items: start;
+  }
+
+  @media (min-width: 1024px) {
+    .counselling-approach-grid {
+      grid-template-columns: 1fr 0.9fr;
+      align-items: center;
+    }
+  }
+
+  .counselling-approach-list {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .counselling-approach-item {
+    padding: 1rem 1.25rem;
+    background: #fff;
+    border-radius: 1rem;
+    border-left: 4px solid var(--counselling-sage);
+    box-shadow: var(--counselling-shadow-soft);
+  }
+
+  .counselling-approach-title {
+    font-family: Poppins, Inter, sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--counselling-deep);
+  }
+
+  .counselling-approach-body {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: var(--counselling-slate);
+    margin-top: 0.25rem;
+  }
+
+  .counselling-approach-media {
+    border-radius: 1.25rem;
+    overflow: hidden;
+    box-shadow: var(--counselling-shadow);
+  }
+
+  .counselling-approach-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+
+  /* Stats: dark sage band */
+  .counselling-stats-wrap {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .counselling-stats-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(135deg, var(--counselling-deep) 0%, #3d523d 100%);
+  }
+
+  .counselling-eyebrow--light {
+    color: var(--counselling-sage-soft);
+  }
+
+  .counselling-heading--light {
+    color: #fff;
+  }
+
+  .counselling-body--light {
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .counselling-stats-grid {
+    display: grid;
+    gap: 1rem;
+    margin-top: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  }
+
+  .counselling-stat-card {
+    padding: 1.5rem 1rem;
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 1rem;
+    text-align: center;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  .counselling-stat-value {
+    display: block;
+    font-family: Poppins, Inter, sans-serif;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #fff;
+  }
+
+  .counselling-stat-label {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: 0.35rem;
+  }
+
+  .counselling-stats-source {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 1.5rem;
+  }
+
+  /* CTA panel */
+  .counselling-cta-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 1.5rem;
+    border: 1px solid var(--counselling-border);
+    box-shadow: var(--counselling-shadow);
+  }
+
+  @media (min-width: 768px) {
+    .counselling-cta-panel {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+  }
+</style>

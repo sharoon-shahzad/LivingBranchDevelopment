@@ -1,11 +1,38 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
-import impactOne from "../images/placeholders/impact-1.svg";
-import impactTwo from "../images/placeholders/impact-2.svg";
-import impactThree from "../images/placeholders/impact-3.svg";
-import impactFour from "../images/placeholders/impact-4.svg";
-import impactFive from "../images/placeholders/impact-5.svg";
+import edu1 from "../images/programmes/education/living_branch_school/WhatsApp Image 2026-02-02 at 2.08.54 PM.jpeg";
+import edu2 from "../images/programmes/education/living_branch_school/WhatsApp Image 2026-02-02 at 2.08.52 PM.jpeg";
+import edu3 from "../images/programmes/education/oratio_music_school/WhatsApp Image 2026-01-20 at 2.21.29 PM.jpeg";
+import edu4 from "../images/programmes/education/sunday_school_gift_boxes/WhatsApp Image 2026-01-29 at 11.59.27 AM.jpeg";
+import edu5 from "../images/programmes/education/living_branch_school/WhatsApp Image 2026-02-02 at 2.08.51 PM.jpeg";
+import edu6 from "../images/programmes/education/oratio_music_school/WhatsApp Image 2026-01-20 at 2.21.27 PM (1).jpeg";
+import youth1 from "../images/programmes/youth/youth_empowerment/WhatsApp Image 2026-02-16 at 4.57.15 PM (1).jpeg";
+import youth2 from "../images/programmes/youth/youth_empowerment/WhatsApp Image 2026-02-16 at 4.57.16 PM (1).jpeg";
+import youth3 from "../images/programmes/youth/youth_conference/WhatsApp Image 2026-02-16 at 4.57.12 PM.jpeg";
+import youth4 from "../images/programmes/youth/youth_conference/WhatsApp Image 2026-02-16 at 4.57.13 PM (1).jpeg";
+import youth5 from "../images/programmes/youth/youth_empowerment/WhatsApp Image 2026-02-16 at 4.57.13 PM.jpeg";
+import women1 from "../images/programmes/women_empowerment/women_empowerment2.jpeg";
+import women2 from "../images/programmes/women_empowerment/women_empowerment3.jpeg";
+import women3 from "../images/programmes/women_empowerment/women_empowerment4.jpeg";
+import women4 from "../images/programmes/women_empowerment/women_empowerment5.jpeg";
+import women5 from "../images/programmes/women_empowerment/women_empowerment6.jpeg";
+import women6 from "../images/programmes/women_empowerment/woment_empowerment1.jpeg";
+import skills1 from "../images/programmes/skill_development/TechHub/WhatsApp Image 2026-01-20 at 2.04.02 PM.jpeg";
+import skills2 from "../images/programmes/skill_development/TechHub/WhatsApp Image 2026-01-20 at 2.04.05 PM (1).jpeg";
+import skills3 from "../images/programmes/skill_development/TechHub/WhatsApp Image 2026-01-20 at 2.04.07 PM.jpeg";
+import skills4 from "../images/programmes/skill_development/TechHub/WhatsApp Image 2026-01-20 at 2.03.56 PM.jpeg";
+import skills5 from "../images/programmes/skill_development/TechHub/WhatsApp Image 2026-01-20 at 2.06.58 PM.jpeg";
+import skills6 from "../images/programmes/skill_development/TechHub/WhatsApp Image 2026-01-20 at 2.07.00 PM.jpeg";
+import disaster1 from "../images/programmes/disaster_response/img1.jpeg";
+import disaster2 from "../images/programmes/disaster_response/img2.jpeg";
+import disaster3 from "../images/programmes/WhatsApp Image 2026-02-02 at 2.08.54 PM (1).jpeg";
+import livelihood1 from "../images/programmes/skill_development/TechHub/WhatsApp Image 2026-01-20 at 2.04.00 PM (1).jpeg";
+import livelihood2 from "../images/programmes/skill_development/TechHub/WhatsApp Image 2026-01-20 at 2.04.01 PM.jpeg";
+import livelihood3 from "../images/programmes/skill_development/TechHub/WhatsApp Image 2026-01-20 at 2.03.59 PM (1).jpeg";
+import livelihood4 from "../images/programmes/skill_development/TechHub/WhatsApp Image 2026-01-20 at 2.03.55 PM.jpeg";
+import livelihood5 from "../images/programmes/women_empowerment/women_empowerment2.jpeg";
+import livelihood6 from "../images/programmes/women_empowerment/women_empowerment3.jpeg";
 
 const galleries = [
   {
@@ -13,12 +40,12 @@ const galleries = [
     description: "Learning spaces, mentoring programmes, and school supply initiatives",
     color: "#22c55e",
     images: [
-      { src: impactOne, alt: "Classroom learning session" },
-      { src: impactTwo, alt: "Student mentoring" },
-      { src: impactThree, alt: "School supplies distribution" },
-      { src: impactFour, alt: "Digital literacy class" },
-      { src: impactFive, alt: "School graduation ceremony" },
-      { src: impactOne, alt: "Library opening" }
+      { src: edu1, alt: "Living Branch School" },
+      { src: edu2, alt: "Classroom learning" },
+      { src: edu3, alt: "Oratio Music School" },
+      { src: edu4, alt: "Sunday school gift boxes" },
+      { src: edu5, alt: "School activity" },
+      { src: edu6, alt: "Music education" }
     ]
   },
   {
@@ -26,11 +53,11 @@ const galleries = [
     description: "Leadership, mentorship, and skills for young people",
     color: "#0ea5e9",
     images: [
-      { src: impactTwo, alt: "Youth leadership session" },
-      { src: impactThree, alt: "Youth mentorship" },
-      { src: impactFour, alt: "Youth skills workshop" },
-      { src: impactFive, alt: "Youth conference" },
-      { src: impactOne, alt: "Youth empowerment programme" }
+      { src: youth1, alt: "Youth leadership session" },
+      { src: youth2, alt: "Youth empowerment programme" },
+      { src: youth3, alt: "Youth conference" },
+      { src: youth4, alt: "Youth mentorship" },
+      { src: youth5, alt: "Youth skills workshop" }
     ]
   },
   {
@@ -38,11 +65,12 @@ const galleries = [
     description: "Skills training, income generation, and leadership circles",
     color: "#ff007a",
     images: [
-      { src: impactThree, alt: "Women skills training" },
-      { src: impactFour, alt: "Women cooperative group" },
-      { src: impactFive, alt: "Female entrepreneur" },
-      { src: impactOne, alt: "Women leadership circle" },
-      { src: impactTwo, alt: "Vocational training" }
+      { src: women1, alt: "Women skills training" },
+      { src: women2, alt: "Women cooperative group" },
+      { src: women3, alt: "Women leadership circle" },
+      { src: women4, alt: "Female entrepreneur" },
+      { src: women5, alt: "Vocational training" },
+      { src: women6, alt: "Women empowerment programme" }
     ]
   },
   {
@@ -50,12 +78,12 @@ const galleries = [
     description: "Career skills, digital literacy, and mentorship programmes",
     color: "#ff6a1a",
     images: [
-      { src: impactFour, alt: "Youth vocational training" },
-      { src: impactFive, alt: "Digital skills workshop" },
-      { src: impactOne, alt: "Youth mentorship" },
-      { src: impactTwo, alt: "Career counseling" },
-      { src: impactThree, alt: "Youth entrepreneurship" },
-      { src: impactFour, alt: "Job placement ceremony" }
+      { src: skills1, alt: "TechHub digital skills" },
+      { src: skills2, alt: "Digital literacy workshop" },
+      { src: skills3, alt: "Youth vocational training" },
+      { src: skills4, alt: "Career skills training" },
+      { src: skills5, alt: "Tech training" },
+      { src: skills6, alt: "Job-ready skills" }
     ]
   },
   {
@@ -63,10 +91,10 @@ const galleries = [
     description: "Emergency relief, rehabilitation, and community resilience",
     color: "#00baf2",
     images: [
-      { src: impactFive, alt: "Relief distribution" },
-      { src: impactOne, alt: "Disaster rehabilitation" },
-      { src: impactTwo, alt: "Community resilience building" },
-      { src: impactThree, alt: "Emergency aid" }
+      { src: disaster1, alt: "Relief distribution" },
+      { src: disaster2, alt: "Disaster rehabilitation" },
+      { src: disaster1, alt: "Community resilience" },
+      { src: disaster2, alt: "Emergency aid" }
     ]
   },
   {
@@ -74,12 +102,12 @@ const galleries = [
     description: "Microenterprises, skill development, and economic stability",
     color: "#7cff00",
     images: [
-      { src: impactOne, alt: "Microenterprise training" },
-      { src: impactTwo, alt: "Handicraft workshop" },
-      { src: impactThree, alt: "Market linkage program" },
-      { src: impactFour, alt: "Income generation group" },
-      { src: impactFive, alt: "Business skills training" },
-      { src: impactOne, alt: "Cooperative success story" }
+      { src: livelihood1, alt: "Microenterprise training" },
+      { src: livelihood2, alt: "Skill development" },
+      { src: livelihood3, alt: "Vocational workshop" },
+      { src: livelihood4, alt: "Income generation" },
+      { src: livelihood5, alt: "Women enterprise" },
+      { src: livelihood6, alt: "Business skills training" }
     ]
   }
 ];
@@ -148,10 +176,10 @@ const galleries = [
                     <Image
                       src={image.src}
                       alt={image.alt}
-                      width={300}
-                      height={300}
+                      width={400}
+                      height={400}
                       loading="lazy"
-                      class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                      class="media-gallery-img"
                     />
                     <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300"></div>
                     <div class="absolute inset-0 flex items-end justify-start p-3 md:p-4">
@@ -229,6 +257,20 @@ const galleries = [
 </Layout>
 
 <style>
+  /* Consistent image sizing: object-fit cover, center position */
+  .media-gallery-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.3s ease;
+  }
+
+  .group:hover .media-gallery-img {
+    transform: scale(1.05);
+  }
+
   /* Smooth hover effects for gallery cards */
   .group {
     animation: fade-up 520ms ease both;
