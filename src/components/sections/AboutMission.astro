@@ -10,9 +10,13 @@ import aboutMission from "../../images/hero/about_missio.jpeg";
     <!-- Left: Mission Statement -->
     <div class="mission-text-block">
       <span class="mission-label">Our Mission</span>
-      <h2 class="mission-statement">
-        To empower marginalized communities through education, health, and sustainable livelihood programmes that create lasting, measurable change.
-      </h2>
+      <blockquote class="mission-quote">
+        <span class="mission-quote-open" aria-hidden="true">"</span>
+        <h2 class="mission-statement">
+          To empower marginalized communities through education, health, and sustainable livelihood programmes that create lasting, measurable change.
+        </h2>
+        <span class="mission-quote-close" aria-hidden="true">"</span>
+      </blockquote>
     </div>
 
     <!-- Right: Image -->
@@ -104,6 +108,39 @@ import aboutMission from "../../images/hero/about_missio.jpeg";
     .mission-label {
       font-size: 1rem;
       margin-bottom: 2rem;
+    }
+  }
+
+  .mission-quote {
+    position: relative;
+    margin: 0;
+  }
+
+  .mission-quote-open,
+  .mission-quote-close {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--brand-cyan);
+    opacity: 0.9;
+  }
+
+  .mission-quote-open {
+    display: block;
+    margin-bottom: -0.25em;
+  }
+
+  .mission-quote-close {
+    display: block;
+    text-align: end;
+    margin-top: -0.15em;
+  }
+
+  @media (min-width: 768px) {
+    .mission-quote-open,
+    .mission-quote-close {
+      font-size: 4rem;
     }
   }
 

@@ -1,11 +1,15 @@
 ---
 import { Image } from "astro:assets";
 import SectionDivider from "../SectionDivider.astro";
-import impactOne from "../../images/placeholders/impact-1.svg";
-import impactTwo from "../../images/placeholders/impact-2.svg";
-import impactThree from "../../images/placeholders/impact-3.svg";
-import impactFour from "../../images/placeholders/impact-4.svg";
-import impactFive from "../../images/placeholders/impact-5.svg";
+import impactImg1 from "../../images/impact/impact.jpeg";
+import story1 from "../../images/programmes/education/living_branch_school/WhatsApp Image 2026-02-02 at 2.08.54 PM.jpeg";
+import story2 from "../../images/programmes/education/oratio_music_school/WhatsApp Image 2026-01-20 at 2.21.29 PM.jpeg";
+import story3 from "../../images/programmes/counselling/WhatsApp Image 2026-02-17 at 2.41.25 PM.jpeg";
+import story4 from "../../images/programmes/youth/youth_empowerment/WhatsApp Image 2026-02-16 at 4.57.15 PM (1).jpeg";
+import story5 from "../../images/programmes/youth/youth_conference/WhatsApp Image 2026-02-16 at 4.57.12 PM.jpeg";
+import story6 from "../../images/programmes/education/sunday_school_gift_boxes/WhatsApp Image 2026-01-29 at 11.59.27 AM.jpeg";
+import story7 from "../../images/programmes/education/living_branch_school/WhatsApp Image 2026-02-02 at 2.08.52 PM.jpeg";
+import story8 from "../../images/programmes/counselling/WhatsApp Image 2026-02-17 at 2.14.07 PM.jpeg";
 
 const stats = [
   {
@@ -49,11 +53,15 @@ const focusAreas = [
 ];
 
 const gallery = [
-  { src: impactOne, alt: "Community learning session" },
-  { src: impactTwo, alt: "Health outreach visit" },
-  { src: impactThree, alt: "Women empowerment circle" },
-  { src: impactFour, alt: "Youth skills workshop" },
-  { src: impactFive, alt: "Rural community gathering" }
+  { src: impactImg1, alt: "Living Branch Development impact in the community" },
+  { src: story1, alt: "Living Branch School" },
+  { src: story2, alt: "Oratio Music School" },
+  { src: story3, alt: "Counselling programme" },
+  { src: story4, alt: "Youth empowerment" },
+  { src: story5, alt: "Youth conference" },
+  { src: story6, alt: "Sunday school gift boxes" },
+  { src: story7, alt: "Living Branch School activity" },
+  { src: story8, alt: "Counselling support" },
 ];
 ---
 
@@ -484,6 +492,10 @@ const gallery = [
     flex-shrink: 0;
     width: max-content;
     animation: marquee 32s linear infinite;
+  }
+
+  .impact-marquee:hover .impact-marquee-track {
+    animation-play-state: paused;
   }
 
   .impact-image-card {
