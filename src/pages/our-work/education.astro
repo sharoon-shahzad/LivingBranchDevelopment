@@ -1,15 +1,33 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import impact1 from "../../images/placeholders/impact-1.svg";
-import impact2 from "../../images/placeholders/impact-2.svg";
-import impact3 from "../../images/placeholders/impact-3.svg";
-import impact4 from "../../images/placeholders/impact-4.svg";
-import impact5 from "../../images/placeholders/impact-5.svg";
+import heroImg from "../../images/programmes/education/living_branch_school/WhatsApp Image 2026-02-02 at 2.08.54 PM.jpeg";
+import focusImg from "../../images/programmes/education/oratio_music_school/WhatsApp Image 2026-01-20 at 2.21.29 PM.jpeg";
+import bento1 from "../../images/programmes/education/living_branch_school/WhatsApp Image 2026-02-02 at 2.08.51 PM.jpeg";
+import bento2 from "../../images/programmes/education/sunday_school_gift_boxes/WhatsApp Image 2026-01-29 at 11.59.27 AM.jpeg";
+import bento3 from "../../images/programmes/education/oratio_music_school/WhatsApp Image 2026-01-20 at 2.21.26 PM.jpeg";
+import bento4 from "../../images/programmes/education/sunday_school_gift_boxes/WhatsApp Image 2026-01-29 at 11.59.29 AM (1).jpeg";
+import bento5 from "../../images/programmes/education/living_branch_school/WhatsApp Image 2026-02-02 at 2.08.52 PM.jpeg";
+import bento6 from "../../images/programmes/education/oratio_music_school/WhatsApp Image 2026-01-20 at 2.21.27 PM (1).jpeg";
 
 const stats = [
-  { value: "1,200+", label: "Learners supported" },
-  { value: "45", label: "Community educators" },
-  { value: "68%", label: "Attendance lift" }
+  {
+    value: "26M+",
+    label: "school-age children out of school in Pakistan",
+    response: "LBD creates bridge classes and community learning hubs so out-of-school children can re-enter education.",
+    accent: "var(--brand-cyan)"
+  },
+  {
+    value: "75%",
+    label: "children in learning poverty (cannot read by age 10)",
+    response: "LBD runs after-school tutoring, reading circles, and homework clubs to strengthen foundational skills.",
+    accent: "var(--brand-orange)"
+  },
+  {
+    value: "60%",
+    label: "students who never reach higher secondary",
+    response: "Through mentoring, scholarships, and family follow-up, LBD helps learners stay in school longer.",
+    accent: "var(--brand-pink)"
+  }
 ];
 
 const focusAreas = [
@@ -39,6 +57,30 @@ const journey = [
   {
     title: "Sustain outcomes",
     text: "Families receive ongoing support so children stay in school."
+  }
+];
+
+const initiatives = [
+  {
+    title: "Living Branch School",
+    description:
+      "Community school classrooms where children who were previously out of school receive consistent teaching, supplies, and encouragement.",
+    image: bento1,
+    tag: "Bridge to school"
+  },
+  {
+    title: "Oratio Music School",
+    description:
+      "Creative learning through music and the arts that builds confidence, discipline, and joy in learning for vulnerable children.",
+    image: bento6,
+    tag: "Learning through creativity"
+  },
+  {
+    title: "Sunday School & Gift Boxes",
+    description:
+      "Weekend learning spaces and gift boxes with storybooks and resources that keep children connected to reading and faith.",
+    image: bento4,
+    tag: "Weekend learning"
   }
 ];
 ---
@@ -79,7 +121,7 @@ const journey = [
       </div>
       <div class="hero-image">
         <img
-          src={impact1.src}
+          src={bento1.src}
           alt="Education programme placeholder"
           width="520"
           height="420"
@@ -94,10 +136,11 @@ const journey = [
   <section class="container-page py-10 sm:py-12">
     <div class="stats-grid">
       {stats.map((stat) => (
-        <div class="stat-card">
-          <p class="text-2xl font-semibold text-[var(--fg)]">{stat.value}</p>
-          <p class="mt-1 text-xs uppercase tracking-[0.2em] text-[var(--muted)]">{stat.label}</p>
-        </div>
+        <article class="stat-card">
+          <p class="stat-value">{stat.value}</p>
+          <p class="stat-label">{stat.label}</p>
+          <p class="stat-response">{stat.response}</p>
+        </article>
       ))}
     </div>
   </section>
@@ -106,7 +149,7 @@ const journey = [
     <div class="grid gap-10 md:grid-cols-[0.9fr_1.1fr] md:items-center">
       <div class="focus-media">
         <img
-          src={impact2.src}
+          src={bento2.src}
           alt="Learning support placeholder"
           width="480"
           height="360"
@@ -159,6 +202,37 @@ const journey = [
   </section>
 
   <section class="container-page py-12 sm:py-14">
+    <div class="initiatives-header">
+      <p class="initiatives-eyebrow">Initiatives</p>
+      <h2 class="initiatives-heading">How LBD is closing the gap for children.</h2>
+      <p class="initiatives-subcopy">
+        From community classrooms to creative learning spaces and Sunday schools, these initiatives help children
+        move from illiteracy and isolation into joyful learning.
+      </p>
+    </div>
+    <div class="initiatives-grid">
+      {initiatives.map((item) => (
+        <article class="initiative-card">
+          <div class="initiative-media">
+            <img
+              src={item.image.src}
+              alt={item.title}
+              loading="lazy"
+              decoding="async"
+              class="initiative-img"
+            />
+          </div>
+          <div class="initiative-body">
+            <p class="initiative-tag">{item.tag}</p>
+            <h3 class="initiative-title">{item.title}</h3>
+            <p class="initiative-text">{item.description}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="container-page py-12 sm:py-14">
     <div class="grid gap-8 md:grid-cols-[0.9fr_1.1fr] md:items-center">
       <div>
         <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[color-mix(in_srgb,var(--brand-navy)_70%,var(--muted))]">
@@ -174,7 +248,7 @@ const journey = [
       <div class="bento-grid">
         <div class="bento-card bento-tall">
           <img
-            src={impact4.src}
+            src={bento3.src}
             alt="Learning moment placeholder"
             width="420"
             height="520"
@@ -185,7 +259,7 @@ const journey = [
         </div>
         <div class="bento-card">
           <img
-            src={impact2.src}
+            src={bento4.src}
             alt="Classroom activity placeholder"
             width="420"
             height="320"
@@ -196,7 +270,7 @@ const journey = [
         </div>
         <div class="bento-card">
           <img
-            src={impact5.src}
+            src={bento5.src}
             alt="Learning resources placeholder"
             width="420"
             height="320"
@@ -207,7 +281,7 @@ const journey = [
         </div>
         <div class="bento-card bento-wide">
           <img
-            src={impact3.src}
+            src={bento6.src}
             alt="Community learning placeholder"
             width="520"
             height="320"
@@ -264,15 +338,59 @@ const journey = [
   .stats-grid {
     display: grid;
     gap: 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   }
 
   .stat-card {
+    position: relative;
     border-radius: 20px;
-    border: 1px solid var(--border);
-    background: #ffffff;
-    padding: 1rem 1.2rem;
-    box-shadow: 0 10px 18px rgba(12, 16, 34, 0.06);
+    padding: 1.2rem 1.4rem;
+    color: #ffffff;
+    background: linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--brand-cyan) 80%, white) 0%,
+      color-mix(in srgb, var(--brand-cyan) 55%, white) 100%
+    );
+    box-shadow: 0 14px 26px rgba(15, 23, 42, 0.22);
+    overflow: hidden;
+  }
+
+  .stat-card:nth-child(2) {
+    background: linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--brand-orange) 80%, white) 0%,
+      color-mix(in srgb, var(--brand-orange) 55%, white) 100%
+    );
+  }
+
+  .stat-card:nth-child(3) {
+    background: linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--brand-pink) 80%, white) 0%,
+      color-mix(in srgb, var(--brand-pink) 55%, white) 100%
+    );
+  }
+
+  .stat-value {
+    font-family: Poppins, Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 1.9rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+
+  .stat-label {
+    margin-top: 0.35rem;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    opacity: 0.9;
+  }
+
+  .stat-response {
+    margin-top: 0.7rem;
+    font-size: 0.86rem;
+    line-height: 1.55;
+    color: color-mix(in srgb, white 88%, transparent);
   }
 
   .focus-media {
@@ -292,7 +410,7 @@ const journey = [
   }
 
   .journey-band {
-    background: #fff3ec;
+    background: #FF8C00;
   }
 
   .journey-card {
@@ -311,6 +429,102 @@ const journey = [
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+  }
+
+  .initiatives-header {
+    max-width: 44rem;
+    margin-inline: auto;
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+
+  .initiatives-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: color-mix(in srgb, var(--brand-navy) 80%, var(--muted));
+  }
+
+  .initiatives-heading {
+    margin-top: 0.75rem;
+    font-family: Poppins, Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: clamp(1.5rem, 3vw, 2.1rem);
+    font-weight: 600;
+    color: var(--fg);
+  }
+
+  .initiatives-subcopy {
+    margin-top: 0.75rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--muted);
+  }
+
+  .initiatives-grid {
+    display: grid;
+    gap: 1.4rem;
+  }
+
+  @media (min-width: 768px) {
+    .initiatives-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  .initiative-card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 24px;
+    background: #ffffff;
+    border: 1px solid var(--border);
+    box-shadow: 0 14px 26px rgba(15, 23, 42, 0.08);
+    overflow: hidden;
+  }
+
+  .initiative-media {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+  }
+
+  .initiative-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+
+  .initiative-body {
+    padding: 1.1rem 1.2rem 1.2rem;
+  }
+
+  .initiative-tag {
+    display: inline-flex;
+    padding: 0.25rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: color-mix(in srgb, var(--brand-navy) 82%, black);
+    background: color-mix(in srgb, var(--brand-lime) 16%, #f3fbff);
+  }
+
+  .initiative-title {
+    margin-top: 0.7rem;
+    font-family: Poppins, Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--fg);
+  }
+
+  .initiative-text {
+    margin-top: 0.55rem;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--muted);
   }
 
   .bento-grid {
