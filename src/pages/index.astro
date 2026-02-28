@@ -85,7 +85,8 @@ import WelcomeOverlay from "../components/WelcomeOverlay.astro";
                   alt="Living Branch Development logo"
                   width={140}
                   height={140}
-                  loading="lazy"
+                  priority
+                  quality={85}
                   class="h-full w-full object-contain"
                 />
               </div>
@@ -103,7 +104,10 @@ import WelcomeOverlay from "../components/WelcomeOverlay.astro";
               alt="Education program in action"
               width={480}
               height={360}
-              loading="lazy"
+              priority
+              widths={[240, 360, 480]}
+              sizes="(max-width: 768px) 50vw, 240px"
+              quality={80}
               class="h-full w-full object-cover"
             />
           </div>
@@ -122,6 +126,9 @@ import WelcomeOverlay from "../components/WelcomeOverlay.astro";
               width={480}
               height={360}
               loading="lazy"
+              widths={[240, 360, 480]}
+              sizes="(max-width: 768px) 50vw, 240px"
+              quality={80}
               class="h-full w-full object-cover"
             />
           </div>
@@ -140,6 +147,9 @@ import WelcomeOverlay from "../components/WelcomeOverlay.astro";
               width={480}
               height={360}
               loading="lazy"
+              widths={[240, 360, 480]}
+              sizes="(max-width: 768px) 50vw, 240px"
+              quality={80}
               class="h-full w-full object-cover"
             />
           </div>

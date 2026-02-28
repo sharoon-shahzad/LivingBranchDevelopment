@@ -5,24 +5,24 @@ const contactInfo = [
   {
     icon: "email",
     title: "Email",
-    items: ["hello@livingbranch.org", "contact@livingbranch.org"]
+    items: ["livingbranch.dev@gmail.com"]
   },
   {
     icon: "phone",
     title: "Phone",
-    items: ["(92) 300-1234567", "(92) 213-456-7890"]
+    items: ["(+92) 333-5577966"]
   },
   {
     icon: "location",
     title: "Address",
-    items: ["Karachi, Sindh", "Pakistan"]
+    items: ["Office No.807 8th Floor","PaklandTower2 G-9/2 New Blue Area " , "Islamabad", "Pakistan"]
   }
 ];
 
 const hours = [
   { day: "Monday – Friday", time: "9am – 5pm" },
-  { day: "Saturdays", time: "11am – 5pm" },
-  { day: "Sundays", time: "9am – 3pm" }
+  { day: "Saturdays", time: null, message: "Reach us through email or call—your team will support you." },
+  { day: "Sundays", time: null, message: "Reach us through email or call—your team will support you." }
 ];
 ---
 
@@ -135,7 +135,11 @@ const hours = [
                   {hours.map((hour) => (
                     <div>
                       <h4 class="font-heading text-lg font-semibold text-white">{hour.day}</h4>
-                      <p class="mt-1 text-cyan-100 text-base font-medium">{hour.time}</p>
+                      {hour.time ? (
+                        <p class="mt-1 text-cyan-100 text-base font-medium">{hour.time}</p>
+                      ) : (
+                        <p class="mt-1 text-cyan-100/90 text-sm font-medium">{hour.message}</p>
+                      )}
                     </div>
                   ))}
                 </div>
@@ -143,7 +147,7 @@ const hours = [
                 {/* Contact CTA */}
                 <div class="mt-8 border-t border-cyan-500/30 pt-8">
                   <p class="text-sm text-cyan-100/80">
-                    Questions about visiting? Email us at <span class="font-semibold text-white">hello@livingbranch.org</span>
+                    Questions about visiting? Email us at <a href="mailto:livingbranch.dev@gmail.com" class="font-semibold text-white hover:text-orange-400 transition-colors">livingbranch.dev@gmail.com</a>
                   </p>
                 </div>
               </div>
@@ -164,15 +168,15 @@ const hours = [
           <div class="mt-10 flex flex-wrap items-center justify-center gap-6 md:gap-8">
             <div class="flex flex-col items-center gap-1">
               <p class="text-base font-semibold text-white">Email:</p>
-              <a href="mailto:hello@livingbranch.org" class="text-lg font-medium text-cyan-100 hover:text-orange-400 transition-colors">
-                hello@livingbranch.org
+              <a href="mailto:livingbranch.dev@gmail.com" class="text-lg font-medium text-cyan-100 hover:text-orange-400 transition-colors">
+                livingbranch.dev@gmail.com
               </a>
             </div>
             <div class="hidden md:block w-px h-12 bg-cyan-500/30"></div>
             <div class="flex flex-col items-center gap-1">
               <p class="text-base font-semibold text-white">Call Anytime:</p>
-              <a href="tel:+923001234567" class="text-lg font-medium text-cyan-100 hover:text-orange-400 transition-colors">
-                (92) 300-1234567
+              <a href="tel:+923335577966" class="text-lg font-medium text-cyan-100 hover:text-orange-400 transition-colors">
+                (+92) 333-5577966
               </a>
             </div>
           </div>

@@ -1,6 +1,46 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import HeroImageUrl from "../../images/placeholders/impact-4.svg?url";
+import womenImg2 from "../../images/programmes/women_empowerment/women_empowerment2.jpeg";
+import womenImg3 from "../../images/programmes/women_empowerment/women_empowerment3.jpeg";
+import womenImg4 from "../../images/programmes/women_empowerment/women_empowerment4.jpeg";
+import womenImg5 from "../../images/programmes/women_empowerment/women_empowerment5.jpeg";
+import womenImg6 from "../../images/programmes/women_empowerment/women_empowerment6.jpeg";
+
+const barriers = [
+  {
+    title: "Limited education & skills",
+    description: "Many women and girls lack access to quality education and market-ready skills, limiting their options.",
+    livingBranch: "We run skills training, apprenticeships, and literacy programmes in community hubs so women can build confidence and earn.",
+    icon: "education",
+  },
+  {
+    title: "Economic dependency",
+    description: "Without access to capital or income, women often remain financially dependent and unable to make choices.",
+    livingBranch: "Savings circles, micro-grants, and mentor networks give women the tools to save, invest, and grow their own enterprises.",
+    icon: "economic",
+  },
+  {
+    title: "Safety & protection gaps",
+    description: "Gender-based violence, harassment, and lack of safe spaces prevent women from participating fully.",
+    livingBranch: "Trauma-informed counselling, legal referrals, and safe community spaces where women can heal and access support.",
+    icon: "safety",
+  },
+  {
+    title: "Limited voice & leadership",
+    description: "Cultural norms often exclude women from decision-making and leadership roles.",
+    livingBranch: "Advocacy training, women-led committees, and peer networks so women gain voice and influence in their communities.",
+    icon: "voice",
+  },
+];
+
+const galleryItems = [
+  { src: womenImg2, alt: "Women in skills training", label: "Skills & training" },
+  { src: womenImg3, alt: "Women in savings circle", label: "Economic empowerment" },
+  { src: womenImg4, alt: "Women in safe community space", label: "Safe spaces" },
+  { src: womenImg5, alt: "Women leading community session", label: "Leadership in action" },
+  { src: womenImg6, alt: "Women thriving together", label: "Community" },
+];
 ---
 
 <Layout title="Women Empowerment | Living Branch Development">
@@ -56,6 +96,100 @@ import HeroImageUrl from "../../images/placeholders/impact-4.svg?url";
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What women face in Pakistan + How LBD responds -->
+    <section class="barriers-surface" aria-labelledby="barriers-heading">
+      <div class="container-page py-14 md:py-16">
+        <div class="barriers-header">
+          <p class="barriers-eyebrow">What women face in Pakistan</p>
+          <h2 id="barriers-heading" class="barriers-title">
+            Barriers we break. Support we provide.
+          </h2>
+          <p class="barriers-intro">
+            Women and girls across Pakistan face systemic barriers. Here’s how LBD responds to each.
+          </p>
+        </div>
+        <div class="barriers-grid">
+          {barriers.map((b, i) => (
+            <article class="barrier-card" data-reveal style={`--reveal-delay: ${i * 100}ms`}>
+              <div class="barrier-card-top">
+                <span class="barrier-icon" aria-hidden="true">
+                  {b.icon === "education" && (
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                      <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                      <path d="M8 7h8"/>
+                      <path d="M8 11h8"/>
+                    </svg>
+                  )}
+                  {b.icon === "economic" && (
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="12" y1="1" x2="12" y2="23"/>
+                      <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                    </svg>
+                  )}
+                  {b.icon === "safety" && (
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    </svg>
+                  )}
+                  {b.icon === "voice" && (
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="m3 11 18-5v12L3 14v-3z"/>
+                      <path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/>
+                    </svg>
+                  )}
+                </span>
+                <div>
+                  <h3 class="barrier-title">{b.title}</h3>
+                  <p class="barrier-desc">{b.description}</p>
+                </div>
+              </div>
+              <div class="barrier-arrow" aria-hidden="true">
+                <span class="barrier-arrow-icon">→</span>
+              </div>
+              <div class="barrier-response">
+                <p class="barrier-response-label">How LBD responds</p>
+                <p class="barrier-response-text">{b.livingBranch}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Image gallery: validates barriers section -->
+    <section class="gallery-surface" aria-labelledby="gallery-heading">
+      <div class="container-page py-14 md:py-16">
+        <div class="gallery-header">
+          <p class="barriers-eyebrow">See our work</p>
+          <h2 id="gallery-heading" class="barriers-title">
+            Women thriving—in pictures.
+          </h2>
+          <p class="barriers-intro">
+            Real moments from our community hubs: skills training, safe spaces, and women leading change.
+          </p>
+        </div>
+        <div class="women-gallery">
+          {galleryItems.map((item, i) => (
+            <figure class={`women-gallery-item women-gallery-item-${i + 1}`} data-reveal style={`--reveal-delay: ${i * 80}ms`}>
+              <div class="women-gallery-img-wrap">
+                <img
+                  src={item.src.src}
+                  alt={item.alt}
+                  width={400}
+                  height={300}
+                  loading="lazy"
+                  decoding="async"
+                  class="women-gallery-img"
+                />
+              </div>
+              <figcaption class="women-gallery-caption">{item.label}</figcaption>
+            </figure>
+          ))}
         </div>
       </div>
     </section>
@@ -192,6 +326,271 @@ import HeroImageUrl from "../../images/placeholders/impact-4.svg?url";
     border: 1px solid color-mix(in srgb, var(--brand-pink) 16%, white);
   }
 
+  /* Barriers + LBD Response section */
+  :global(.women-empowerment .barriers-surface) {
+    background: color-mix(in srgb, var(--brand-pink) 6%, white);
+  }
+
+  :global(.women-empowerment .barriers-header) {
+    max-width: 40rem;
+    margin-bottom: 2rem;
+  }
+
+  :global(.women-empowerment .barriers-eyebrow) {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--women-pink);
+  }
+
+  :global(.women-empowerment .barriers-title) {
+    margin-top: 0.5rem;
+    font-family: Poppins, Inter, system-ui, sans-serif;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 600;
+    color: var(--women-ink);
+  }
+
+  :global(.women-empowerment .barriers-intro) {
+    margin-top: 0.75rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--women-muted);
+  }
+
+  :global(.women-empowerment .barriers-grid) {
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  @media (min-width: 768px) {
+    :global(.women-empowerment .barriers-grid) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  :global(.women-empowerment .barrier-card) {
+    display: grid;
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+      "top"
+      "arrow"
+      "response";
+    gap: 1rem;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 1.25rem;
+    border: 1px solid color-mix(in srgb, var(--brand-pink) 18%, white);
+    box-shadow: 0 10px 28px rgba(255, 0, 122, 0.06);
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+
+  :global(.women-empowerment .barrier-card.visible) {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (min-width: 768px) {
+    :global(.women-empowerment .barrier-card) {
+      grid-template-columns: 1fr auto 1fr;
+      grid-template-rows: 1fr;
+      grid-template-areas: "top arrow response";
+      align-items: center;
+      gap: 1.25rem;
+    }
+  }
+
+  :global(.women-empowerment .barrier-card-top) {
+    grid-area: top;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  :global(.women-empowerment .barrier-icon) {
+    flex-shrink: 0;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: color-mix(in srgb, var(--brand-pink) 12%, white);
+    color: var(--women-pink);
+  }
+
+  :global(.women-empowerment .barrier-title) {
+    font-family: Poppins, Inter, system-ui, sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--women-ink);
+  }
+
+  :global(.women-empowerment .barrier-desc) {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: var(--women-muted);
+    margin-top: 0.35rem;
+  }
+
+  :global(.women-empowerment .barrier-arrow) {
+    grid-area: arrow;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  @media (min-width: 768px) {
+    :global(.women-empowerment .barrier-arrow) {
+      justify-content: center;
+    }
+  }
+
+  :global(.women-empowerment .barrier-arrow-icon) {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--women-pink);
+  }
+
+  @media (max-width: 767px) {
+    :global(.women-empowerment .barrier-arrow-icon) {
+      transform: rotate(90deg);
+      display: inline-block;
+    }
+  }
+
+  :global(.women-empowerment .barrier-response) {
+    grid-area: response;
+    padding: 1rem 1.25rem;
+    background: color-mix(in srgb, var(--brand-pink) 8%, white);
+    border-radius: 1rem;
+    border-left: 4px solid var(--women-pink);
+  }
+
+  :global(.women-empowerment .barrier-response-label) {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--women-pink);
+    margin-bottom: 0.4rem;
+  }
+
+  :global(.women-empowerment .barrier-response-text) {
+    font-size: 0.9rem;
+    line-height: 1.55;
+    color: var(--women-ink);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    :global(.women-empowerment .barrier-card) {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  /* Image gallery */
+  :global(.women-empowerment .gallery-surface) {
+    background: white;
+  }
+
+  :global(.women-empowerment .gallery-header) {
+    max-width: 40rem;
+    margin-bottom: 2rem;
+  }
+
+  :global(.women-empowerment .women-gallery) {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 640px) {
+    :global(.women-empowerment .women-gallery) {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+  }
+
+  :global(.women-empowerment .women-gallery-item) {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid color-mix(in srgb, var(--brand-pink) 16%, white);
+    box-shadow: 0 8px 24px rgba(255, 0, 122, 0.06);
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 0.45s ease, transform 0.45s ease, box-shadow 0.2s;
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+
+  :global(.women-empowerment .women-gallery-item:hover) {
+    box-shadow: 0 12px 32px rgba(255, 0, 122, 0.1);
+  }
+
+  :global(.women-empowerment .women-gallery-item.visible) {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  :global(.women-empowerment .women-gallery-item-1) {
+    grid-column: span 2;
+  }
+
+  @media (min-width: 640px) {
+    :global(.women-empowerment .women-gallery-item-1) {
+      grid-column: span 1;
+      grid-row: span 2;
+    }
+  }
+
+  :global(.women-empowerment .women-gallery-img-wrap) {
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  :global(.women-empowerment .women-gallery-item-1 .women-gallery-img-wrap) {
+    min-height: 200px;
+  }
+
+  @media (min-width: 640px) {
+    :global(.women-empowerment .women-gallery-item-1 .women-gallery-img-wrap) {
+      aspect-ratio: auto;
+      flex: 1;
+      min-height: 0;
+    }
+  }
+
+  :global(.women-empowerment .women-gallery-img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  :global(.women-empowerment .women-gallery-caption) {
+    padding: 0.75rem 1rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: var(--women-pink);
+    background: color-mix(in srgb, var(--brand-pink) 8%, white);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    :global(.women-empowerment .women-gallery-item) {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
   :global(.women-empowerment .bloom-surface) {
     background:
       radial-gradient(900px 480px at 20% 15%, color-mix(in srgb, var(--brand-pink) 14%, white), transparent 65%),
@@ -230,6 +629,7 @@ import HeroImageUrl from "../../images/placeholders/impact-4.svg?url";
     font-weight: 700;
     font-size: 0.95rem;
     letter-spacing: 0.02em;
+
   }
 
   :global(.women-empowerment .bloom-copy) {
@@ -317,4 +717,26 @@ import HeroImageUrl from "../../images/placeholders/impact-4.svg?url";
     }
   }
 </style>
+
+<script>
+  if (typeof window !== "undefined" && "IntersectionObserver" in window) {
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!prefersReduced) {
+      const revealEls = document.querySelectorAll(".women-empowerment [data-reveal]");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+            }
+          });
+        },
+        { threshold: 0.15, rootMargin: "0px 0px -30px 0px" }
+      );
+      revealEls.forEach((el) => observer.observe(el));
+    } else {
+      document.querySelectorAll(".women-empowerment [data-reveal]").forEach((el) => el.classList.add("visible"));
+    }
+  }
+</script>
 

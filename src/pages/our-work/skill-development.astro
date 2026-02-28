@@ -1,524 +1,1337 @@
 ---
 import { Image } from "astro:assets";
 import Layout from "../../layouts/Layout.astro";
-import impact1 from "../../images/placeholders/impact-1.svg";
-import impact2 from "../../images/placeholders/impact-2.svg";
-import impact3 from "../../images/placeholders/impact-3.svg";
-import impact4 from "../../images/placeholders/impact-4.svg";
-import impact5 from "../../images/placeholders/impact-5.svg";
+import heroImg from "../../images/programmes/skill_development/TechHub/hero_skills.jpeg";
+import pathImg from "../../images/programmes/skill_development/TechHub/path_img.jpeg";
+import spaceImg from "../../images/programmes/skill_development/TechHub/space_img.jpeg";
+import gal01 from "../../images/programmes/skill_development/TechHub/gal_01.jpeg";
+import gal02 from "../../images/programmes/skill_development/TechHub/gal_02.jpeg";
+import gal03 from "../../images/programmes/skill_development/TechHub/gal_03.jpeg";
+import gal04 from "../../images/programmes/skill_development/TechHub/gal_04.jpeg";
+import gal05 from "../../images/programmes/skill_development/TechHub/gal_05.jpeg";
 
-const tiers = [
+const chapters = [
+  { num: "01", title: "The Gap", id: "ch-gap" },
+  { num: "02", title: "The Bridge", id: "ch-bridge" },
+  { num: "03", title: "The Path", id: "ch-path" },
+  { num: "04", title: "The Space", id: "ch-space" },
+  { num: "05", title: "The Proof", id: "ch-proof" },
+  { num: "06", title: "The Invite", id: "ch-invite" },
+];
+
+const barriers = [
   {
-    title: "Foundation skills",
-    description: "Literacy, numeracy, and workplace readiness for new learners."
+    title: "Limited training access",
+    description: "Quality vocational training is out of reach for many.",
+    livingBranch: "Community-based TechHub and labs—devices, mentors, and pathways close to home.",
+    icon: "access",
   },
   {
-    title: "Vocational track",
-    description: "Hands-on training in in-demand trades with assessments."
+    title: "Digital divide",
+    description: "No devices, no internet, no digital skills.",
+    livingBranch: "Free access to equipment, digital literacy training, and safe internet use.",
+    icon: "digital",
   },
   {
-    title: "Placement support",
-    description: "Mentorship, interview prep, and placement connections."
-  }
+    title: "Skills mismatch",
+    description: "What's taught doesn't lead to jobs.",
+    livingBranch: "Employer-aligned curriculum, placement support, and real-world practice.",
+    icon: "match",
+  },
+  {
+    title: "Cost barriers",
+    description: "Training is too expensive for those who need it most.",
+    livingBranch: "Scholarships and free programmes so talent gets a fair chance.",
+    icon: "cost",
+  },
+];
+
+const curriculum = [
+  { title: "Orientation", text: "Goal setting, confidence building, baseline assessments.", icon: "compass" },
+  { title: "Hands-on labs", text: "Project-based practice with mentors and peer learning.", icon: "lab" },
+  { title: "Certification", text: "Skill evaluation aligned with employer needs.", icon: "cert" },
+  { title: "Placement", text: "Hiring connects, entrepreneurship guidance, follow-up.", icon: "rocket" },
+];
+
+const techHubFeatures = [
+  { title: "Digital literacy", description: "Foundational computer skills, safe internet, workplace tools.", icon: "screen" },
+  { title: "Industry labs", description: "Real-world simulations, guided practice, mentors on hand.", icon: "lab" },
+  { title: "Career launch", description: "Portfolio building, mock interviews, placement pipelines.", icon: "briefcase" },
 ];
 
 const outcomes = [
   { value: "900+", label: "Trainees" },
   { value: "60%", label: "Placed" },
-  { value: "18", label: "Training cohorts" }
+  { value: "18", label: "Cohorts" },
 ];
 
-const curriculum = [
+const outcomeItems = [
   {
-    title: "Orientation",
-    text: "Goal setting, confidence building, and baseline assessments."
+    title: "Employment",
+    description: "Trainees secure formal jobs and internships through placement support and employer partnerships.",
+    icon: "briefcase",
   },
   {
-    title: "Hands-on labs",
-    text: "Project-based practice with mentors and peer learning."
+    title: "Entrepreneurship",
+    description: "Graduates start small businesses with mentorship, micro-grants, and follow-up guidance.",
+    icon: "rocket",
   },
   {
-    title: "Certification",
-    text: "Skill evaluation aligned with employer needs."
+    title: "Digital readiness",
+    description: "Learners gain confidence in computers, internet safety, and workplace tools.",
+    icon: "screen",
   },
   {
-    title: "Placement",
-    text: "Hiring connects, entrepreneurship guidance, and follow-up."
-  }
-];
-
-const mentorNotes = [
-  "Weekly coaching to remove barriers",
-  "Career mapping for long-term growth",
-  "Support for entrepreneurship and micro-businesses"
-];
-
-const techHubFeatures = [
-  {
-    title: "Digital literacy",
-    description: "Foundational computer skills, safe internet use, and workplace tools."
+    title: "Confidence & agency",
+    description: "Skills and practice build self-belief and readiness to pursue opportunity.",
+    icon: "star",
   },
-  {
-    title: "Industry labs",
-    description: "Hands-on training with real-world simulations and guided practice."
-  },
-  {
-    title: "Career launch",
-    description: "Portfolio building, mock interviews, and placement pipelines."
-  }
-];
-
-const techHubHighlights = [
-  "Open 6 days a week with community trainers",
-  "Accessible equipment and learning pods",
-  "Scholarship seats for vulnerable learners"
 ];
 
 const galleryItems = [
-  { src: impact1, alt: "Learners collaborating in a skills lab", className: "bento-item bento-large" },
-  { src: impact2, alt: "Mentor guiding a trainee", className: "bento-item bento-tall" },
-  { src: impact3, alt: "Hands-on digital practice", className: "bento-item" },
-  { src: impact4, alt: "Community training session", className: "bento-item bento-wide" },
-  { src: impact5, alt: "Learning hub teamwork", className: "bento-item" },
-  { src: impact1, alt: "Workshop facilitation", className: "bento-item" },
-  { src: impact2, alt: "Skills assessment in progress", className: "bento-item bento-wide" },
-  { src: impact3, alt: "Career readiness coaching", className: "bento-item" },
-  { src: impact4, alt: "Laptop training session", className: "bento-item" }
+  { src: gal01, alt: "Skills lab", label: "Lab practice" },
+  { src: gal02, alt: "Mentor session", label: "Mentorship" },
+  { src: gal03, alt: "Digital training", label: "Digital skills" },
+  { src: gal04, alt: "Community training", label: "Community" },
+  { src: gal05, alt: "Teamwork", label: "Collaboration" },
 ];
 ---
 
 <Layout
   title="Skill Development | Living Branch Development"
-  description="Living Branch Development skill development programmes deliver training, mentorship, and livelihood support."
+  description="Living Branch skill development: from gap to opportunity. Training, mentorship, and placement for stable livelihoods."
 >
-  <section class="skills-hero">
-    <div class="container-page grid gap-10 py-16 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
-      <div>
-        <p
-          class="inline-flex items-center gap-2 rounded-full bg-white/75 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-[color-mix(in_srgb,var(--brand-navy)_80%,black)] shadow-sm ring-1 ring-black/5"
-        >
-          Programme focus
-        </p>
-        <h1 class="mt-4 font-heading text-4xl font-semibold tracking-tight text-[var(--fg)] sm:text-5xl">
-          Skills that open pathways to stable income.
-        </h1>
-        <p class="mt-4 max-w-xl text-base leading-relaxed text-[var(--muted)] sm:text-lg">
-          We train youth and caregivers with market-ready skills, mentorship, and placement support so they can
-          secure meaningful work.
-        </p>
-        <div class="mt-7 flex flex-wrap gap-3">
-          <a
-            href="/donate"
-            class="inline-flex items-center justify-center rounded-full bg-[var(--brand-orange)] px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-[color-mix(in_srgb,var(--brand-orange)_88%,black)]"
-          >
-            Support training
-          </a>
-          <a
-            href="/get-involved"
-            class="inline-flex items-center justify-center rounded-full border border-[var(--border)] bg-white/80 px-6 py-3 text-sm font-semibold text-[var(--fg)] transition hover:border-[var(--brand-navy)] hover:bg-white"
-          >
-            Become a mentor
-          </a>
-        </div>
+  <div class="skills-narrative">
+    <!-- Hero -->
+    <section class="skills-hero" id="ch-hero">
+      <div class="skills-hero-bg-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
       </div>
-      <div class="hero-card">
-        <img
-          src={impact1.src}
-          alt="Skill training placeholder"
-          width="520"
-          height="420"
-          loading="lazy"
-          decoding="async"
-          class="h-full w-full object-contain"
-        />
-        <div class="tier-grid">
-          {tiers.map((tier) => (
-            <div class="tier-card">
-              <h3 class="font-heading text-sm font-semibold text-[var(--fg)]">{tier.title}</h3>
-              <p class="mt-2 text-xs leading-relaxed text-[var(--muted)]">{tier.description}</p>
-            </div>
-          ))}
+      <div class="container-page relative z-10 py-16 lg:py-20">
+        <p class="skills-badge">Skill Development</p>
+        <h1 class="skills-hero-title">Skills that open pathways to opportunity.</h1>
+        <p class="skills-hero-lead">Market-ready training. Mentorship. Placement. We connect talent to stable income.</p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="/donate" class="skills-cta-primary">Support training</a>
+          <a href="/get-involved" class="skills-cta-secondary">Become a mentor</a>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="outcomes-band">
-    <div class="container-page py-10 sm:py-12">
-      <div class="outcomes-grid">
-        {outcomes.map((stat) => (
-          <div class="outcome-card">
-            <p class="text-2xl font-semibold text-[var(--fg)]">{stat.value}</p>
-            <p class="mt-1 text-xs uppercase tracking-[0.2em] text-[var(--muted)]">{stat.label}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <section class="container-page py-12 sm:py-14">
-    <div class="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
-      <div>
-        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[color-mix(in_srgb,var(--brand-navy)_70%,var(--muted))]">
-          Curriculum journey
-        </p>
-        <h2 class="mt-3 font-heading text-2xl font-semibold tracking-tight text-[var(--fg)] sm:text-3xl">
-          A clear path from training to placement.
-        </h2>
-        <div class="timeline">
-          {curriculum.map((step, index) => (
-            <div class="timeline-step">
-              <div class="timeline-marker">
-                <span>{index + 1}</span>
-              </div>
-              <div>
-                <h3 class="font-heading text-lg font-semibold text-[var(--fg)]">{step.title}</h3>
-                <p class="mt-2 text-sm leading-relaxed text-[var(--muted)]">{step.text}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-      <div class="mentor-card">
-        <img
-          src={impact2.src}
-          alt="Mentor support placeholder"
-          width="420"
-          height="320"
-          loading="lazy"
-          decoding="async"
-          class="h-full w-full object-contain"
-        />
-        <div class="mt-5">
-          <h3 class="font-heading text-lg font-semibold text-[var(--fg)]">Mentor spotlight</h3>
-          <ul class="mt-3 grid gap-2 text-sm text-[var(--muted)]">
-            {mentorNotes.map((note) => (
-              <li class="flex items-start gap-3">
-                <span class="mt-1 h-2 w-2 rounded-full bg-[var(--brand-orange)]" aria-hidden="true"></span>
-                <span>{note}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="techhub-band">
-    <div class="container-page py-12 sm:py-14">
-      <div class="techhub-grid">
-        <div>
-          <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[color-mix(in_srgb,var(--brand-navy)_70%,var(--muted))]">
-            TechHub development center
-          </p>
-          <h2 class="mt-3 font-heading text-2xl font-semibold tracking-tight text-[var(--fg)] sm:text-3xl">
-            A community tech space for future-ready skills.
-          </h2>
-          <p class="mt-3 max-w-xl text-sm leading-relaxed text-[var(--muted)] sm:text-base">
-            Our TechHub gives learners access to devices, mentors, and structured pathways that connect training
-            to real job opportunities.
-          </p>
-          <div class="mt-6 grid gap-4">
-            {techHubFeatures.map((feature) => (
-              <div class="techhub-card">
-                <h3 class="font-heading text-base font-semibold text-[var(--fg)]">{feature.title}</h3>
-                <p class="mt-2 text-sm leading-relaxed text-[var(--muted)]">{feature.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-        <div class="techhub-media">
-          <img
-            src={impact3.src}
-            alt="TechHub development center placeholder"
-            width="520"
-            height="420"
-            loading="lazy"
-            decoding="async"
-            class="h-full w-full object-contain"
+        <div class="skills-hero-media" data-reveal>
+          <Image
+            src={heroImg}
+            alt="Skill development"
+            width={800}
+            height={480}
+            priority
+            widths={[400, 640, 800, 1024, 1280]}
+            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 90vw, 800px"
+            quality={80}
+            class="skills-hero-img"
           />
-          <div class="techhub-highlight">
-            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--muted)]">What happens here</p>
-            <ul class="mt-3 grid gap-2 text-sm text-[var(--muted)]">
-              {techHubHighlights.map((item) => (
-                <li class="flex items-start gap-3">
-                  <span class="mt-1 h-2 w-2 rounded-full bg-[var(--brand-orange)]" aria-hidden="true"></span>
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 01 The Gap -->
+    <section class="skills-section skills-gap" id="ch-gap" data-chapter>
+      <div class="section-bg-icons" aria-hidden="true">
+        <span class="bg-icon bg-icon-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.4"><rect width="20" height="14" x="2" y="7" rx="2"/></svg></span>
+        <span class="bg-icon bg-icon-2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.4"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>
+      </div>
+      <div class="container-page relative z-10 py-14 md:py-16">
+        <div class="chapter-marker">
+          <span class="chapter-num">01</span>
+          <h2 class="chapter-title">The Gap</h2>
+        </div>
+        <p class="chapter-tagline">What people face when they want to learn and earn.</p>
+        <div class="barriers-grid" data-reveal>
+          {barriers.map((b, i) => (
+            <article class="barrier-item" data-reveal-item style={`--delay: ${i * 80}ms`}>
+              <span class="barrier-icon">
+                {b.icon === "access" && <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>}
+                {b.icon === "digital" && <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect width="20" height="14" x="2" y="7" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>}
+                {b.icon === "match" && <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v4"/><path d="m3 3 2 2"/><path d="m21 3 2 2"/><path d="M18 12a6 6 0 0 1-6 6v0a6 6 0 0 1-6-6"/><path d="M12 22v-4"/><path d="m21 21-2-2"/><path d="m3 21-2-2"/></svg>}
+                {b.icon === "cost" && <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>}
+              </span>
+              <h3 class="barrier-title">{b.title}</h3>
+              <p class="barrier-desc">{b.description}</p>
+              <div class="barrier-arrow">→</div>
+              <div class="barrier-response">
+                <span class="barrier-response-label">LBD responds</span>
+                <p>{b.livingBranch}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Transition -->
+    <section class="skills-transition">
+      <p class="transition-text">LBD builds the bridge.</p>
+    </section>
+
+    <!-- 02 The Bridge - compact summary -->
+    <section class="skills-section skills-bridge" id="ch-bridge" data-chapter>
+      <div class="section-bg-icons" aria-hidden="true">
+        <span class="bg-icon bg-icon-3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.4"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="4"/></svg></span>
+      </div>
+      <div class="container-page relative z-10 py-12 md:py-14">
+        <div class="chapter-marker">
+          <span class="chapter-num">02</span>
+          <h2 class="chapter-title">The Bridge</h2>
+        </div>
+        <p class="chapter-tagline">Foundation skills. Vocational track. Placement support.</p>
+        <div class="bridge-cards" data-reveal>
+          <div class="bridge-card" data-reveal-item>
+            <span class="bridge-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>
+            <h3>Foundation</h3>
+            <p>Literacy, numeracy, workplace readiness.</p>
+          </div>
+          <div class="bridge-card" data-reveal-item>
+            <span class="bridge-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect width="20" height="14" x="2" y="7" rx="2"/></svg></span>
+            <h3>Vocational</h3>
+            <p>Hands-on training, in-demand trades.</p>
+          </div>
+          <div class="bridge-card" data-reveal-item>
+            <span class="bridge-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+            <h3>Placement</h3>
+            <p>Mentorship, interview prep, job links.</p>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="bento-band">
-    <div class="container-page py-12 sm:py-14">
-      <div class="bento-header">
-        <div>
-          <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[color-mix(in_srgb,var(--brand-navy)_70%,var(--muted))]">
-            TechHub in action
-          </p>
-          <h2 class="mt-3 font-heading text-2xl font-semibold tracking-tight text-[var(--fg)] sm:text-3xl">
-            A visual snapshot of real learning moments.
-          </h2>
-        </div>
-        <p class="max-w-xl text-sm leading-relaxed text-[var(--muted)] sm:text-base">
-          From lab practice to mentor coaching, the gallery highlights how learners engage with training every day.
-        </p>
+    <!-- 03 The Path -->
+    <section class="skills-section skills-path" id="ch-path" data-chapter>
+      <div class="section-bg-icons" aria-hidden="true">
+        <span class="bg-icon bg-icon-4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.4"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/></svg></span>
       </div>
-      <div class="bento-grid">
-        {galleryItems.map((item) => (
-          <div class={item.className}>
+      <div class="container-page relative z-10 py-14 md:py-16">
+        <div class="chapter-marker">
+          <span class="chapter-num">03</span>
+          <h2 class="chapter-title">The Path</h2>
+        </div>
+        <p class="chapter-tagline">From training to placement—a clear journey.</p>
+        <div class="path-layout">
+          <div class="path-media" data-reveal>
             <Image
-              src={item.src}
-              alt={item.alt}
+              src={pathImg}
+              alt="Mentor and trainee"
               width={520}
-              height={700}
+              height={360}
               loading="lazy"
-              class="bento-image"
+              widths={[320, 480, 520, 640]}
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 52vw, 520px"
+              quality={80}
+              class="path-img"
             />
           </div>
-        ))}
+          <div class="path-timeline" data-reveal>
+            {curriculum.map((step, i) => (
+              <div class="path-step" data-reveal-item style={`--delay: ${i * 100}ms`}>
+                <span class="path-step-icon">
+                  {step.icon === "compass" && <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>}
+                  {step.icon === "lab" && <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 3v6"/><path d="M15 3v6"/><path d="M9 15v6"/><path d="M15 15v6"/><path d="M3 9h6"/><path d="M15 9h6"/><path d="M3 15h6"/><path d="15 15h6"/></svg>}
+                  {step.icon === "cert" && <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>}
+                  {step.icon === "rocket" && <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/></svg>}
+                </span>
+                <div class="path-step-content">
+                  <span class="path-step-num">{String(i + 1).padStart(2, "0")}</span>
+                  <h3>{step.title}</h3>
+                  <p>{step.text}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="container-page py-12 sm:py-14">
-    <div class="cta-panel">
-      <div>
-        <h2 class="font-heading text-2xl font-semibold tracking-tight text-[var(--fg)] sm:text-3xl">
-          Help learners turn skills into livelihoods.
-        </h2>
-        <p class="mt-3 max-w-xl text-sm leading-relaxed text-[var(--muted)] sm:text-base">
-          Your support keeps training labs open, mentors available, and placements accessible.
-        </p>
+    <!-- 04 The Space -->
+    <section class="skills-section skills-space" id="ch-space" data-chapter>
+      <div class="section-bg-icons" aria-hidden="true">
+        <span class="bg-icon bg-icon-5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.4"><rect width="20" height="14" x="2" y="7" rx="2"/></svg></span>
       </div>
-      <div class="flex flex-wrap gap-3">
-        <a
-          href="/donate"
-          class="inline-flex items-center justify-center rounded-full bg-[var(--brand-navy)] px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-[color-mix(in_srgb,var(--brand-navy)_85%,black)]"
-        >
-          Donate for skills
-        </a>
-        <a
-          href="/get-involved"
-          class="inline-flex items-center justify-center rounded-full border border-[var(--border)] bg-white px-6 py-3 text-sm font-semibold text-[var(--fg)] transition hover:border-[var(--brand-navy)]"
-        >
-          Join the mentor team
-        </a>
+      <div class="container-page relative z-10 py-14 md:py-16">
+        <div class="chapter-marker">
+          <span class="chapter-num">04</span>
+          <h2 class="chapter-title">The Space</h2>
+        </div>
+        <p class="chapter-tagline">TechHub is our community tech space—where the gap meets the bridge.</p>
+        <div class="space-intro" data-reveal>
+          <p class="space-intro-text">
+            Many people lack access to training, devices, and mentors. TechHub changes that. It's a physical space in the community where learners get free access to computers, structured training, and real pathways to jobs. Here's how it addresses the barriers people face:
+          </p>
+        </div>
+        <div class="space-solutions" data-reveal>
+          <h3 class="space-solutions-title">How TechHub solves the gap</h3>
+          <div class="space-solutions-grid">
+            <div class="space-solution-item">
+              <span class="space-solution-problem">Limited access</span>
+              <span class="space-solution-arrow">→</span>
+              <span class="space-solution-fix">Community-based lab—no travel to distant centres. Open 6 days a week.</span>
+            </div>
+            <div class="space-solution-item">
+              <span class="space-solution-problem">Digital divide</span>
+              <span class="space-solution-arrow">→</span>
+              <span class="space-solution-fix">Free devices, internet, and digital literacy training for those who have none.</span>
+            </div>
+            <div class="space-solution-item">
+              <span class="space-solution-problem">Skills mismatch</span>
+              <span class="space-solution-arrow">→</span>
+              <span class="space-solution-fix">Employer-aligned curriculum and industry labs so training leads to real jobs.</span>
+            </div>
+            <div class="space-solution-item">
+              <span class="space-solution-problem">Cost barriers</span>
+              <span class="space-solution-arrow">→</span>
+              <span class="space-solution-fix">Scholarship seats and free programmes so everyone gets a fair chance.</span>
+            </div>
+          </div>
+        </div>
+        <div class="space-grid" data-reveal>
+          <div class="space-content">
+            <h3 class="space-features-heading">What happens inside</h3>
+            {techHubFeatures.map((f, i) => (
+              <div class="space-feature" data-reveal-item style={`--delay: ${i * 80}ms`}>
+                <span class="space-feature-icon">
+                  {f.icon === "screen" && <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect width="20" height="14" x="2" y="7" rx="2"/></svg>}
+                  {f.icon === "lab" && <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 3v6"/><path d="M15 3v6"/><path d="M9 15v6"/><path d="M15 15v6"/></svg>}
+                  {f.icon === "briefcase" && <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect width="20" height="14" x="2" y="7" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>}
+                </span>
+                <div>
+                  <h3>{f.title}</h3>
+                  <p>{f.description}</p>
+                </div>
+              </div>
+            ))}
+            <ul class="space-highlights">
+              <li>Open 6 days a week with community trainers</li>
+              <li>Scholarship seats for vulnerable learners</li>
+              <li>Equipment and learning pods for hands-on practice</li>
+            </ul>
+          </div>
+          <div class="space-media" data-reveal>
+            <Image
+              src={spaceImg}
+              alt="TechHub"
+              width={560}
+              height={400}
+              loading="lazy"
+              widths={[360, 480, 560, 640]}
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 48vw, 560px"
+              quality={80}
+              class="space-img"
+            />
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <!-- 05 The Proof -->
+    <section class="skills-section skills-proof" id="ch-proof" data-chapter>
+      <div class="section-bg-icons" aria-hidden="true">
+        <span class="bg-icon bg-icon-6"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.4"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
+      </div>
+      <div class="container-page relative z-10 py-14 md:py-16">
+        <div class="chapter-marker">
+          <span class="chapter-num">05</span>
+          <h2 class="chapter-title">The Proof</h2>
+        </div>
+        <p class="chapter-tagline">Real numbers. Real moments.</p>
+        <div class="proof-stats" data-reveal>
+          {outcomes.map((o, i) => (
+            <div class="proof-stat" data-reveal-item data-count={o.value} style={`--delay: ${i * 60}ms`}>
+              <span class="proof-value">{o.value}</span>
+              <span class="proof-label">{o.label}</span>
+            </div>
+          ))}
+        </div>
+        <div class="outcomes-block">
+          <h3 class="outcomes-title">Outcomes</h3>
+          <p class="outcomes-intro">What learners achieve through our programmes.</p>
+          <div class="outcomes-grid" data-reveal>
+            {outcomeItems.map((item, i) => (
+              <article class="outcome-card" data-reveal-item style={`--delay: ${i * 80}ms`}>
+                <span class="outcome-icon">
+                  {item.icon === "briefcase" && <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>}
+                  {item.icon === "rocket" && <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>}
+                  {item.icon === "screen" && <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect width="20" height="14" x="2" y="7" rx="2"/></svg>}
+                  {item.icon === "star" && <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3 7 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg>}
+                </span>
+                <h4 class="outcome-card-title">{item.title}</h4>
+                <p class="outcome-card-desc">{item.description}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+        <div class="proof-gallery">
+          {galleryItems.map((item, i) => (
+            <figure class={`proof-gallery-item proof-gallery-${i + 1}`} data-reveal style={`--delay: ${i * 70}ms`}>
+              <Image
+                src={item.src}
+                alt={item.alt}
+                width={400}
+                height={300}
+                loading="lazy"
+                widths={[200, 300, 400]}
+                sizes="(max-width: 640px) 50vw, 33vw"
+                quality={80}
+                class="proof-img"
+              />
+              <figcaption>{item.label}</figcaption>
+            </figure>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 The Invite -->
+    <section class="skills-section skills-invite" id="ch-invite" data-chapter>
+      <div class="container-page relative z-10 py-14 md:py-16">
+        <div class="chapter-marker">
+          <span class="chapter-num">06</span>
+          <h2 class="chapter-title">The Invite</h2>
+        </div>
+        <div class="invite-panel" data-reveal>
+          <h2 class="invite-title">Help learners turn skills into livelihoods.</h2>
+          <p class="invite-text">Your support keeps labs open, mentors available, placements accessible.</p>
+          <div class="invite-ctas">
+            <a href="/donate" class="skills-cta-primary">Donate for skills</a>
+            <a href="/get-involved" class="skills-cta-secondary">Join the mentor team</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
 </Layout>
 
 <style>
+  /* Skill development: teal-based palette (SDG 4 Education / growth, trust, professional development) */
+  .skills-narrative {
+    --skills-accent: #0d9488;
+    --skills-accent-dark: #0f766e;
+    --skills-bg: #f0fdfa;
+  }
+
+  /* Hero */
   .skills-hero {
-    background: #fff8f2;
+    position: relative;
+    background: #f0fdfa;
+    overflow: hidden;
   }
 
-  .hero-card {
-    border-radius: 28px;
+  .skills-hero-bg-icon {
+    position: absolute;
+    top: 10%;
+    right: 5%;
+    width: 12rem;
+    height: 12rem;
+    opacity: 0.06;
+    color: var(--skills-accent);
+  }
+
+  .skills-hero-bg-icon svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .skills-badge {
+    display: inline-block;
+    padding: 0.35rem 0.85rem;
+    border-radius: 999px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: color-mix(in srgb, var(--brand-navy) 85%, black);
+    background: white;
     border: 1px solid var(--border);
-    background: #ffffff;
-    padding: 1.8rem;
-    box-shadow: 0 18px 40px rgba(12, 16, 34, 0.08);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
   }
 
-  .tier-grid {
-    margin-top: 1.4rem;
+  .skills-hero-title {
+    margin-top: 1rem;
+    font-family: Poppins, Inter, system-ui, sans-serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    color: var(--fg);
+  }
+
+  .skills-hero-lead {
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--muted);
+    max-width: 32rem;
+  }
+
+  .skills-cta-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: white;
+    background: var(--skills-accent);
+    transition: background 0.2s;
+  }
+
+  .skills-cta-primary:hover {
+    background: var(--skills-accent-dark);
+  }
+
+  .skills-cta-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--fg);
+    background: white;
+    border: 1px solid var(--border);
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .skills-cta-secondary:hover {
+    border-color: var(--skills-accent);
+    background: color-mix(in srgb, var(--skills-accent) 8%, white);
+  }
+
+  .skills-hero-media {
+    margin-top: 2.5rem;
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    box-shadow: 0 20px 48px rgba(0,0,0,0.08);
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .skills-hero-media.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .skills-hero-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+
+  /* Sections */
+  .skills-section {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .section-bg-icons {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .bg-icon {
+    position: absolute;
+    opacity: 0.04;
+    color: var(--skills-accent);
+  }
+
+  .bg-icon svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .bg-icon-1 { top: 10%; left: 5%; width: 8rem; height: 8rem; }
+  .bg-icon-2 { top: 60%; right: 10%; width: 6rem; height: 6rem; }
+  .bg-icon-3 { top: 30%; right: 15%; width: 10rem; height: 10rem; }
+  .bg-icon-4 { bottom: 20%; left: 10%; width: 7rem; height: 7rem; }
+  .bg-icon-5 { top: 50%; right: 5%; width: 9rem; height: 9rem; }
+  .bg-icon-6 { bottom: 30%; left: 15%; width: 6rem; height: 6rem; }
+
+  .chapter-marker {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .chapter-num {
+    font-size: 2rem;
+    font-weight: 800;
+    color: color-mix(in srgb, var(--skills-accent) 50%, white);
+    letter-spacing: -0.03em;
+  }
+
+  .chapter-title {
+    font-family: Poppins, Inter, system-ui, sans-serif;
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--fg);
+  }
+
+  .chapter-tagline {
+    font-size: 1rem;
+    color: var(--muted);
+    margin-bottom: 2rem;
+  }
+
+  /* 01 The Gap */
+  .skills-gap {
+    background: color-mix(in srgb, var(--skills-accent) 6%, white);
+  }
+
+  .barriers-grid {
     display: grid;
-    gap: 0.8rem;
+    gap: 1.25rem;
   }
 
-  .tier-card {
-    border-radius: 14px;
+  @media (min-width: 768px) {
+    .barriers-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .barrier-item {
+    background: white;
+    border-radius: 20px;
+    padding: 1.5rem;
     border: 1px solid var(--border);
-    background: #fffaf5;
-    padding: 0.8rem 0.9rem;
+    box-shadow: 0 10px 28px rgba(0,0,0,0.04);
+    display: grid;
+    grid-template-areas: "icon title" "desc desc" "arrow response";
+    grid-template-columns: auto 1fr;
+    gap: 0.75rem 1rem;
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    transition-delay: var(--delay, 0ms);
   }
 
-  .outcomes-band {
-    background: #fff2e7;
+  .barrier-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (min-width: 768px) {
+    .barrier-item {
+      grid-template-areas: "icon title" "desc desc" "arrow response";
+    }
+  }
+
+  .barrier-icon {
+    grid-area: icon;
+    width: 2.5rem;
+    height: 2.5rem;
+    color: var(--skills-accent);
+  }
+
+  .barrier-icon svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .barrier-title {
+    grid-area: title;
+    font-family: Poppins, system-ui, sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--fg);
+  }
+
+  .barrier-desc {
+    grid-area: desc;
+    font-size: 0.875rem;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  .barrier-arrow {
+    grid-area: arrow;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--skills-accent);
+  }
+
+  .barrier-response {
+    grid-area: response;
+    padding: 0.75rem 1rem;
+    background: color-mix(in srgb, var(--skills-accent) 10%, white);
+    border-radius: 12px;
+    border-left: 4px solid var(--skills-accent);
+  }
+
+  .barrier-response-label {
+    display: block;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--skills-accent);
+    margin-bottom: 0.35rem;
+  }
+
+  .barrier-response p {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: var(--fg);
+    margin: 0;
+  }
+
+  /* Transition */
+  .skills-transition {
+    padding: 3rem 1rem;
+    text-align: center;
+    background: linear-gradient(180deg, transparent, color-mix(in srgb, var(--skills-accent) 8%, white) 50%, transparent);
+  }
+
+  .transition-text {
+    font-family: Poppins, system-ui, sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: color-mix(in srgb, var(--brand-navy) 80%, black);
+    letter-spacing: 0.02em;
+  }
+
+  /* 02 The Bridge */
+  .skills-bridge {
+    background: white;
+  }
+
+  .bridge-cards {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  .bridge-card {
+    padding: 1.5rem;
+    border-radius: 20px;
+    background: color-mix(in srgb, var(--skills-accent) 8%, white);
+    border: 1px solid color-mix(in srgb, var(--skills-accent) 20%, white);
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    transition-delay: var(--delay, 0ms);
+  }
+
+  .bridge-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .bridge-icon {
+    display: block;
+    width: 2rem;
+    height: 2rem;
+    color: var(--skills-accent);
+    margin-bottom: 0.75rem;
+  }
+
+  .bridge-icon svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .bridge-card h3 {
+    font-family: Poppins, system-ui, sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--fg);
+    margin: 0 0 0.35rem 0;
+  }
+
+  .bridge-card p {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  /* 03 The Path */
+  .skills-path {
+    background: #f0fdfa;
+  }
+
+  .path-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  @media (min-width: 1024px) {
+    .path-layout {
+      flex-direction: row;
+      align-items: center;
+      gap: 2.5rem;
+    }
+    .path-media {
+      flex: 1 1 52%;
+      min-width: 0;
+    }
+    .path-timeline {
+      flex: 1 1 48%;
+      margin-bottom: 0;
+      text-align: center;
+    }
+  }
+
+  .path-timeline {
+    display: grid;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  @media (min-width: 1024px) {
+    .path-timeline {
+      margin-bottom: 0;
+    }
+  }
+
+  .path-step {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1.25rem;
+    align-items: flex-start;
+    opacity: 0;
+    transform: translateX(-12px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    transition-delay: var(--delay, 0ms);
+  }
+
+  .path-step.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .path-step-icon {
+    width: 3rem;
+    height: 3rem;
+    color: var(--skills-accent);
+  }
+
+  .path-step-icon svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .path-step-num {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--skills-accent);
+    margin-bottom: 0.25rem;
+  }
+
+  .path-step h3 {
+    font-family: Poppins, system-ui, sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--fg);
+    margin: 0 0 0.35rem 0;
+  }
+
+  .path-step p {
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  @media (min-width: 1024px) {
+    .path-step {
+      grid-template-columns: 1fr;
+      justify-items: center;
+      text-align: center;
+    }
+    .path-step-icon {
+      margin: 0 auto;
+    }
+    .path-step-content {
+      max-width: 20rem;
+      margin-inline: auto;
+    }
+  }
+
+  .path-media {
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.06);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .path-media.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .path-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+
+  /* 04 The Space */
+  .skills-space {
+    background: white;
+  }
+
+  .space-intro {
+    max-width: 40rem;
+    margin-bottom: 2rem;
+  }
+
+  .space-intro-text {
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--muted);
+  }
+
+  .space-solutions {
+    margin-bottom: 2.5rem;
+  }
+
+  .space-solutions-title {
+    font-family: Poppins, system-ui, sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--fg);
+    margin: 0 0 1rem 0;
+  }
+
+  .space-solutions-grid {
+    display: grid;
+    gap: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .space-solutions-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .space-solution-item {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.5rem;
+    padding: 1rem 1.25rem;
+    border-radius: 14px;
+    background: color-mix(in srgb, var(--skills-accent) 8%, white);
+    border: 1px solid color-mix(in srgb, var(--skills-accent) 18%, white);
+  }
+
+  .space-solution-problem {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--skills-accent);
+    text-transform: lowercase;
+  }
+
+  .space-solution-arrow {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--skills-accent);
+  }
+
+  .space-solution-fix {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: var(--fg);
+  }
+
+  @media (min-width: 640px) {
+    .space-solution-item {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.35rem;
+    }
+    .space-solution-arrow {
+      align-self: flex-start;
+    }
+  }
+
+  .space-features-heading {
+    font-family: Poppins, system-ui, sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--fg);
+    margin: 0 0 1rem 0;
+  }
+
+  .space-grid {
+    display: grid;
+    gap: 2rem;
+    margin-top: 0;
+  }
+
+  @media (min-width: 1024px) {
+    .space-grid {
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+    }
+  }
+
+  .space-feature {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    border-radius: 16px;
+    background: color-mix(in srgb, var(--skills-accent) 6%, white);
+    border: 1px solid color-mix(in srgb, var(--skills-accent) 15%, white);
+    margin-bottom: 1rem;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.45s ease, transform 0.45s ease;
+    transition-delay: var(--delay, 0ms);
+  }
+
+  .space-feature.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .space-feature-icon {
+    width: 2rem;
+    height: 2rem;
+    flex-shrink: 0;
+    color: var(--skills-accent);
+  }
+
+  .space-feature-icon svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .space-feature h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--fg);
+    margin: 0 0 0.25rem 0;
+  }
+
+  .space-feature p {
+    font-size: 0.875rem;
+    color: var(--muted);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .space-highlights {
+    margin-top: 1rem;
+    padding-left: 1.25rem;
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
+
+  .space-highlights li {
+    margin-bottom: 0.35rem;
+  }
+
+  .space-media {
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.06);
+    opacity: 0;
+    transform: scale(0.98);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .space-media.visible {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .space-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+
+  /* 05 The Proof */
+  .skills-proof {
+    background: #f0fdfa;
+  }
+
+  .proof-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .proof-stat {
+    padding: 1.5rem;
+    border-radius: 20px;
+    background: white;
+    border: 1px solid var(--border);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.04);
+    text-align: center;
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    transition-delay: var(--delay, 0ms);
+  }
+
+  .proof-stat.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .proof-value {
+    display: block;
+    font-family: Poppins, system-ui, sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--skills-accent);
+  }
+
+  .proof-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 0.35rem;
+  }
+
+  /* Outcomes */
+  .outcomes-block {
+    margin-bottom: 2.5rem;
+  }
+
+  .outcomes-title {
+    font-family: Poppins, system-ui, sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--fg);
+    margin: 0 0 0.25rem 0;
+  }
+
+  .outcomes-intro {
+    font-size: 1rem;
+    color: var(--muted);
+    margin: 0 0 1.5rem 0;
   }
 
   .outcomes-grid {
     display: grid;
     gap: 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 640px) {
+    .outcomes-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 
   .outcome-card {
+    padding: 1.5rem;
     border-radius: 18px;
+    background: white;
     border: 1px solid var(--border);
-    background: #ffffff;
-    padding: 1rem 1.2rem;
-    box-shadow: 0 10px 18px rgba(12, 16, 34, 0.06);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    transition-delay: var(--delay, 0ms);
   }
 
-  .timeline {
-    margin-top: 2rem;
-    display: grid;
-    gap: 1.5rem;
+  .outcome-card.visible {
+    opacity: 1;
+    transform: translateY(0);
   }
 
-  .timeline-step {
-    display: grid;
-    gap: 1rem;
-    grid-template-columns: auto 1fr;
-    align-items: flex-start;
+  .outcome-icon {
+    display: block;
+    width: 2rem;
+    height: 2rem;
+    color: var(--skills-accent);
+    margin-bottom: 0.75rem;
   }
 
-  .timeline-marker {
-    height: 40px;
-    width: 40px;
-    border-radius: 14px;
-    background: color-mix(in srgb, var(--brand-orange) 20%, white);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+  .outcome-icon svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .outcome-card-title {
+    font-family: Poppins, system-ui, sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--fg);
+    margin: 0 0 0.4rem 0;
+  }
+
+  .outcome-card-desc {
     font-size: 0.9rem;
-    font-weight: 700;
-    color: color-mix(in srgb, var(--brand-navy) 80%, black);
-    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--brand-orange) 40%, white);
+    color: var(--muted);
+    margin: 0;
+    line-height: 1.5;
   }
 
-  .mentor-card {
-    border-radius: 24px;
-    border: 1px solid var(--border);
-    background: #ffffff;
-    padding: 1.5rem;
-    box-shadow: 0 16px 32px rgba(12, 16, 34, 0.08);
-  }
-
-  .techhub-band {
-    background: #fff7f0;
-  }
-
-  .techhub-grid {
-    display: grid;
-    gap: 2rem;
-    align-items: center;
-  }
-
-  .techhub-card {
-    border-radius: 18px;
-    border: 1px solid var(--border);
-    background: #ffffff;
-    padding: 1rem 1.2rem;
-    box-shadow: 0 10px 18px rgba(12, 16, 34, 0.06);
-  }
-
-  .techhub-media {
-    border-radius: 24px;
-    border: 1px solid var(--border);
-    background: #ffffff;
-    padding: 1.5rem;
-    box-shadow: 0 16px 32px rgba(12, 16, 34, 0.08);
-  }
-
-  .techhub-highlight {
-    margin-top: 1.2rem;
-    border-radius: 18px;
-    border: 1px dashed color-mix(in srgb, var(--brand-orange) 35%, white);
-    background: #fffaf6;
-    padding: 1rem 1.1rem;
-  }
-
-  .bento-band {
-    background: #fffdfb;
-  }
-
-  .bento-header {
+  .proof-gallery {
     display: grid;
     gap: 1rem;
-    margin-bottom: 2rem;
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  .bento-grid {
-    display: grid;
-    gap: 1rem;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    grid-auto-rows: 190px;
-    grid-auto-flow: dense;
+  @media (min-width: 640px) {
+    .proof-gallery {
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
 
-  .bento-item {
+  .proof-gallery-item {
+    margin: 0;
     border-radius: 18px;
     overflow: hidden;
     border: 1px solid var(--border);
-    background: #ffffff;
-    box-shadow: 0 12px 24px rgba(12, 16, 34, 0.08);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.05);
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 0.45s ease, transform 0.45s ease;
+    transition-delay: var(--delay, 0ms);
   }
 
-  .bento-item.bento-wide {
+  .proof-gallery-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .proof-gallery-1 {
     grid-column: span 2;
   }
 
-  .bento-item.bento-tall {
-    grid-row: span 2;
+  @media (min-width: 640px) {
+    .proof-gallery-1 {
+      grid-column: span 1;
+      grid-row: span 2;
+    }
   }
 
-  .bento-item.bento-large {
-    grid-column: span 2;
-    grid-row: span 2;
-  }
-
-  .bento-image {
+  .proof-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
   }
 
-  .cta-panel {
+  .proof-gallery-item figcaption {
+    padding: 0.6rem 1rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--skills-accent);
+    background: color-mix(in srgb, var(--skills-accent) 10%, white);
+  }
+
+  /* 06 The Invite */
+  .skills-invite {
+    background: color-mix(in srgb, var(--skills-accent) 12%, white);
+  }
+
+  .invite-panel {
     border-radius: 28px;
+    padding: 2.5rem;
+    background: white;
     border: 1px solid var(--border);
-    background: #fff1e2;
-    padding: 2rem;
+    box-shadow: 0 20px 48px rgba(0,0,0,0.06);
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .invite-panel.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .invite-title {
+    font-family: Poppins, system-ui, sans-serif;
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--fg);
+    margin: 0 0 0.5rem 0;
+  }
+
+  .invite-text {
+    font-size: 1rem;
+    color: var(--muted);
+    margin: 0 0 1.5rem 0;
+    max-width: 36rem;
+  }
+
+  .invite-ctas {
     display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+    flex-wrap: wrap;
+    gap: 0.75rem;
   }
 
-  @media (min-width: 768px) {
-    .cta-panel {
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
-    }
-  }
-
-  @media (max-width: 1024px) {
-    .bento-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      grid-auto-rows: 150px;
-    }
-
-    .bento-item.bento-wide,
-    .bento-item.bento-large {
-      grid-column: span 2;
-    }
-  }
-
-  @media (max-width: 640px) {
-    .bento-grid {
-      grid-template-columns: repeat(1, minmax(0, 1fr));
-      grid-auto-rows: 200px;
-    }
-
-    .bento-item.bento-wide,
-    .bento-item.bento-large,
-    .bento-item.bento-tall {
-      grid-column: span 1;
-      grid-row: span 1;
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .techhub-grid {
-      grid-template-columns: 1.05fr 0.95fr;
+  @media (prefers-reduced-motion: reduce) {
+    [data-reveal],
+    [data-reveal-item],
+    .barrier-item,
+    .bridge-card,
+    .path-step,
+    .space-feature,
+    .proof-stat,
+    .outcome-card,
+    .proof-gallery-item,
+    .invite-panel,
+    .skills-hero-media,
+    .path-media,
+    .space-media {
+      opacity: 1 !important;
+      transform: none !important;
     }
   }
 </style>
 
+<script>
+  (function() {
+    if (typeof window === "undefined") return;
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    function initReveal() {
+      if (prefersReduced) {
+        document.querySelectorAll("[data-reveal], [data-reveal-item], .barrier-item, .bridge-card, .path-step, .space-feature, .proof-stat, .outcome-card, .proof-gallery-item, .invite-panel, .skills-hero-media, .path-media, .space-media").forEach((el) => el.classList.add("visible"));
+        return;
+      }
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("visible");
+              const items = e.target.querySelectorAll("[data-reveal-item], .barrier-item, .bridge-card, .path-step, .space-feature, .proof-stat, .outcome-card, .proof-gallery-item");
+              items.forEach((item) => item.classList.add("visible"));
+            }
+          });
+        },
+        { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
+      );
+      document.querySelectorAll("[data-reveal], [data-chapter]").forEach((el) => observer.observe(el));
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", initReveal);
+    } else {
+      initReveal();
+    }
+  })();
+</script>
