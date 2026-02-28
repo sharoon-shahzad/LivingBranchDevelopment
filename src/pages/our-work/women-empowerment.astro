@@ -1,6 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import HeroImageUrl from "../../images/placeholders/impact-4.svg?url";
+import womenHeroImg from "../../images/programmes/women_empowerment/woment_empowerment1.jpeg";
 import womenImg2 from "../../images/programmes/women_empowerment/women_empowerment2.jpeg";
 import womenImg3 from "../../images/programmes/women_empowerment/women_empowerment3.jpeg";
 import womenImg4 from "../../images/programmes/women_empowerment/women_empowerment4.jpeg";
@@ -76,10 +76,13 @@ const galleryItems = [
         <div class="relative">
           <div class="float-card rounded-3xl bg-white p-6 shadow-lg" style="--float-dur: 9s">
             <img
-              src={HeroImageUrl}
+              src={womenHeroImg.src}
               alt="Women leading a community skills session"
               class="h-64 w-full rounded-2xl object-cover"
-              loading="lazy"
+              width={520}
+              height={256}
+              loading="eager"
+              decoding="async"
             />
             <div class="mt-6 grid gap-4 sm:grid-cols-3">
               <div class="stat-card rounded-2xl border p-4 text-center">
