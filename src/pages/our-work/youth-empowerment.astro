@@ -9,11 +9,7 @@ import youthEmp3 from "../../images/programmes/youth/youth_empowerment/gal06.jpe
 import youthConf1 from "../../images/programmes/youth/youth_conference/youth_hero_img.jpeg";
 import youthConf2 from "../../images/programmes/youth/youth_conference/gal01.jpeg";
 import youthConf3 from "../../images/programmes/youth/youth_conference/gal02.jpeg";
-import youthConf4 from "../../images/programmes/youth/youth_conference/gal03.jpeg";
-import youthConf5 from "../../images/programmes/youth/youth_conference/gal04.jpeg";
 import youthConf6 from "../../images/programmes/youth/youth_conference/gal05.jpeg";
-import youthConf7 from "../../images/programmes/youth/youth_conference/WhatsApp Image 2026-02-16 at 4.57.12 PM.jpeg";
-import youthConf8 from "../../images/programmes/youth/youth_conference/WhatsApp Image 2026-02-16 at 4.57.16 PM (1).jpeg";
 
 const barriers = [
   {
@@ -43,17 +39,12 @@ const barriers = [
 ];
 
 const galleryItems = [
-  { src: youthEmp1, alt: "Youth empowerment in action", label: "Empowerment" },
+  { src: youthEmp1, alt: "Youth empowerment programme participants", label: "Youth empowerment" },
   { src: youthEmp2, alt: "Youth in leadership workshop", label: "Leadership circles" },
-  { src: youthEmp3, alt: "Youth skills training", label: "Skills & career prep" },
-  { src: youthConf1, alt: "Youth conference gathering", label: "Conference" },
+  { src: youthEmp3, alt: "Youth skills training session", label: "Skills & career prep" },
+  { src: youthConf1, alt: "Youth conference gathering", label: "Youth conference" },
   { src: youthConf2, alt: "Youth mentorship session", label: "Mentorship" },
-  { src: youthConf3, alt: "Youth thriving together", label: "Community" },
-  { src: youthConf4, alt: "Youth fellowship", label: "Fellowship" },
-  { src: youthConf5, alt: "Youth prayer and spiritual growth", label: "Spiritual growth" },
-  { src: youthConf6, alt: "Youth seminar", label: "Seminars" },
-  { src: youthConf7, alt: "Youth leading change", label: "Leadership" },
-  { src: youthConf8, alt: "Youth empowerment and conference", label: "Opportunity" },
+  { src: youthConf3, alt: "Youth fellowship and community", label: "Fellowship & community" },
 ];
 
 const conferenceActivities = [
@@ -255,7 +246,7 @@ const outreach = [
       </div>
       <div class="youth-gallery">
         {galleryItems.map((item, i) => (
-          <figure class={`youth-gallery-item youth-gallery-item-${i + 1}`} data-reveal style={`--reveal-delay: ${i * 80}ms`}>
+          <figure class={`youth-gallery-item youth-gallery-item-${i + 1}`} data-reveal style={`--reveal-delay: ${i * 120}ms`}>
             <div class="youth-gallery-img-wrap">
               <img
                 src={item.src.src}
@@ -831,8 +822,11 @@ const outreach = [
     border: 1px solid color-mix(in srgb, var(--brand-cyan) 18%, white);
     box-shadow: 0 8px 24px rgba(0, 186, 242, 0.06);
     opacity: 0;
-    transform: translateY(14px);
-    transition: opacity 0.45s ease, transform 0.45s ease, box-shadow 0.2s;
+    transform: translateY(24px) scale(0.97);
+    transition:
+      opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 0.3s ease;
     transition-delay: var(--reveal-delay, 0ms);
   }
 
@@ -842,36 +836,13 @@ const outreach = [
 
   .youth-gallery-item.visible {
     opacity: 1;
-    transform: translateY(0);
-  }
-
-  .youth-gallery-item-1 {
-    grid-column: span 2;
-  }
-
-  @media (min-width: 640px) {
-    .youth-gallery-item-1 {
-      grid-column: span 1;
-      grid-row: span 2;
-    }
+    transform: translateY(0) scale(1);
   }
 
   .youth-gallery-img-wrap {
     aspect-ratio: 4 / 3;
     overflow: hidden;
     flex-shrink: 0;
-  }
-
-  .youth-gallery-item-1 .youth-gallery-img-wrap {
-    min-height: 200px;
-  }
-
-  @media (min-width: 640px) {
-    .youth-gallery-item-1 .youth-gallery-img-wrap {
-      aspect-ratio: auto;
-      flex: 1;
-      min-height: 0;
-    }
   }
 
   .youth-gallery-img {
