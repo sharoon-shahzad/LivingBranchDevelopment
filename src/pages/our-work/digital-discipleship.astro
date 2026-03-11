@@ -1,0 +1,1039 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../../layouts/Layout.astro";
+
+// Digital Discipleship images (from src/images/programmes/DigitalDiscipleship)
+import dd1 from "../../images/programmes/DigitalDiscipleship/dd1.jpeg";
+import dd2 from "../../images/programmes/DigitalDiscipleship/dd2.jpeg";
+import dd3 from "../../images/programmes/DigitalDiscipleship/dd3.jpeg";
+import dd4 from "../../images/programmes/DigitalDiscipleship/dd4.jpeg";
+import dd5 from "../../images/programmes/DigitalDiscipleship/dd5.jpeg";
+import dd6 from "../../images/programmes/DigitalDiscipleship/dd6.jpeg";
+import dd7 from "../../images/programmes/DigitalDiscipleship/dd7.jpeg";
+import dd8 from "../../images/programmes/DigitalDiscipleship/dd8.jpeg";
+import dd9 from "../../images/programmes/DigitalDiscipleship/dd9.jpeg";
+
+const outcomes = [
+  {
+    title: "Safe online spaces",
+    description: "We help communities engage online with wisdom, privacy, and protection—especially for youth.",
+    icon: "shield"
+  },
+  {
+    title: "Scripture that travels",
+    description: "Short, shareable Bible reflections and discussion prompts that fit real daily schedules.",
+    icon: "book"
+  },
+  {
+    title: "Stories that restore dignity",
+    description: "Testimony and storytelling labs that amplify hope without exploiting pain.",
+    icon: "spark"
+  },
+  {
+    title: "Leaders equipped to disciple",
+    description: "Toolkits and coaching so leaders can guide healthy groups online and offline.",
+    icon: "people"
+  }
+];
+
+const modules = [
+  {
+    kicker: "Module 01",
+    title: "Digital wisdom & safety",
+    points: ["Privacy and boundaries", "Misinformation awareness", "Healthy habits and accountability"],
+    tag: "Protection"
+  },
+  {
+    kicker: "Module 02",
+    title: "Bible engagement, made practical",
+    points: ["Daily micro-devotionals", "Conversation guides", "Small-group facilitation online"],
+    tag: "Discipleship"
+  },
+  {
+    kicker: "Module 03",
+    title: "Content & storytelling labs",
+    points: ["Testimony frameworks", "Short video + design basics", "Ethical storytelling guidelines"],
+    tag: "Creative"
+  },
+  {
+    kicker: "Module 04",
+    title: "Multiply through leaders",
+    points: ["Leader toolkits", "Coaching sessions", "Launch a cohort in your community"],
+    tag: "Leadership"
+  }
+];
+
+const pathways = [
+  {
+    title: "Discover",
+    description: "Identify youth and leaders ready to learn, serve, and influence online with integrity."
+  },
+  {
+    title: "Equip",
+    description: "Train with hands-on sessions—tools, practice, and a support circle that keeps learning consistent."
+  },
+  {
+    title: "Create",
+    description: "Build resources together: devotionals, conversation prompts, and content that strengthens community."
+  },
+  {
+    title: "Multiply",
+    description: "Support graduates to lead small groups, mentor others, and replicate cohorts in new spaces."
+  }
+];
+
+const metrics = [
+  { value: "Workshops", label: "Delivered with hands-on practice" },
+  { value: "Toolkits", label: "Ready-to-use leader resources" },
+  { value: "Small groups", label: "Supported online + offline" },
+  { value: "Creative labs", label: "Storytelling done ethically" }
+];
+
+const stories = [
+  {
+    quote:
+      "I used to scroll for hours. Now I know how to use my phone to grow spiritually and encourage my friends.",
+    byline: "Youth participant"
+  },
+  {
+    quote:
+      "We finally have a simple way to disciple during the week—short prompts that our group actually uses.",
+    byline: "Small group leader"
+  }
+];
+
+const gallery = [
+  { src: dd3, alt: "Digital discipleship workshop moment", label: "Workshop" },
+  { src: dd4, alt: "Digital discipleship group learning moment", label: "Learning" },
+  { src: dd5, alt: "Digital discipleship participants collaborating", label: "Collaboration" },
+  { src: dd6, alt: "Digital discipleship training activity", label: "Training" },
+  { src: dd7, alt: "Digital discipleship community moment", label: "Community" },
+  { src: dd8, alt: "Digital discipleship coaching moment", label: "Coaching" },
+  { src: dd9, alt: "Digital discipleship session highlight", label: "Session" }
+];
+---
+
+<Layout
+  title="Digital Discipleship | Living Branch Development"
+  description="Digital Discipleship equips youth and leaders to disciple and serve online with wisdom, safety, and creative storytelling."
+>
+  <section class="dd-hero">
+    <div class="container-page grid gap-10 py-14 sm:py-16 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+      <div>
+        <p class="reveal inline-flex w-fit items-center gap-2 rounded-full bg-white/75 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-[color-mix(in_srgb,var(--brand-navy)_80%,black)] shadow-sm ring-1 ring-black/5">
+          <span class="h-2 w-2 rounded-full bg-[var(--dd-accent)]" aria-hidden="true"></span>
+          Programme
+        </p>
+        <h1 class="reveal mt-4 font-heading text-4xl font-semibold tracking-tight text-[var(--fg)] sm:text-5xl">
+          Digital Discipleship.
+          <span class="block text-[color-mix(in_srgb,var(--dd-tech)_78%,white)]">
+            Turning screens into safe spaces for growth.
+          </span>
+        </h1>
+        <p class="reveal mt-4 max-w-xl text-base leading-relaxed text-[var(--muted)] sm:text-lg">
+          People are learning, searching, and forming identity online every day. We equip youth, leaders, and creatives
+          to show up with wisdom—building safe habits, helpful content, and small groups that protect dignity and grow
+          hope.
+        </p>
+
+        <div class="reveal mt-6 flex flex-wrap gap-2">
+          <span class="metric-chip">Digital safety</span>
+          <span class="metric-chip">Bible engagement</span>
+          <span class="metric-chip">Storytelling labs</span>
+          <span class="metric-chip">Leader toolkits</span>
+        </div>
+
+        <div class="reveal mt-8 flex flex-wrap gap-3">
+          <a
+            href="/contact"
+            class="inline-flex items-center justify-center rounded-full bg-[var(--dd-accent)] px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-[color-mix(in_srgb,var(--dd-accent)_88%,black)]"
+          >
+            Invite a training
+          </a>
+          <a
+            href="/donate"
+            class="inline-flex items-center justify-center rounded-full border border-[var(--border)] bg-white/80 px-6 py-3 text-sm font-semibold text-[var(--fg)] transition hover:border-[color-mix(in_srgb,var(--dd-accent)_55%,var(--border))] hover:bg-white"
+          >
+            Support this programme
+          </a>
+        </div>
+      </div>
+
+      <div class="reveal dd-media">
+        <div class="dd-media-frame">
+          <Image
+            src={dd1}
+            alt="Digital discipleship training session"
+            width={720}
+            height={560}
+            loading="eager"
+            class="dd-media-img"
+          />
+          <div class="dd-float dd-float-1" aria-hidden="true">
+            <div class="dd-float-icon">{/* shield */}
+              <svg viewBox="0 0 24 24" class="h-4 w-4" aria-hidden="true">
+                <path
+                  fill="currentColor"
+                  d="M12 3 4 7v5c0 4.4 2.7 8.4 8 9 5.3-.6 8-4.6 8-9V7l-8-4Zm0 16c-3.7-.6-6-3.7-6-7V8.2l6-3 6 3V12c0 3.3-2.3 6.4-6 7Z"
+                />
+              </svg>
+            </div>
+            <p class="dd-float-text">Safety-first</p>
+          </div>
+          <div class="dd-float dd-float-2" aria-hidden="true">
+            <div class="dd-float-icon">
+              <svg viewBox="0 0 24 24" class="h-4 w-4" aria-hidden="true">
+                <path
+                  fill="currentColor"
+                  d="M7 4h10a2 2 0 0 1 2 2v13.2a.8.8 0 0 1-1.2.7L15 18.4l-2.8 1.5a.8.8 0 0 1-.8 0L8.6 18.4 6.2 19.9A.8.8 0 0 1 5 19.2V6a2 2 0 0 1 2-2Zm0 2v11.7l1.9-1.1a.8.8 0 0 1 .8 0L12 17.9l2.3-1.3a.8.8 0 0 1 .8 0l1.9 1.1V6H7Z"
+                />
+              </svg>
+            </div>
+            <p class="dd-float-text">Micro-devotionals</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-page py-12 sm:py-14">
+    <div class="grid gap-10 lg:grid-cols-[1fr_1.15fr] lg:items-start">
+      <div class="reveal">
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[color-mix(in_srgb,var(--brand-navy)_70%,var(--muted))]">
+          Why it matters
+        </p>
+        <h2 class="mt-3 font-heading text-2xl font-semibold tracking-tight text-[var(--fg)] sm:text-3xl">
+          Online life shapes real life.
+        </h2>
+        <p class="mt-3 text-sm leading-relaxed text-[var(--muted)] sm:text-base">
+          Young people are forming beliefs, habits, and identity through content every day. We respond with a programme
+          that protects dignity, builds resilience, and equips leaders to disciple with clarity—without shame, fear, or
+          hype.
+        </p>
+        <div class="mt-6 grid gap-3">
+          <div class="dd-callout">
+            <p class="dd-callout-title">Our focus</p>
+            <p class="dd-callout-body">
+              Practical discipleship tools that are easy to use weekly—built for real attention spans and real
+              constraints.
+            </p>
+          </div>
+          <div class="dd-callout">
+            <p class="dd-callout-title">Our promise</p>
+            <p class="dd-callout-body">
+              We don’t just teach content creation. We build safe communities and habits that lead to lasting growth.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid gap-4 sm:grid-cols-2">
+        {outcomes.map((o, idx) => (
+          <div class="reveal dd-card" style={`--reveal-delay:${idx * 70}ms`}>
+            <div class="dd-card-icon" aria-hidden="true">
+              {o.icon === "shield" && (
+                <svg viewBox="0 0 24 24" class="h-5 w-5">
+                  <path
+                    fill="currentColor"
+                    d="M12 3 4 7v5c0 4.4 2.7 8.4 8 9 5.3-.6 8-4.6 8-9V7l-8-4Z"
+                  />
+                  <path
+                    fill="#fff"
+                    d="M12 6.2 6 9v3c0 3.2 1.8 6 6 6.7 4.2-.7 6-3.5 6-6.7V9l-6-2.8Zm0 10.1c-2.5-.6-3.5-2.4-3.5-4.2V10l3.5-1.6 3.5 1.6v2.1c0 1.8-1 3.6-3.5 4.2Z"
+                  />
+                </svg>
+              )}
+              {o.icon === "book" && (
+                <svg viewBox="0 0 24 24" class="h-5 w-5">
+                  <path
+                    fill="currentColor"
+                    d="M6 4.5A2.5 2.5 0 0 1 8.5 2h10A2.5 2.5 0 0 1 21 4.5v14A2.5 2.5 0 0 1 18.5 21h-10A2.5 2.5 0 0 1 6 18.5v-14Z"
+                  />
+                  <path fill="#fff" d="M9 6.5h9V8H9V6.5Zm0 3h9V11H9V9.5Zm0 3h6.2V14H9v-1.5Z" />
+                  <path
+                    fill="currentColor"
+                    d="M3.8 6.2A2.2 2.2 0 0 1 6 4v15.8A2.2 2.2 0 0 1 3.8 17.6V6.2Z"
+                  />
+                </svg>
+              )}
+              {o.icon === "spark" && (
+                <svg viewBox="0 0 24 24" class="h-5 w-5">
+                  <path
+                    fill="currentColor"
+                    d="M12 2l1.4 5.1L18 9l-4.6 1.9L12 16l-1.4-5.1L6 9l4.6-1.9L12 2Z"
+                  />
+                  <path
+                    fill="#fff"
+                    d="M19.2 13.2l.9 2.6 2.5.9-2.5.9-.9 2.6-.9-2.6-2.5-.9 2.5-.9.9-2.6Z"
+                  />
+                </svg>
+              )}
+              {o.icon === "people" && (
+                <svg viewBox="0 0 24 24" class="h-5 w-5">
+                  <path
+                    fill="currentColor"
+                    d="M9 5a3 3 0 1 1 0 6 3 3 0 0 1 0-6Zm8 1.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z"
+                  />
+                  <path
+                    fill="#fff"
+                    d="M4.8 19.2v-1.1a4.2 4.2 0 0 1 8.4 0v1.1H4.8Zm9.3-1.1a3.4 3.4 0 0 1 6.8 0v1.1h-6.8v-1.1Z"
+                  />
+                </svg>
+              )}
+            </div>
+            <h3 class="dd-card-title">{o.title}</h3>
+            <p class="dd-card-body">{o.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="dd-playbook">
+    <div class="container-page py-12 sm:py-14">
+      <div class="reveal max-w-3xl">
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[color-mix(in_srgb,var(--brand-navy)_70%,var(--muted))]">
+          What we do
+        </p>
+        <h2 class="mt-3 font-heading text-2xl font-semibold tracking-tight text-[var(--fg)] sm:text-3xl">
+          A playbook you can run—weekly.
+        </h2>
+        <p class="mt-3 text-sm leading-relaxed text-[var(--muted)] sm:text-base">
+          Digital Discipleship is built for consistency. Leaders receive simple tools, and participants practice
+          together until healthy habits become normal.
+        </p>
+      </div>
+
+      <div class="mt-8 grid gap-4 lg:grid-cols-2">
+        {modules.map((m, idx) => (
+          <article class="reveal dd-module" style={`--reveal-delay:${idx * 80}ms`}>
+            <header class="flex items-start justify-between gap-4">
+              <div>
+                <p class="dd-module-kicker">{m.kicker}</p>
+                <h3 class="dd-module-title">{m.title}</h3>
+              </div>
+              <span class="dd-module-tag">{m.tag}</span>
+            </header>
+            <ul class="dd-module-list">
+              {m.points.map((p) => (
+                <li class="dd-module-item">
+                  <span class="dd-check" aria-hidden="true"></span>
+                  <span>{p}</span>
+                </li>
+              ))}
+            </ul>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="container-page py-12 sm:py-14">
+    <div class="reveal flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+      <div class="max-w-2xl">
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[color-mix(in_srgb,var(--brand-navy)_70%,var(--muted))]">
+          How it works
+        </p>
+        <h2 class="mt-3 font-heading text-2xl font-semibold tracking-tight text-[var(--fg)] sm:text-3xl">
+          From discovery to multiplication.
+        </h2>
+      </div>
+      <a
+        href="/our-work"
+        class="inline-flex w-fit items-center justify-center rounded-full border border-[var(--border)] bg-white px-5 py-2.5 text-sm font-semibold text-[var(--fg)] transition hover:border-[color-mix(in_srgb,var(--dd-accent)_45%,var(--border))]"
+      >
+        See all programmes
+      </a>
+    </div>
+
+    <div class="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+      {pathways.map((step, idx) => (
+        <div class="reveal dd-step" style={`--reveal-delay:${idx * 70}ms`}>
+          <div class="dd-step-top">
+            <span class="dd-step-num" aria-hidden="true">
+              {String(idx + 1).padStart(2, "0")}
+            </span>
+            <h3 class="dd-step-title">{step.title}</h3>
+          </div>
+          <p class="dd-step-body">{step.description}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="dd-impact">
+    <div class="container-page py-14 sm:py-16">
+      <div class="reveal max-w-2xl">
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[color-mix(in_srgb,var(--brand-navy)_70%,var(--muted))]">
+          Impact
+        </p>
+        <h2 class="mt-3 font-heading text-2xl font-semibold tracking-tight text-[var(--fg)] sm:text-3xl">
+          Measurable growth, rooted in dignity.
+        </h2>
+        <p class="mt-3 text-sm leading-relaxed text-[var(--muted)] sm:text-base">
+          We focus on consistency: leaders who feel confident facilitating, youth who feel safe participating, and
+          resources that communities can actually reuse week after week.
+        </p>
+      </div>
+
+      <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {metrics.map((m, idx) => (
+          <div class="reveal dd-metric" style={`--reveal-delay:${idx * 60}ms`}>
+            <p class="dd-metric-value">{m.value}</p>
+            <p class="dd-metric-label">{m.label}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-10 grid gap-4 lg:grid-cols-2">
+        {stories.map((s, idx) => (
+          <figure class="reveal dd-quote" style={`--reveal-delay:${idx * 90}ms`}>
+            <blockquote class="dd-quote-text">“{s.quote}”</blockquote>
+            <figcaption class="dd-quote-byline">{s.byline}</figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="dd-cta">
+    <div class="container-page py-12 sm:py-14">
+      <div class="reveal dd-cta-card">
+        <div>
+          <h2 class="font-heading text-2xl font-semibold tracking-tight text-[var(--fg)] sm:text-3xl">
+            Ready to equip your community?
+          </h2>
+          <p class="mt-3 max-w-xl text-sm leading-relaxed text-[var(--muted)] sm:text-base">
+            We can run a cohort in your church, school, or community—tailored for youth, leaders, or creative teams.
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-3">
+          <a
+            href="/contact"
+            class="inline-flex items-center justify-center rounded-full bg-[var(--brand-navy)] px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-[color-mix(in_srgb,var(--brand-navy)_88%,black)]"
+          >
+            Talk to us
+          </a>
+          <a
+            href="/get-involved"
+            class="inline-flex items-center justify-center rounded-full border border-[var(--border)] bg-white px-6 py-3 text-sm font-semibold text-[var(--fg)] transition hover:border-[color-mix(in_srgb,var(--dd-accent)_45%,var(--border))]"
+          >
+            Get involved
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-page py-12 sm:py-14">
+    <div class="reveal flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+      <div class="max-w-2xl">
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[color-mix(in_srgb,var(--brand-navy)_70%,var(--muted))]">
+          Gallery
+        </p>
+        <h2 class="mt-3 font-heading text-2xl font-semibold tracking-tight text-[var(--fg)] sm:text-3xl">
+          Digital Discipleship in real spaces.
+        </h2>
+        <p class="mt-3 text-sm leading-relaxed text-[var(--muted)] sm:text-base">
+          A glimpse of workshops, labs, and community moments as we learn, create, and build healthy online habits.
+        </p>
+      </div>
+    </div>
+
+    <div class="mt-8 dd-bento" aria-label="Digital Discipleship gallery">
+      <div class="reveal dd-bento-item dd-bento-hero">
+        <div class="dd-bento-frame">
+          <Image src={dd2} alt="Digital discipleship programme highlight" width={960} height={720} loading="lazy" class="dd-bento-img" />
+        </div>
+        <p class="dd-bento-label">Programme highlight</p>
+      </div>
+
+      {gallery.map((item, idx) => (
+        <div class={`reveal dd-bento-item dd-bento-${idx + 1}`} style={`--reveal-delay:${idx * 70}ms`}>
+          <div class="dd-bento-frame">
+            <Image src={item.src} alt={item.alt} width={720} height={720} loading="lazy" class="dd-bento-img" />
+          </div>
+          <p class="dd-bento-label">{item.label}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+</Layout>
+
+<script is:inline>
+  (() => {
+    const reduce = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
+    if (reduce) return;
+
+    const els = Array.from(document.querySelectorAll(".reveal"));
+    if (!els.length) return;
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-in");
+            io.unobserve(entry.target);
+          }
+        }
+      },
+      { rootMargin: "0px 0px -10% 0px", threshold: 0.12 }
+    );
+
+    els.forEach((el) => io.observe(el));
+  })();
+</script>
+
+<style>
+  :global(:root) {
+    --dd-tech: #85409d;
+    --dd-tech-deep: color-mix(in srgb, var(--dd-tech) 84%, #190b24);
+    --dd-tech-soft: color-mix(in srgb, var(--dd-tech) 22%, white);
+    --dd-tech-halo: color-mix(in srgb, var(--dd-tech) 14%, white);
+  }
+
+  :global(html) {
+    scroll-behavior: smooth;
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translate3d(0, 10px, 0);
+    transition:
+      opacity 700ms cubic-bezier(0.22, 1, 0.36, 1),
+      transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+    will-change: transform, opacity;
+  }
+
+  .reveal.is-in {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    :global(html) {
+      scroll-behavior: auto;
+    }
+    .reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+
+  .dd-hero {
+    --dd-accent: var(--dd-tech);
+    background:
+      radial-gradient(860px 420px at 12% 18%, color-mix(in srgb, var(--dd-tech) 18%, white), transparent 62%),
+      radial-gradient(980px 460px at 92% 28%, color-mix(in srgb, var(--dd-tech) 14%, white), transparent 62%),
+      radial-gradient(900px 520px at 65% 92%, color-mix(in srgb, var(--brand-lime) 16%, white), transparent 70%),
+      linear-gradient(180deg, #ffffff, color-mix(in srgb, var(--dd-tech) 3%, white));
+  }
+
+  .metric-chip {
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: #ffffff;
+    padding: 0.4rem 0.85rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: color-mix(in srgb, var(--brand-navy) 75%, black);
+  }
+
+  .dd-media {
+    position: relative;
+  }
+
+  .dd-media-frame {
+    position: relative;
+    border-radius: 28px;
+    border: 1px solid var(--border);
+    background:
+      radial-gradient(160px 160px at 18% 22%, color-mix(in srgb, var(--dd-tech) 18%, white), transparent 70%),
+      radial-gradient(220px 220px at 80% 70%, color-mix(in srgb, var(--dd-tech) 14%, white), transparent 70%),
+      #ffffff;
+    padding: 1.5rem;
+    box-shadow: 0 24px 50px rgba(12, 16, 34, 0.1);
+    overflow: hidden;
+  }
+
+  .dd-media-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    object-fit: cover;
+  }
+
+  .dd-float {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 999px;
+    border: 1px solid color-mix(in srgb, var(--dd-accent) 22%, var(--border));
+    background: rgba(255, 255, 255, 0.85);
+    padding: 0.5rem 0.75rem;
+    box-shadow: 0 14px 30px rgba(12, 16, 34, 0.12);
+    backdrop-filter: blur(10px);
+  }
+
+  .dd-float-1 {
+    left: 1.2rem;
+    bottom: 1.2rem;
+  }
+
+  .dd-float-2 {
+    right: 1.2rem;
+    top: 1.2rem;
+  }
+
+  .dd-float-icon {
+    display: inline-flex;
+    height: 2rem;
+    width: 2rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    background: linear-gradient(135deg, var(--dd-tech), var(--dd-tech-deep));
+    color: white;
+  }
+
+  .dd-float-text {
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: color-mix(in srgb, var(--brand-navy) 78%, black);
+  }
+
+  @media (min-width: 768px) {
+    .dd-float-1,
+    .dd-float-2 {
+      animation: floaty 7.5s ease-in-out infinite;
+    }
+    .dd-float-2 {
+      animation-delay: 0.8s;
+    }
+  }
+
+  .dd-callout {
+    border-radius: 18px;
+    border: 1px solid var(--border);
+    background: #ffffff;
+    padding: 1rem 1.1rem;
+    box-shadow: 0 10px 18px rgba(12, 16, 34, 0.06);
+  }
+
+  .dd-callout-title {
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: color-mix(in srgb, var(--dd-tech) 72%, var(--brand-navy));
+  }
+
+  .dd-callout-body {
+    margin-top: 0.4rem;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--muted);
+  }
+
+  .dd-card {
+    border-radius: 22px;
+    border: 1px solid var(--border);
+    background: #ffffff;
+    padding: 1.1rem 1.1rem 1.2rem;
+    box-shadow: 0 18px 34px rgba(12, 16, 34, 0.08);
+    transition: transform 170ms ease, box-shadow 170ms ease, border-color 170ms ease;
+  }
+
+  .dd-card:hover {
+    transform: translateY(-2px);
+    border-color: color-mix(in srgb, var(--dd-accent) 30%, var(--border));
+    box-shadow: 0 22px 44px rgba(12, 16, 34, 0.12);
+  }
+
+  .dd-card-icon {
+    display: inline-flex;
+    height: 2.6rem;
+    width: 2.6rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 18px;
+    background:
+      radial-gradient(120px 120px at 20% 25%, color-mix(in srgb, var(--dd-tech) 18%, white), transparent 70%),
+      color-mix(in srgb, var(--dd-tech) 92%, black);
+    color: white;
+    box-shadow: 0 14px 26px rgba(12, 16, 34, 0.14);
+  }
+
+  .dd-card-title {
+    margin-top: 0.9rem;
+    font-family: Poppins, Inter, ui-sans-serif, system-ui;
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--fg);
+  }
+
+  .dd-card-body {
+    margin-top: 0.35rem;
+    font-size: 0.9rem;
+    line-height: 1.65;
+    color: var(--muted);
+  }
+
+  .dd-playbook {
+    background:
+      radial-gradient(860px 360px at 18% 30%, color-mix(in srgb, var(--dd-tech) 12%, white), transparent 68%),
+      radial-gradient(760px 340px at 86% 25%, color-mix(in srgb, var(--dd-tech) 10%, white), transparent 66%),
+      #fbfbff;
+  }
+
+  .dd-module {
+    border-radius: 24px;
+    border: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.85);
+    padding: 1.2rem 1.2rem 1.1rem;
+    box-shadow: 0 18px 36px rgba(12, 16, 34, 0.08);
+    backdrop-filter: blur(10px);
+  }
+
+  .dd-module-kicker {
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: color-mix(in srgb, var(--brand-navy) 70%, var(--muted));
+  }
+
+  .dd-module-title {
+    margin-top: 0.25rem;
+    font-family: Poppins, Inter, ui-sans-serif, system-ui;
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--fg);
+  }
+
+  .dd-module-tag {
+    border-radius: 999px;
+    padding: 0.35rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: white;
+    background: linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--dd-tech) 92%, black),
+      color-mix(in srgb, var(--dd-tech) 72%, white)
+    );
+    box-shadow: 0 12px 22px rgba(12, 16, 34, 0.14);
+    white-space: nowrap;
+  }
+
+  .dd-module-list {
+    margin-top: 0.9rem;
+    display: grid;
+    gap: 0.5rem;
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+
+  .dd-module-item {
+    display: flex;
+    gap: 0.6rem;
+    align-items: flex-start;
+  }
+
+  .dd-check {
+    margin-top: 0.25rem;
+    height: 0.9rem;
+    width: 0.9rem;
+    border-radius: 6px;
+    background: color-mix(in srgb, var(--brand-lime) 85%, black);
+    box-shadow: 0 10px 18px rgba(12, 16, 34, 0.12);
+    position: relative;
+    flex: 0 0 auto;
+  }
+
+  .dd-check::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 0.35rem;
+    height: 0.6rem;
+    border-right: 2px solid rgba(255, 255, 255, 0.95);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.95);
+    transform: rotate(40deg) translateY(-0.05rem);
+  }
+
+  .dd-step {
+    border-radius: 22px;
+    border: 1px solid var(--border);
+    background: #ffffff;
+    padding: 1.1rem 1.1rem 1.2rem;
+    box-shadow: 0 14px 26px rgba(12, 16, 34, 0.07);
+  }
+
+  .dd-step-top {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .dd-step-num {
+    font-size: 0.75rem;
+    font-weight: 900;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: color-mix(in srgb, var(--dd-tech) 72%, var(--brand-navy));
+  }
+
+  .dd-step-title {
+    font-family: Poppins, Inter, ui-sans-serif, system-ui;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--fg);
+  }
+
+  .dd-step-body {
+    margin-top: 0.6rem;
+    font-size: 0.9rem;
+    line-height: 1.65;
+    color: var(--muted);
+  }
+
+  .dd-impact {
+    background:
+      radial-gradient(900px 420px at 12% 20%, color-mix(in srgb, var(--dd-tech) 22%, white), transparent 64%),
+      radial-gradient(760px 360px at 88% 25%, color-mix(in srgb, var(--dd-tech) 16%, white), transparent 66%),
+      linear-gradient(180deg, #ffffff, color-mix(in srgb, var(--dd-tech) 4%, white));
+  }
+
+  .dd-metric {
+    border-radius: 22px;
+    border: 1px solid color-mix(in srgb, var(--dd-tech) 35%, rgba(255, 255, 255, 0.35));
+    background: linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--dd-tech-deep) 86%, #0b1220),
+      color-mix(in srgb, var(--dd-tech-deep) 70%, #0b1220)
+    );
+    padding: 1rem 1.1rem;
+    box-shadow: 0 18px 40px rgba(13, 10, 26, 0.28);
+  }
+
+  .dd-metric-value {
+    font-family: Poppins, Inter, ui-sans-serif, system-ui;
+    font-size: 1.7rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: rgba(255, 255, 255, 0.98);
+  }
+
+  .dd-metric-label {
+    margin-top: 0.2rem;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: color-mix(in srgb, var(--dd-tech) 28%, white);
+  }
+
+  .dd-quote {
+    border-radius: 24px;
+    border: 1px solid color-mix(in srgb, var(--dd-tech) 35%, rgba(255, 255, 255, 0.35));
+    background: linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--dd-tech-deep) 84%, #0b1220),
+      color-mix(in srgb, var(--dd-tech-deep) 66%, #0b1220)
+    );
+    padding: 1.25rem 1.3rem;
+    box-shadow: 0 24px 52px rgba(13, 10, 26, 0.3);
+  }
+
+  .dd-quote-text {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.95);
+    font-weight: 600;
+  }
+
+  .dd-quote-byline {
+    margin-top: 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 900;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: color-mix(in srgb, var(--dd-tech) 30%, white);
+  }
+
+  .dd-gallery-frame {
+    border-radius: 22px;
+    border: 1px solid var(--border);
+    background: #ffffff;
+    padding: 0.9rem;
+    box-shadow: 0 18px 36px rgba(12, 16, 34, 0.08);
+  }
+
+  .dd-gallery-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+    object-fit: cover;
+  }
+
+  .dd-cta {
+    background:
+      radial-gradient(900px 360px at 18% 25%, color-mix(in srgb, var(--dd-tech) 14%, white), transparent 66%),
+      radial-gradient(720px 320px at 86% 35%, color-mix(in srgb, var(--dd-tech) 12%, white), transparent 66%),
+      linear-gradient(180deg, #ffffff, color-mix(in srgb, var(--dd-tech) 3%, white));
+  }
+
+  .dd-cta-card {
+    border-radius: 28px;
+    border: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.9);
+    padding: 1.6rem 1.6rem;
+    box-shadow: 0 26px 60px rgba(12, 16, 34, 0.12);
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .dd-bento {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+
+  @media (min-width: 640px) {
+    .dd-bento {
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      grid-auto-rows: 240px;
+      gap: 1rem;
+    }
+  }
+
+  .dd-bento-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    height: 100%;
+  }
+
+  .dd-bento-frame {
+    border-radius: 22px;
+    border: 1px solid var(--border);
+    background: #ffffff;
+    padding: 0.75rem;
+    box-shadow: 0 18px 36px rgba(12, 16, 34, 0.08);
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+  }
+
+  .dd-bento-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+    object-fit: cover;
+    object-position: center center;
+  }
+
+  /* Coaching image needs slightly higher framing (avoid cropping heads). */
+  .dd-bento-6 .dd-bento-img {
+    object-position: center 35%;
+  }
+
+  .dd-bento-label {
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: color-mix(in srgb, var(--brand-navy) 70%, var(--muted));
+  }
+
+  @media (min-width: 640px) {
+    .dd-bento-hero {
+      grid-column: 1 / span 4;
+      grid-row: span 2;
+    }
+
+    .dd-bento-1 {
+      grid-column: 5 / span 2;
+      grid-row: span 1;
+    }
+
+    .dd-bento-2 {
+      grid-column: 5 / span 2;
+      grid-row: span 1;
+    }
+
+    .dd-bento-3 {
+      grid-column: 1 / span 2;
+      grid-row: span 1;
+    }
+
+    .dd-bento-4 {
+      grid-column: 3 / span 2;
+      grid-row: span 1;
+    }
+
+    .dd-bento-5 {
+      grid-column: 5 / span 2;
+      grid-row: span 1;
+    }
+
+    .dd-bento-6 {
+      grid-column: 1 / span 3;
+      grid-row: span 1;
+    }
+
+    .dd-bento-7 {
+      grid-column: 4 / span 3;
+      grid-row: span 1;
+    }
+
+    .dd-bento-8 {
+      grid-column: 1 / span 2;
+      grid-row: span 1;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .dd-bento {
+      grid-auto-rows: 260px;
+    }
+
+    .dd-bento-hero {
+      grid-column: 1 / span 4;
+      grid-row: span 2;
+    }
+
+    /* Make a couple tiles wider at desktop to match the taller rows */
+    .dd-bento-6 {
+      grid-column: 1 / span 4;
+    }
+
+    .dd-bento-7 {
+      grid-column: 5 / span 2;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .dd-cta-card {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+  }
+</style>
