@@ -1,14 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
-import portrait from "../images/ceo_profile/ceo_profile_img.jpeg";
-
-const kpis = [
-  { value: "12+", label: "Years leading impact" },
-  { value: "38", label: "Community programs" },
-  { value: "24K", label: "People reached" },
-  { value: "91%", label: "Program retention" }
-];
+import portrait from "../images/ceo_profile/ceo_img.jpeg";
 
 const values = [
   {
@@ -69,19 +62,6 @@ const values = [
     </div>
   </section>
 
-  <section class="kpi-band">
-    <div class="container-page py-10">
-      <div class="kpi-grid">
-        {kpis.map((item) => (
-          <div class="kpi-card">
-            <p class="text-2xl font-semibold text-[var(--fg)]">{item.value}</p>
-            <p class="mt-1 text-xs uppercase tracking-[0.2em] text-[var(--muted)]">{item.label}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
   <section class="container-page py-12 sm:py-14">
     <div class="grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
       <div class="message-card">
@@ -118,6 +98,85 @@ const values = [
             </div>
           ))}
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ceo-history">
+    <div class="container-page py-12 sm:py-14">
+      <div class="history-grid">
+        <div>
+          <p class="history-eyebrow">A history rooted in ministry</p>
+          <h2 class="history-heading">
+            From local church legacy to community-wide transformation.
+          </h2>
+          <div class="history-copy">
+            <p>
+              Radheem Zaman is a passionate leader, visionary, and devoted servant of God, committed to transforming
+              lives through faith, service, and leadership. As the Founder of Living Branch Development, he leads an
+              organization dedicated to social transformation, community development, and outreach across Pakistan. As
+              CEO of 7 Multi Care, he brings both innovation and compassion to the healthcare and services sector.
+            </p>
+            <p>
+              Deeply rooted in ministry, he is the son of the Chairman of Living Branch Ministries—a mission that has,
+              by God&apos;s grace, planted over 110 churches across Pakistan since 1995. Growing up within this story of
+              church planting and Kingdom work has given him a profound understanding of how hope, discipleship, and
+              practical support must move together.
+            </p>
+            <p>
+              Today, Radheem continues this legacy with purpose—leading with a strong vision, unwavering faith, and a
+              relentless passion to impact lives for the glory of God. His heart is to see the next generation equipped
+              to serve, lead, and love their communities well.
+            </p>
+          </div>
+        </div>
+
+        <aside class="history-aside" aria-label="CEO history highlights">
+          <div class="history-aside-header">
+            <span class="history-pill">Journey highlights</span>
+            <p class="history-aside-title">Key threads in his story</p>
+          </div>
+          <ul class="history-list">
+            <li class="history-list-item">
+              <span class="history-dot" aria-hidden="true"></span>
+              <div>
+                <p class="history-list-label">Founder, Living Branch Development</p>
+                <p class="history-list-text">
+                  Leading programmes focused on social transformation, community development, and outreach.
+                </p>
+              </div>
+            </li>
+            <li class="history-list-item">
+              <span class="history-dot" aria-hidden="true"></span>
+              <div>
+                <p class="history-list-label">Legacy of Living Branch Ministries</p>
+                <p class="history-list-text">
+                  Formed within a church-planting movement that has established over 110 churches across Pakistan since
+                  1995.
+                </p>
+              </div>
+            </li>
+            <li class="history-list-item">
+              <span class="history-dot" aria-hidden="true"></span>
+              <div>
+                <p class="history-list-label">CEO, 7 Multi Care</p>
+                <p class="history-list-text">
+                  Bringing innovation and compassion together in the healthcare and services sector.
+                </p>
+              </div>
+            </li>
+            <li class="history-list-item">
+              <span class="history-dot" aria-hidden="true"></span>
+              <div>
+                <p class="history-list-label">Heart for the next generation</p>
+                <p class="history-list-text">
+                  Committed to empowering young leaders with faith, character, and practical tools to serve their
+                  communities.
+                </p>
+              </div>
+            </li>
+          </ul>
+        </aside>
       </div>
     </div>
   </section>
@@ -159,44 +218,159 @@ const values = [
     place-items: center;
   }
 
-  .kpi-band {
-    background: #fff0f6;
-  }
-
-  .kpi-grid {
-    display: grid;
-    gap: 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  }
-
-  .kpi-card {
-    border-radius: 18px;
-    border: 1px solid var(--border);
-    background: white;
-    padding: 1rem 1.2rem;
-    box-shadow: 0 10px 18px rgba(12, 16, 34, 0.06);
-  }
-
   .message-card {
     border-radius: 24px;
     border: 1px solid var(--border);
-    background: white;
+    background: color-mix(in srgb, var(--brand-navy) 92%, black);
     padding: 1.7rem;
-    box-shadow: 0 16px 32px rgba(12, 16, 34, 0.08);
+    box-shadow: 0 22px 46px rgba(5, 10, 35, 0.5);
+    color: white;
+  }
+
+  .message-card h2 {
+    color: white;
+  }
+
+  .message-card p {
+    color: color-mix(in srgb, white 88%, #cbd5f5);
+  }
+
+  .message-card p:first-of-type {
+    color: color-mix(in srgb, white 94%, #e5e9ff);
   }
 
   .values-card {
     border-radius: 24px;
     border: 1px solid var(--border);
-    background: #fbfbff;
+    background: #ffffff;
     padding: 1.7rem;
     box-shadow: 0 16px 32px rgba(12, 16, 34, 0.08);
   }
 
   .value-tile {
     border-radius: 16px;
+    border: 1px solid color-mix(in srgb, var(--brand-navy) 45%, white);
+    background: color-mix(in srgb, var(--brand-navy) 55%, #020617);
+    padding: 1rem 1.1rem;
+    color: white;
+  }
+
+  .value-tile p:first-of-type {
+    color: white;
+  }
+
+  .value-tile p:nth-of-type(2) {
+    color: color-mix(in srgb, white 88%, #e5e9ff);
+  }
+
+  .ceo-history {
+    background:
+      radial-gradient(820px 360px at 10% 18%, color-mix(in srgb, var(--brand-lime) 10%, white), transparent 64%),
+      #ffffff;
+  }
+
+  .history-grid {
+    display: grid;
+    gap: 2.5rem;
+  }
+
+  @media (min-width: 1024px) {
+    .history-grid {
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.9fr);
+      align-items: start;
+    }
+  }
+
+  .history-eyebrow {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: color-mix(in srgb, var(--brand-navy) 70%, var(--muted));
+  }
+
+  .history-heading {
+    margin-top: 0.5rem;
+    font-family: Poppins, Inter, ui-sans-serif, system-ui;
+    font-size: clamp(1.5rem, 2.1vw + 1.1rem, 2.1rem);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--fg);
+  }
+
+  .history-copy {
+    margin-top: 1.2rem;
+    display: grid;
+    gap: 0.9rem;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--muted);
+  }
+
+  .history-aside {
+    border-radius: 24px;
     border: 1px solid var(--border);
     background: white;
-    padding: 1rem 1.1rem;
+    padding: 1.5rem 1.6rem;
+    box-shadow: 0 18px 32px rgba(12, 16, 34, 0.08);
+  }
+
+  .history-aside-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    margin-bottom: 1.1rem;
+  }
+
+  .history-pill {
+    align-self: flex-start;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--brand-cyan) 14%, white);
+    padding: 0.2rem 0.7rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: color-mix(in srgb, var(--brand-navy) 82%, black);
+  }
+
+  .history-aside-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: color-mix(in srgb, var(--brand-navy) 85%, black);
+  }
+
+  .history-list {
+    display: grid;
+    gap: 0.9rem;
+  }
+
+  .history-list-item {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 0.6rem 0.9rem;
+    align-items: flex-start;
+  }
+
+  .history-dot {
+    margin-top: 0.35rem;
+    height: 0.6rem;
+    width: 0.6rem;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--brand-navy) 85%, black);
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--brand-cyan) 16%, transparent);
+  }
+
+  .history-list-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: color-mix(in srgb, var(--brand-navy) 88%, black);
+  }
+
+  .history-list-text {
+    margin-top: 0.15rem;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: var(--muted);
   }
 </style>
