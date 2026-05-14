@@ -1,43 +1,61 @@
-# Astro Starter Kit: Minimal
+# Living Branch Development (Astro)
 
-```sh
-npm create astro@latest -- --template minimal
-```
+Production website for Living Branch Development, built with **Astro 5** (static output), **Tailwind CSS**, and optional **React islands**.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
+## Project structure (production-grade)
 
 ```text
 /
-├── public/
+├── public/                       # Static files served as-is (favicons, robots.txt, etc.)
 ├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+│   ├── assets/                   # Optional convention for imported assets (non-breaking)
+│   ├── components/               # Reusable UI components (Astro / React)
+│   │   └── sections/             # Page sections
+│   ├── data/                     # Shared data/copy objects (optional convention)
+│   ├── images/                   # Image assets imported via astro:assets (current location)
+│   ├── layouts/                  # Page layouts
+│   ├── lib/                      # Shared utilities (optional convention)
+│   ├── pages/                    # Routes
+│   ├── styles/                   # Global styles
+│   ├── types/                    # Shared types
+│   └── env.d.ts                  # Env typings
+├── astro.config.mjs              # Astro config (sitemap enabled)
+├── package.json
+└── tsconfig.json
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Commands
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+```bash
+npm install
+npm run dev
+npm run build
+npm run preview
+```
 
-Any static assets, like images, can be placed in the `public/` directory.
+## Sitemap + canonical URLs
 
-## 🧞 Commands
+This project enables `@astrojs/sitemap`. Set your production site URL:
 
-All commands are run from the root of the project, from a terminal:
+- **Local (PowerShell):**
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+```powershell
+$env:SITE_URL="https://yourdomain.com"; npm run build
+```
 
-## 👀 Want to learn more?
+- **Mac/Linux:**
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+```bash
+SITE_URL=https://yourdomain.com npm run build
+```
+
+Or set `SITE_URL` in your hosting platform environment variables.
+
+## Deployment (static hosting)
+
+Build output is generated into `dist/`. Deploy by uploading the **contents** of `dist/` to your host.
+
+Common hosts:
+- **Hostinger shared**: upload `dist/` contents to `public_html`
+- **Netlify/Vercel/Cloudflare Pages**: set build command `npm run build`, output folder `dist`
+

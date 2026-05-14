@@ -243,12 +243,12 @@ const faqItems = [
           </div>
         </div>
         <div class="trust-quote">
-          <p class="text-sm uppercase tracking-[0.2em] text-[var(--muted)]">Partner note</p>
-          <p class="mt-4 text-lg leading-relaxed text-[var(--fg)]">
+          <p class="trust-quote-label">Partner note</p>
+          <p class="trust-quote-text">
             “Living Branch Development makes it easy to align our CSR goals with real community needs. The
             collaboration feels honest and grounded.”
           </p>
-          <p class="mt-4 text-sm font-semibold text-[color-mix(in_srgb,var(--brand-navy)_75%,black)]">
+          <p class="trust-quote-author">
             Corner Stone Community Development, Pakistan
           </p>
         </div>
@@ -673,10 +673,10 @@ const faqItems = [
 
   .trust-quote {
     border-radius: 24px;
-    border: 1px solid rgba(12, 16, 34, 0.06);
-    background: #fff;
+    border: 1px solid color-mix(in srgb, var(--gi-orange) 35%, white);
+    background: linear-gradient(135deg, var(--gi-orange), var(--gi-orange-bright));
     padding: 1.6rem;
-    box-shadow: 0 12px 28px rgba(12, 16, 34, 0.06);
+    box-shadow: 0 14px 32px rgba(194, 65, 12, 0.22);
   }
 
   .trust-quote-label {
@@ -684,21 +684,21 @@ const faqItems = [
     font-weight: 600;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--gi-orange);
+    color: rgba(255, 255, 255, 0.85);
   }
 
   .trust-quote-text {
     margin-top: 1rem;
     font-size: 1.125rem;
     line-height: 1.65;
-    color: var(--gi-navy);
+    color: #fff;
   }
 
   .trust-quote-author {
     margin-top: 1rem;
     font-size: 0.875rem;
     font-weight: 600;
-    color: var(--gi-navy-mid);
+    color: rgba(255, 255, 255, 0.9);
   }
 
   @media (min-width: 768px) {

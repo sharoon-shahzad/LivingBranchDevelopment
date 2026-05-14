@@ -125,7 +125,8 @@ import WelcomeOverlay from "../components/WelcomeOverlay.astro";
               alt="Community health support"
               width={480}
               height={360}
-              loading="lazy"
+              loading="eager"
+              priority
               widths={[240, 360, 480]}
               sizes="(max-width: 768px) 50vw, 240px"
               quality={80}
@@ -146,10 +147,12 @@ import WelcomeOverlay from "../components/WelcomeOverlay.astro";
               alt="Skills and livelihood training"
               width={480}
               height={360}
-              loading="lazy"
+              loading="eager"
+              priority
               widths={[240, 360, 480]}
               sizes="(max-width: 768px) 50vw, 240px"
-              quality={80}
+              format="webp"
+              quality={75}
               class="h-full w-full object-cover"
             />
           </div>

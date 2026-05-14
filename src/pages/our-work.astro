@@ -182,7 +182,8 @@ const impactTotals = [
             alt={`${p.label} programme`}
             width={560}
             height={420}
-            loading="lazy"
+            loading={index === 0 ? "eager" : "lazy"}
+            priority={index === 0}
             class="programme-image"
           />
         </div>

@@ -39,10 +39,14 @@ const partners = [
       </p>
     </div>
 
-    <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      {partners.map((partner) => (
+    <div id="partners-grid" class="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
+      {partners.map((partner, idx) => (
         <article
-          class="group flex h-28 items-center justify-center rounded-3xl border border-[var(--border)] bg-white p-4 shadow-sm transition hover:-translate-y-1 hover:border-[color-mix(in_srgb,var(--brand-cyan)_50%,var(--border))] hover:shadow-lg"
+          class:list={[
+            "group h-28 items-center justify-center rounded-3xl border border-[var(--border)] bg-white p-4 shadow-sm transition hover:-translate-y-1 hover:border-[color-mix(in_srgb,var(--brand-cyan)_50%,var(--border))] hover:shadow-lg",
+            idx >= 6 ? "partner-extra hidden sm:flex" : "flex",
+          ]}
+          style={idx >= 6 ? `--reveal-delay:${(idx - 6) * 110}ms` : undefined}
         >
           <div class="flex flex-col items-center gap-3">
             <div class="flex h-14 w-full items-center justify-center sm:h-16">
@@ -62,6 +66,101 @@ const partners = [
         </article>
       ))}
     </div>
+
+    <div class="mt-6 flex justify-center sm:hidden">
+      <button
+        type="button"
+        class="partners-more-btn"
+        data-partners-toggle
+        aria-expanded="false"
+        aria-controls="partners-grid"
+      >
+        Read more
+      </button>
+    </div>
   </div>
 </section>
+
+<script>
+  if (typeof window !== "undefined") {
+    const section = document.querySelector(".partners-surface");
+    const toggle = document.querySelector("[data-partners-toggle]");
+    const extras = document.querySelectorAll(".partner-extra");
+
+    if (section && toggle && extras.length) {
+      const prefersReduced =
+        window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      const updateLabel = (expanded) => {
+        toggle.setAttribute("aria-expanded", expanded ? "true" : "false");
+        toggle.textContent = expanded ? "Show less" : "Read more";
+      };
+
+      updateLabel(false);
+
+      toggle.addEventListener("click", () => {
+        const expanded = section.getAttribute("data-expanded") === "true";
+        section.setAttribute("data-expanded", expanded ? "false" : "true");
+        updateLabel(!expanded);
+
+        if (!expanded && prefersReduced) {
+          // Ensure content is visible immediately without animation.
+          extras.forEach((el) => el.classList.add("no-motion"));
+        }
+      });
+    } else if (toggle) {
+      // No extras; hide button.
+      toggle.setAttribute("hidden", "true");
+    }
+  }
+</script>
+
+<style>
+  .partners-more-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    border: 1px solid color-mix(in srgb, var(--brand-cyan) 28%, var(--border));
+    background: color-mix(in srgb, var(--brand-cyan) 10%, white);
+    padding: 0.6rem 1.05rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: color-mix(in srgb, var(--brand-navy) 85%, black);
+    transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+  }
+
+  .partners-more-btn:hover {
+    transform: translateY(-1px);
+    border-color: color-mix(in srgb, var(--brand-cyan) 45%, var(--border));
+    box-shadow: 0 10px 18px rgba(12, 16, 34, 0.08);
+  }
+
+  .partners-surface[data-expanded="true"] .partner-extra {
+    display: flex;
+    animation: partnerReveal 420ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+    animation-delay: var(--reveal-delay, 0ms);
+  }
+
+  .partners-surface .partner-extra.no-motion {
+    animation: none !important;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .partners-surface[data-expanded="true"] .partner-extra {
+      animation: none;
+    }
+  }
+
+  @keyframes partnerReveal {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
 

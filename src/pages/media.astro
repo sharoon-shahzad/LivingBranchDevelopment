@@ -7,11 +7,11 @@ import edu3 from "../images/programmes/education/oratio_music_school/oratio-musi
 import edu4 from "../images/programmes/education/sunday_school_gift_boxes/sunday-school-gift-boxes-01.jpeg";
 import edu5 from "../images/programmes/education/living_branch_school/living-branch-school-03.jpeg";
 import edu6 from "../images/programmes/education/oratio_music_school/oratio-music-school-02.jpeg";
-import youth1 from "../images/programmes/youth/youth_empowerment/youth_emp.jpeg";
 import youth2 from "../images/programmes/youth/youth_empowerment/youth_emp01.jpeg";
 import youth3 from "../images/programmes/youth/youth_conference/gal01.jpeg";
 import youth4 from "../images/programmes/youth/youth_empowerment/gal06.jpeg";
-import youth5 from "../images/programmes/youth/youth_conference/youth_hero_img.jpeg";
+import youth6 from "../images/programmes/youth/youth_conference/gal02.jpeg";
+import youth7 from "../images/programmes/youth/youth_conference/gal05.jpeg";
 import women1 from "../images/programmes/women_empowerment/women_empowerment2.jpeg";
 import women2 from "../images/programmes/women_empowerment/women_empowerment3.jpeg";
 import women3 from "../images/programmes/women_empowerment/women_empowerment4.jpeg";
@@ -56,11 +56,11 @@ const galleries = [
     description: "Leadership, mentorship, and skills for young people",
     color: "#0ea5e9",
     images: [
-      { src: youth1, alt: "Youth leadership session" },
       { src: youth2, alt: "Youth empowerment programme" },
       { src: youth3, alt: "Youth conference" },
       { src: youth4, alt: "Youth mentorship" },
-      { src: youth5, alt: "Youth skills workshop" }
+      { src: youth6, alt: "Youth fellowship and community" },
+      { src: youth7, alt: "Youth leadership gathering" }
     ]
   },
   {
@@ -121,14 +121,14 @@ const galleries = [
 <Layout title="Media Gallery | Living Branch Development">
   <main id="main">
     <!-- Hero Section -->
-    <section class="bg-linear-to-br from-slate-900 via-blue-900 to-cyan-900 py-16 md:py-24">
+    <section class="bg-linear-to-br from-slate-900 via-blue-900 to-cyan-900 py-12 sm:py-14 md:py-24">
       <div class="container-page">
         <div class="mx-auto max-w-3xl text-center">
           <p class="font-semibold uppercase tracking-widest text-orange-400">Visual Impact</p>
-          <h1 class="mt-3 font-heading text-4xl font-semibold tracking-tight text-white md:text-5xl">
+          <h1 class="mt-3 font-heading text-3xl font-semibold leading-tight tracking-tight text-white sm:text-4xl md:text-5xl">
             Stories told through images
           </h1>
-          <p class="mt-4 text-lg text-cyan-100">
+          <p class="mt-3 text-base leading-relaxed text-cyan-100 sm:mt-4 sm:text-lg">
             Explore our work across diverse communities. Every photograph captures a moment of change, connection, and hope.
           </p>
         </div>
@@ -136,11 +136,11 @@ const galleries = [
     </section>
 
     <!-- Gallery Grid Section -->
-    <section class="py-16 md:py-24">
+    <section class="py-14 md:py-24">
       <div class="container-page">
         {/* Gallery Niche Sections */}
-        {galleries.map((gallery) => (
-          <div class="mb-20 md:mb-28">
+        {galleries.map((gallery, gIdx) => (
+          <div class="gallery-block mb-20 md:mb-28">
             <div class="mb-8">
               <div class="inline-flex items-center gap-3 rounded-full px-4 py-2 bg-linear-to-r from-blue-50 to-cyan-50 border border-blue-200">
                 <span
@@ -181,9 +181,15 @@ const galleries = [
                     <Image
                       src={image.src}
                       alt={image.alt}
-                      width={400}
-                      height={400}
-                      loading="lazy"
+                      width={800}
+                      height={800}
+                      widths={[320, 480, 640, 800]}
+                      sizes="(max-width: 768px) 92vw, (max-width: 1024px) 50vw, 25vw"
+                      format="webp"
+                      quality={70}
+                      loading={gIdx === 0 && idx === 0 ? "eager" : "lazy"}
+                      priority={gIdx === 0 && idx === 0}
+                      decoding="async"
                       class="media-gallery-img"
                     />
                     <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300"></div>
@@ -202,7 +208,7 @@ const galleries = [
     </section>
 
     <!-- Gallery Statistics -->
-    <section class="bg-linear-to-r from-slate-50 to-blue-50 py-16 md:py-24">
+    <section class="impact-numbers py-14 md:py-24">
       <div class="container-page">
         <div class="mb-12 md:mb-16">
           <h2 class="font-heading text-4xl md:text-5xl font-bold text-(--fg)">
@@ -215,16 +221,54 @@ const galleries = [
 
         <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {[
-            { stat: "2,400+", label: "Moments captured" },
-            { stat: "48+", label: "Communities featured" },
-            { stat: "6", label: "Impact niches" },
-            { stat: "1", label: "Shared mission" }
+            { stat: "2,400+", label: "Moments captured", icon: "impact" },
+            { stat: "48+", label: "Communities featured", icon: "community" },
+            { stat: "6", label: "Impact niches", icon: "help" },
+            { stat: "1", label: "Shared mission", icon: "mission" }
           ].map((item) => (
-            <div class="group rounded-2xl border border-(--border) bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-(--brand-cyan)">
-              <p class="font-heading text-5xl md:text-6xl font-bold text-transparent bg-clip-text bg-linear-to-r from-cyan-500 to-blue-600">
+            <div class="group impact-stat-card rounded-2xl border p-6 sm:p-7 lg:p-8 shadow-sm transition-all duration-300 hover:shadow-lg">
+              <div class="flex items-start justify-between gap-4">
+                <span class="impact-stat-icon" aria-hidden="true">
+                  {item.icon === "impact" && (
+                    <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M12 2v4" />
+                      <path d="M12 18v4" />
+                      <path d="M4.9 4.9l2.8 2.8" />
+                      <path d="M16.3 16.3l2.8 2.8" />
+                      <path d="M2 12h4" />
+                      <path d="M18 12h4" />
+                      <path d="M4.9 19.1l2.8-2.8" />
+                      <path d="M16.3 7.7l2.8-2.8" />
+                      <circle cx="12" cy="12" r="3.2" />
+                    </svg>
+                  )}
+                  {item.icon === "community" && (
+                    <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                      <circle cx="9" cy="7" r="4" />
+                      <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                      <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                    </svg>
+                  )}
+                  {item.icon === "help" && (
+                    <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M12 21s-7-4.5-7-11a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 6.5-7 11-7 11Z" />
+                      <path d="M12 10v4" />
+                      <path d="M10 12h4" />
+                    </svg>
+                  )}
+                  {item.icon === "mission" && (
+                    <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M12 2l3 7h7l-5.6 4.1L18.8 21 12 16.9 5.2 21l2.4-7.9L2 9h7l3-7Z" />
+                    </svg>
+                  )}
+                </span>
+                <span class="impact-stat-dot" aria-hidden="true"></span>
+              </div>
+              <p class="mt-6 font-heading text-4xl sm:text-5xl md:text-6xl font-bold text-white">
                 {item.stat}
               </p>
-              <p class="mt-3 text-(--muted) font-semibold text-lg">
+              <p class="mt-3 text-white/80 font-semibold text-base sm:text-lg">
                 {item.label}
               </p>
             </div>
@@ -234,24 +278,67 @@ const galleries = [
     </section>
 
     <!-- Call to Action -->
-    <section class="py-16 md:py-24">
+    <section class="py-14 md:py-24">
       <div class="container-page">
-        <div class="rounded-2xl border border-(--border) bg-linear-to-br from-white to-blue-50 p-12 text-center">
+        <div class="rounded-2xl border border-(--border) bg-linear-to-br from-white to-blue-50 p-7 sm:p-10 lg:p-12 text-center">
           <h2 class="font-heading text-3xl font-semibold text-(--fg)">Ready to see more?</h2>
           <p class="mt-3 text-(--muted) text-lg">
             Follow our social media for real-time updates, stories, and behind-the-scenes moments from the field.
           </p>
           <div class="mt-8 flex flex-wrap justify-center gap-4">
             <a
-              href="#"
-              class="inline-flex items-center gap-2 rounded-full bg-(--brand-cyan) px-6 py-3 font-semibold text-white hover:shadow-lg transition-shadow"
+              href="https://www.facebook.com/RavayZaman"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-cta-btn inline-flex items-center gap-2 rounded-full bg-[#1877F2] px-6 py-3 font-semibold text-white shadow-sm transition hover:bg-[#166FE5] hover:shadow-lg focus:outline-hidden focus-visible:ring-2 focus-visible:ring-[#1877F2]/40"
             >
+              <svg
+                aria-hidden="true"
+                viewBox="0 0 24 24"
+                class="h-5 w-5"
+                fill="currentColor"
+              >
+                <path
+                  d="M22 12.06C22 6.53 17.52 2.05 11.99 2.05 6.46 2.05 1.98 6.53 1.98 12.06c0 5 3.66 9.14 8.44 9.88v-6.99H7.9v-2.9h2.52V9.84c0-2.49 1.49-3.87 3.77-3.87 1.09 0 2.23.2 2.23.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.87h2.78l-.44 2.9h-2.34v6.99c4.78-.74 8.44-4.88 8.44-9.88Z"
+                />
+              </svg>
+              Follow on Facebook
+            </a>
+            <a
+              href="https://www.instagram.com/pastor.qamar.zaman/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-cta-btn inline-flex items-center gap-2 rounded-full px-6 py-3 font-semibold text-white shadow-sm transition hover:shadow-lg focus:outline-hidden focus-visible:ring-2 focus-visible:ring-[#E1306C]/40"
+              style="background: linear-gradient(0deg, rgba(0,0,0,0.22), rgba(0,0,0,0.22)), linear-gradient(45deg, #F58529 0%, #DD2A7B 35%, #8134AF 70%, #515BD4 100%);"
+            >
+              <svg
+                aria-hidden="true"
+                viewBox="0 0 24 24"
+                class="h-5 w-5"
+                fill="currentColor"
+              >
+                <path
+                  d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9Zm10.65 1.9a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"
+                />
+              </svg>
               Follow on Instagram
             </a>
             <a
-              href="#"
-              class="inline-flex items-center gap-2 rounded-full border-2 border-(--brand-cyan) px-6 py-3 font-semibold text-(--brand-cyan) hover:bg-(--brand-cyan) hover:text-white transition-colors"
+              href="https://www.youtube.com/@pastorqamarulzaman5601"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-cta-btn inline-flex items-center gap-2 rounded-full bg-[#FF0000] px-6 py-3 font-semibold text-white shadow-sm transition hover:bg-[#E60000] hover:shadow-lg focus:outline-hidden focus-visible:ring-2 focus-visible:ring-[#FF0000]/40"
             >
+              <svg
+                aria-hidden="true"
+                viewBox="0 0 24 24"
+                class="h-5 w-5"
+                fill="currentColor"
+              >
+                <path
+                  d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.6 3.6 12 3.6 12 3.6s-7.6 0-9.4.5A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.8.5 9.4.5 9.4.5s7.6 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8ZM9.6 15.5V8.5L15.8 12l-6.2 3.5Z"
+                />
+              </svg>
               Watch on YouTube
             </a>
           </div>
@@ -297,6 +384,58 @@ const galleries = [
       animation: none;
       transition: none;
     }
+  }
+
+  /* CTA buttons: ensure strong text/icon contrast on brand colors */
+  .social-cta-btn {
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.35);
+  }
+
+  /* Performance: avoid rendering offscreen gallery blocks */
+  .gallery-block {
+    content-visibility: auto;
+    contain-intrinsic-size: 1200px;
+  }
+
+  /* Impact numbers section */
+  .impact-numbers {
+    background:
+      radial-gradient(900px 420px at 15% 20%, rgba(56, 189, 248, 0.24), transparent 60%),
+      radial-gradient(800px 380px at 85% 25%, rgba(14, 165, 233, 0.18), transparent 62%),
+      linear-gradient(180deg, #eaf6ff, #f6fbff);
+  }
+
+  .impact-stat-card {
+    border-color: rgba(255, 255, 255, 0.14);
+    background: linear-gradient(180deg, rgba(9, 25, 54, 0.92), rgba(5, 17, 38, 0.92));
+    box-shadow: 0 16px 40px rgba(2, 8, 23, 0.18);
+  }
+
+  .impact-stat-card:hover {
+    border-color: rgba(56, 189, 248, 0.35);
+    box-shadow: 0 22px 54px rgba(2, 8, 23, 0.24);
+  }
+
+  .impact-stat-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 44px;
+    width: 44px;
+    border-radius: 14px;
+    color: white;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .impact-stat-dot {
+    height: 10px;
+    width: 10px;
+    border-radius: 999px;
+    background: #38bdf8;
+    box-shadow: 0 0 0 6px rgba(56, 189, 248, 0.18);
+    margin-top: 6px;
+    flex: 0 0 auto;
   }
 </style>
 

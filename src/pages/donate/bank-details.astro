@@ -1,0 +1,449 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import hblLogo from "../../images/ceo_profile/bank_details/HBL1_logo.jpg";
+import qrCode from "../../images/ceo_profile/bank_details/QRCODE.jpg";
+---
+
+<Layout
+  title="Bank Transfer Details | Living Branch Development"
+  description="Send a manual bank transfer to support Living Branch Development."
+>
+  <main id="main">
+    <section class="bank-hero border-b border-white/10">
+      <div class="container-page grid gap-10 py-14 md:grid-cols-2 md:items-center lg:gap-14 lg:py-18">
+        <div>
+          <p class="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-white ring-1 ring-white/15 backdrop-blur">
+            Bank transfer
+          </p>
+
+          <h1 class="mt-3 font-heading text-3xl font-semibold leading-tight tracking-tight text-white sm:text-4xl md:text-5xl">
+            Bank transfer details
+          </h1>
+
+          <p class="mt-3 max-w-xl text-sm leading-relaxed text-white/85 sm:text-base">
+            No payment gateway needed. Use your banking app to send a transfer using the details below.
+          </p>
+
+          <div class="mt-6 flex flex-wrap items-center gap-3">
+            <a
+              href="#account-details"
+              class="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-[color:var(--hbl-teal)] shadow-sm transition hover:bg-white/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
+            >
+              View account details
+            </a>
+            <a
+              href="/donate"
+              class="inline-flex items-center justify-center rounded-full border border-white/20 bg-transparent px-6 py-3 text-sm font-semibold text-white/90 transition hover:border-white/35 hover:bg-white/5"
+            >
+              Back to donate
+            </a>
+          </div>
+
+          <div class="mt-6 flex items-center gap-3">
+            <div class="h-10 w-10 overflow-hidden rounded-2xl bg-white/10 ring-1 ring-white/15">
+              <Image
+                src={hblLogo}
+                alt="HBL logo"
+                width={80}
+                height={80}
+                format="webp"
+                quality={80}
+                loading="eager"
+                class="h-full w-full object-cover"
+              />
+            </div>
+            <p class="text-xs text-white/70">
+              Transfers go to <strong class="text-white">Habib Bank Limited (HBL)</strong> account titled <strong class="text-white">Living Branch Development</strong>.
+            </p>
+          </div>
+        </div>
+
+        <div class="relative">
+          <div class="pointer-events-none absolute -right-6 -top-10 hidden h-72 w-72 rounded-full bg-white/10 blur-2xl md:block" aria-hidden="true"></div>
+          <div class="relative mx-auto max-w-lg">
+            <!-- Illustration (inline SVG) -->
+            <svg viewBox="0 0 760 420" class="h-auto w-full" aria-hidden="true">
+              <!-- soft circle -->
+              <circle cx="420" cy="220" r="130" fill="rgba(255,255,255,0.10)"/>
+
+              <!-- card -->
+              <g transform="translate(430 150) rotate(10)">
+                <rect x="0" y="0" rx="18" ry="18" width="250" height="160" fill="rgba(255,255,255,0.14)" stroke="rgba(255,255,255,0.18)" stroke-width="2"/>
+                <rect x="18" y="22" rx="8" ry="8" width="86" height="18" fill="rgba(255,255,255,0.25)"/>
+                <rect x="18" y="58" rx="6" ry="6" width="210" height="14" fill="rgba(255,255,255,0.16)"/>
+                <rect x="18" y="82" rx="6" ry="6" width="164" height="14" fill="rgba(255,255,255,0.14)"/>
+                <rect x="18" y="118" rx="10" ry="10" width="78" height="22" fill="rgba(255,255,255,0.22)"/>
+              </g>
+
+              <!-- shield -->
+              <g transform="translate(300 150)">
+                <path d="M70 10 20 32v50c0 44 26 82 50 88 24-6 50-44 50-88V32L70 10Z" fill="rgba(255,255,255,0.16)" stroke="rgba(255,255,255,0.20)" stroke-width="2"/>
+                <path d="M55 88l-14-14 7-7 7 7 18-18 7 7-25 25Z" fill="rgba(255,255,255,0.85)"/>
+              </g>
+
+              <!-- transfer arrows -->
+              <g transform="translate(210 250)" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 40h150l-22-22" />
+                <path d="M170 80H20l22 22" />
+              </g>
+
+              <!-- coins -->
+              <g transform="translate(520 70)">
+                <g transform="translate(0 0)">
+                  <ellipse cx="34" cy="34" rx="28" ry="18" fill="rgba(255,255,255,0.20)"/>
+                  <ellipse cx="34" cy="32" rx="28" ry="18" fill="rgba(255,255,255,0.14)"/>
+                </g>
+                <g transform="translate(80 16)">
+                  <ellipse cx="34" cy="34" rx="28" ry="18" fill="rgba(255,255,255,0.20)"/>
+                  <ellipse cx="34" cy="32" rx="28" ry="18" fill="rgba(255,255,255,0.14)"/>
+                </g>
+              </g>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="account-details" class="bank-body py-12 sm:py-14 md:py-20">
+      <div class="container-page">
+        <div class="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-start">
+          <div class="rounded-3xl border border-(--border) bg-white p-6 shadow-sm sm:p-8">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <p class="text-xs font-semibold uppercase tracking-[0.2em] text-(--muted)">Account details</p>
+                <h2 class="mt-2 font-heading text-2xl font-semibold text-(--fg)">Send a bank transfer</h2>
+              </div>
+              <span
+                class="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-[color-mix(in_srgb,var(--brand-cyan)_16%,white)] text-[var(--brand-cyan)] ring-1 ring-[color-mix(in_srgb,var(--brand-cyan)_22%,white)]"
+                aria-hidden="true"
+              >
+                <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 10h18" />
+                  <path d="M5 10V7l7-4 7 4v3" />
+                  <path d="M6 10v9" />
+                  <path d="M10 10v9" />
+                  <path d="M14 10v9" />
+                  <path d="M18 10v9" />
+                  <path d="M4 19h16" />
+                </svg>
+              </span>
+            </div>
+
+            <div class="mt-6 grid gap-4">
+              <div class="bank-row">
+                <div>
+                  <p class="bank-label">Bank name</p>
+                  <p class="bank-value" data-copy-value>Habib Bank Limited (HBL)</p>
+                </div>
+                <button class="copy-btn" type="button" data-copy="Habib Bank Limited (HBL)">Copy</button>
+              </div>
+
+              <div class="bank-row">
+                <div>
+                  <p class="bank-label">Account title</p>
+                  <p class="bank-value" data-copy-value>Living Branch Development</p>
+                </div>
+                <button class="copy-btn" type="button" data-copy="Living Branch Development">Copy</button>
+              </div>
+
+              <div class="bank-row">
+                <div>
+                  <p class="bank-label">IBAN</p>
+                  <p class="bank-value font-mono" data-copy-value>PK05ABB0023287901815003</p>
+                </div>
+                <button class="copy-btn" type="button" data-copy="PK05ABB0023287901815003">Copy</button>
+              </div>
+            </div>
+
+            <div class="mt-6 rounded-2xl border border-(--border) bg-[color-mix(in_srgb,var(--brand-cyan)_7%,white)] p-5">
+              <p class="text-xs font-semibold uppercase tracking-[0.2em] text-(--muted)">Steps</p>
+              <ol class="mt-3 grid gap-2 text-sm text-(--fg)">
+                <li class="flex gap-2">
+                  <span class="mt-1 h-2 w-2 rounded-full bg-(--brand-cyan)" aria-hidden="true"></span>
+                  <span>Open your banking app → choose <strong>Transfer</strong>.</span>
+                </li>
+                <li class="flex gap-2">
+                  <span class="mt-1 h-2 w-2 rounded-full bg-(--brand-cyan)" aria-hidden="true"></span>
+                  <span>Paste the account details above → confirm.</span>
+                </li>
+                <li class="flex gap-2">
+                  <span class="mt-1 h-2 w-2 rounded-full bg-(--brand-cyan)" aria-hidden="true"></span>
+                  <span>Keep the receipt/reference for your records.</span>
+                </li>
+              </ol>
+            </div>
+
+            <div class="mt-6 flex flex-wrap gap-3">
+              <a
+                href="/donate"
+                class="inline-flex items-center justify-center rounded-full bg-[color:var(--hbl-teal)] px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-[color-mix(in_srgb,var(--hbl-teal)_85%,black)]"
+              >
+                Back to donate
+              </a>
+              <a
+                href="/"
+                class="inline-flex items-center justify-center rounded-full border border-(--border) bg-white px-6 py-3 text-sm font-semibold text-(--fg) transition hover:border-(--brand-navy)"
+              >
+                Back to home
+              </a>
+            </div>
+          </div>
+
+          <aside class="rounded-3xl border border-(--border) bg-white p-6 shadow-sm sm:p-8">
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-(--muted)">Quick note</p>
+            <h3 class="mt-2 font-heading text-xl font-semibold text-(--fg)">Donate from your phone</h3>
+            <p class="mt-3 text-sm leading-relaxed text-(--muted)">
+              Scan the QR to open this <strong>Bank Details</strong> page on your phone. Then open your banking app and
+              complete a transfer using the details shown.
+            </p>
+
+            <figure class="mt-6 rounded-3xl border border-(--border) bg-[color-mix(in_srgb,var(--hbl-teal)_6%,white)] p-5 sm:p-6">
+              <div class="mx-auto w-full max-w-[380px] sm:max-w-[440px]">
+                <div class="aspect-square overflow-hidden rounded-2xl bg-white ring-1 ring-[color-mix(in_srgb,var(--hbl-teal)_22%,var(--border))]">
+                  <Image
+                    src={qrCode}
+                    alt="QR code that opens the Bank Details page"
+                    width={560}
+                    height={560}
+                    format="webp"
+                    quality={82}
+                    loading="lazy"
+                    decoding="async"
+                    class="h-full w-full transform-gpu scale-[1.26] object-cover object-[50%_62%]"
+                  />
+                </div>
+              </div>
+              <figcaption class="mt-3 text-xs leading-relaxed text-(--muted)">
+                Tip: Use your phone camera (or any QR scanner) to open the page. Most bank-app QR scanners expect a
+                payment QR and may not open website links.
+              </figcaption>
+            </figure>
+
+            <div class="mt-6 rounded-2xl border border-(--border) bg-white p-4">
+              <p class="text-xs font-semibold uppercase tracking-[0.2em] text-(--muted)">Fast steps</p>
+              <ol class="mt-3 grid gap-2 text-sm text-(--fg)">
+                <li class="flex gap-2">
+                  <span class="mt-1 h-2 w-2 rounded-full bg-[color:var(--hbl-teal)]" aria-hidden="true"></span>
+                  <span>Scan the QR → this page opens on your phone.</span>
+                </li>
+                <li class="flex gap-2">
+                  <span class="mt-1 h-2 w-2 rounded-full bg-[color:var(--hbl-teal)]" aria-hidden="true"></span>
+                  <span>Open your banking app → choose <strong>Transfer</strong>.</span>
+                </li>
+                <li class="flex gap-2">
+                  <span class="mt-1 h-2 w-2 rounded-full bg-[color:var(--hbl-teal)]" aria-hidden="true"></span>
+                  <span>Copy/paste the IBAN and account title → confirm.</span>
+                </li>
+              </ol>
+            </div>
+
+            <div class="mt-5 grid gap-3">
+              <a
+                href="/contact"
+                class="inline-flex items-center justify-center rounded-full bg-(--brand-cyan) px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-[color-mix(in_srgb,var(--brand-cyan)_88%,black)]"
+              >
+                Contact us
+              </a>
+            </div>
+
+            <div class="mt-7 overflow-hidden rounded-3xl border border-(--border) bg-[color-mix(in_srgb,var(--hbl-teal)_6%,white)]">
+              <div class="px-5 pt-5">
+                <p class="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-(--muted)">Bank partner</p>
+              </div>
+              <div class="h-44 sm:h-52">
+                <Image
+                  src={hblLogo}
+                  alt="HBL logo"
+                  width={900}
+                  height={520}
+                  format="webp"
+                  quality={85}
+                  loading="lazy"
+                  decoding="async"
+                  class="h-full w-full object-contain p-5 sm:p-6"
+                />
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="transparency-surface py-12 sm:py-14 md:py-20">
+      <div class="container-page">
+        <div class="mx-auto max-w-2xl text-center">
+          <p class="text-xs font-semibold uppercase tracking-[0.22em] text-white/80">Transparency</p>
+          <h2 class="mt-3 font-heading text-2xl font-semibold tracking-tight text-white sm:text-3xl">
+            Where your support goes.
+          </h2>
+          <p class="mt-3 text-sm leading-relaxed text-white/85 sm:text-base">
+            We steward every contribution carefully—prioritizing people, local partnerships, and accountable reporting so support reaches those who need it most.
+          </p>
+        </div>
+
+        <div class="mt-10 grid gap-4 md:grid-cols-3">
+          <article class="rounded-3xl border border-white/15 bg-white p-6 shadow-sm">
+            <div class="flex items-start gap-3">
+              <span class="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-[color-mix(in_srgb,var(--hbl-teal)_16%,white)] text-[var(--hbl-teal)] ring-1 ring-[color-mix(in_srgb,var(--hbl-teal)_25%,white)]" aria-hidden="true">
+                <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2v4" />
+                  <path d="M12 18v4" />
+                  <path d="M4.9 4.9l2.8 2.8" />
+                  <path d="M16.3 16.3l2.8 2.8" />
+                  <path d="M2 12h4" />
+                  <path d="M18 12h4" />
+                  <circle cx="12" cy="12" r="3.2" />
+                </svg>
+              </span>
+              <div>
+                <h3 class="font-heading text-lg font-semibold text-(--fg)">Programme delivery</h3>
+                <p class="mt-2 text-sm leading-relaxed text-(--muted)">
+                  Education support, wellbeing services, livelihood pathways, and rapid response—prioritized by community needs.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <article class="rounded-3xl border border-white/15 bg-white p-6 shadow-sm">
+            <div class="flex items-start gap-3">
+              <span class="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-[color-mix(in_srgb,var(--hbl-teal)_16%,white)] text-[var(--hbl-teal)] ring-1 ring-[color-mix(in_srgb,var(--hbl-teal)_25%,white)]" aria-hidden="true">
+                <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 21s-7-4.5-7-11a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 6.5-7 11-7 11Z" />
+                  <path d="M10 12h4" />
+                  <path d="M12 10v4" />
+                </svg>
+              </span>
+              <div>
+                <h3 class="font-heading text-lg font-semibold text-(--fg)">Reaching the needy</h3>
+                <p class="mt-2 text-sm leading-relaxed text-(--muted)">
+                  Local teams and partners identify households, verify needs, and follow up so assistance is timely and dignified.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <article class="rounded-3xl border border-white/15 bg-white p-6 shadow-sm">
+            <div class="flex items-start gap-3">
+              <span class="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-[color-mix(in_srgb,var(--hbl-teal)_16%,white)] text-[var(--hbl-teal)] ring-1 ring-[color-mix(in_srgb,var(--hbl-teal)_25%,white)]" aria-hidden="true">
+                <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2l8 4v6c0 5-3 9-8 10-5-1-8-5-8-10V6l8-4Z" />
+                  <path d="M9 12l2 2 4-4" />
+                </svg>
+              </span>
+              <div>
+                <h3 class="font-heading text-lg font-semibold text-(--fg)">Accountability</h3>
+                <p class="mt-2 text-sm leading-relaxed text-(--muted)">
+                  We track spending, document activities, and share updates—building trust through consistent reporting.
+                </p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    if (typeof window !== "undefined" && navigator?.clipboard) {
+      const buttons = document.querySelectorAll("[data-copy]");
+      buttons.forEach((btn) => {
+        btn.addEventListener("click", async () => {
+          const value = btn.getAttribute("data-copy") || "";
+          if (!value) return;
+          try {
+            await navigator.clipboard.writeText(value);
+            btn.textContent = "Copied";
+            setTimeout(() => (btn.textContent = "Copy"), 900);
+          } catch {
+            // If clipboard is blocked, user can still select/copy manually.
+          }
+        });
+      });
+    }
+  </script>
+
+  <style>
+    :root {
+      --hbl-teal: #0a8f8a;
+    }
+
+    .bank-hero {
+      background:
+        radial-gradient(900px 420px at 12% 18%, rgba(255, 255, 255, 0.16), transparent 62%),
+        radial-gradient(820px 420px at 92% 20%, rgba(255, 255, 255, 0.1), transparent 60%),
+        linear-gradient(135deg, color-mix(in srgb, var(--hbl-teal) 92%, #001d1c), color-mix(in srgb, var(--hbl-teal) 75%, #003b37));
+    }
+
+    .bank-body {
+      background: linear-gradient(180deg, #ffffff, color-mix(in srgb, var(--hbl-teal) 7%, white));
+    }
+
+    .bank-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      padding: 1rem 1.1rem;
+      background: #fff;
+    }
+
+    .bank-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .bank-value {
+      margin-top: 0.3rem;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--fg);
+      word-break: break-word;
+    }
+
+    .copy-btn {
+      flex: 0 0 auto;
+      border-radius: 999px;
+      border: 1px solid color-mix(in srgb, var(--hbl-teal) 28%, var(--border));
+      background: color-mix(in srgb, var(--hbl-teal) 10%, white);
+      padding: 0.45rem 0.85rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: color-mix(in srgb, var(--brand-navy) 85%, black);
+      transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+    }
+
+    .copy-btn:hover {
+      transform: translateY(-1px);
+      border-color: color-mix(in srgb, var(--hbl-teal) 45%, var(--border));
+      box-shadow: 0 10px 18px rgba(12, 16, 34, 0.08);
+    }
+
+    .transparency-surface {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(900px 420px at 18% 18%, rgba(255, 255, 255, 0.18), transparent 62%),
+        radial-gradient(820px 420px at 88% 28%, rgba(255, 255, 255, 0.12), transparent 60%),
+        linear-gradient(135deg, color-mix(in srgb, var(--hbl-teal) 92%, #001d1c), color-mix(in srgb, var(--hbl-teal) 70%, #003b37));
+    }
+
+    .transparency-surface::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: 0.14;
+      background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 24 24'%3E%3Cg fill='none' stroke='white' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 2l8 4v6c0 5-3 9-8 10-5-1-8-5-8-10V6l8-4Z'/%3E%3Cpath d='M9 12l2 2 4-4'/%3E%3C/g%3E%3C/svg%3E");
+      background-size: 180px 180px;
+      background-repeat: repeat;
+      pointer-events: none;
+    }
+  </style>
+</Layout>
+

@@ -1,15 +1,14 @@
 ---
 import { Image } from "astro:assets";
 import Layout from "../../layouts/Layout.astro";
-import img1 from "../../images/programmes/disaster_response/img1.jpeg";
-import img2 from "../../images/programmes/disaster_response/img2.jpeg";
-import img3 from "../../images/programmes/disaster_response/img3.jpeg";
-import img4 from "../../images/programmes/disaster_response/img4.jpeg";
-import img5 from "../../images/programmes/disaster_response/img5.jpeg";
 import img6 from "../../images/programmes/disaster_response/img6.jpeg";
 import img7 from "../../images/programmes/disaster_response/img7.jpeg";
 import img8 from "../../images/programmes/disaster_response/img8.jpeg";
 import img9 from "../../images/programmes/disaster_response/img9.jpeg";
+import disasterRep01 from "../../images/programmes/disaster_response/disaster_rep01.jpeg";
+import disasterRep02 from "../../images/programmes/disaster_response/disaster_rep02.jpeg";
+import disasterRep03 from "../../images/programmes/disaster_response/disaster_rep03.jpeg";
+import disasterRep04 from "../../images/programmes/disaster_response/disaster_rep04.jpeg";
 
 const timelinePhases = [
   {
@@ -61,12 +60,12 @@ const focusCards = [
 ];
 
 const galleryItems = [
-  { src: img1, alt: "Disaster response relief distribution" },
-  { src: img2, alt: "Community support during crisis" },
-  { src: img3, alt: "Relief effort and emergency support" },
-  { src: img4, alt: "Recovery and rebuilding efforts" },
-  { src: img5, alt: "Community resilience in action" },
-  { src: img6, alt: "" },
+  { src: disasterRep03, alt: "Emergency relief distribution in the field" },
+  { src: disasterRep04, alt: "Volunteers supporting families after an emergency" },
+  { src: img7, alt: "Community support during crisis response" },
+  { src: img8, alt: "Relief effort with essential supplies" },
+  { src: img9, alt: "Recovery support for affected families" },
+  { src: img6, alt: "Local responders coordinating relief" },
 ];
 ---
 
@@ -102,7 +101,7 @@ const galleryItems = [
           </div>
           <div class="disaster-hero-image-card">
             <Image
-              src={img1}
+              src={disasterRep01}
               alt="Disaster response relief and community support"
               width={560}
               height={420}
@@ -182,7 +181,7 @@ const galleryItems = [
         <div class="disaster-split-grid">
           <div class="disaster-split-media">
             <Image
-              src={img2}
+              src={disasterRep02}
               alt="Community disaster response in action"
               width={560}
               height={420}

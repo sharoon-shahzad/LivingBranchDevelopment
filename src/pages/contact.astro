@@ -5,7 +5,7 @@ const contactInfo = [
   {
     icon: "email",
     title: "Email",
-    items: ["livingbranch.dev@gmail.com"]
+    items: ["livingbranch.dev@gmail.com", "radheem.muthar@yahoo.com"]
   },
   {
     icon: "phone",
@@ -21,8 +21,8 @@ const contactInfo = [
 
 const hours = [
   { day: "Monday – Friday", time: "9am – 5pm" },
-  { day: "Saturdays", time: null, message: "Reach us through email or call—your team will support you." },
-  { day: "Sundays", time: null, message: "Reach us through email or call—your team will support you." }
+  { day: "Saturdays", time: null, message: "Reach us through email or call. Our team will support you." },
+  { day: "Sundays", time: null, message: "Reach us through email or call. Our team will support you." }
 ];
 ---
 
@@ -56,8 +56,30 @@ const hours = [
                   </svg>
                 )}
                 {item.icon === "phone" && (
-                  <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M17.92 7.02C17.45 6.18 16.51 5.55 15.46 5.55c-1.05 0-1.99.63-2.46 1.47C11.99 5.18 11.05 4.55 10 4.55 8.95 4.55 8.01 5.18 7.54 6.02 7.07 5.18 6.13 4.55 5.08 4.55 3.87 4.55 2.92 5.5 2.92 6.71v10.78C2.92 18.5 3.87 19.45 5.08 19.45c1.05 0 1.99-.63 2.46-1.47.47.84 1.41 1.47 2.46 1.47s1.99-.63 2.46-1.47c.47.84 1.41 1.47 2.46 1.47 1.21 0 2.16-.95 2.16-2.16V6.71c0-1.21-.95-2.16-2.16-2.16zM7 17.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm5 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm5 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z" />
+                  <svg class="h-5 w-5" viewBox="0 0 24 24" aria-hidden="true">
+                    <!-- WhatsApp mark -->
+                    <path
+                      fill="currentColor"
+                      d="M12 2.05c-5.48 0-9.95 4.47-9.95 9.95 0 1.75.46 3.46 1.33 4.97L2 22l5.22-1.37a9.9 9.9 0 0 0 4.78 1.22h.01c5.48 0 9.95-4.47 9.95-9.95S17.49 2.05 12 2.05Zm0 17.99h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.17-3.1.81.83-3.02-.2-.31a8.2 8.2 0 1 1 6.96 3.84Z"
+                    />
+                    <path
+                      fill="currentColor"
+                      d="M16.77 14.28c-.26-.13-1.55-.76-1.8-.85-.24-.09-.42-.13-.6.13-.17.26-.69.85-.85 1.03-.15.17-.3.2-.56.07-.26-.13-1.1-.4-2.1-1.27-.78-.69-1.31-1.54-1.47-1.8-.15-.26-.02-.4.12-.53.12-.12.26-.3.39-.46.13-.15.17-.26.26-.43.09-.17.04-.33-.02-.46-.07-.13-.6-1.45-.83-1.99-.22-.52-.44-.45-.6-.46h-.51c-.17 0-.46.07-.7.33-.24.26-.92.9-.92 2.2 0 1.3.95 2.56 1.08 2.73.13.17 1.87 2.86 4.54 4.01.64.28 1.14.44 1.52.56.64.2 1.22.17 1.68.1.51-.07 1.55-.63 1.77-1.24.22-.6.22-1.12.15-1.24-.07-.11-.24-.17-.5-.3Z"
+                    />
+
+                    <!-- Business "B" badge -->
+                    <circle cx="18.3" cy="6.6" r="3" fill="none" stroke="currentColor" stroke-width="1.6" />
+                    <text
+                      x="18.3"
+                      y="7.75"
+                      text-anchor="middle"
+                      font-size="3.7"
+                      font-weight="800"
+                      font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial"
+                      fill="currentColor"
+                    >
+                      B
+                    </text>
                   </svg>
                 )}
                 {item.icon === "location" && (
